@@ -8,6 +8,7 @@ import time
 import datetime
 import subprocess
 import pprint
+import glob
 
 # I just like having a class with "my" info
 class MyInfo:
@@ -92,7 +93,10 @@ class MyInfo:
 		return "%3s " %(num)
 
 
-	def psecs(self, secs):
+	def psecs(self, secs=None):
+		if secs is None:
+			secs = self.elapsed()
+			pass
 		if secs >= self.secs_per_year:
 			secs = secs / self.secs_per_year
 			return f"{secs:0.2f} Years"
@@ -143,13 +147,14 @@ class MyInfo:
 	pass
 me = MyInfo()
 
-class PushShiftBase:
+class PushShiftBase(MyInfo):
 	def __init__(self):
+		super().__init__()
 		self.data = {
 			"input_file_name":"",
 			"record_count":0,
 			"input_file_size":0,
-			"data_size":0,
+			"processed_data_size":0,
 			"value_types":{},
 			"attributes":{},
 			}
@@ -158,58 +163,58 @@ class PushShiftBase:
 		self.data["record_count"] = 0
 		pass
 
-	def track_types(self,type_info,vtype,value,size):
-		if vtype not in type_info:
-			if "int" == vtype or "float" == vtype:
-				type_info[vtype] = {
+	def track_types(self,type_info,type_str,value,size):
+		if type_str not in type_info:
+			if "int" == type_str or "float" == type_str:
+				type_info[type_str] = {
 					"count":0,
 					"min":value,
 					"max":value,
 					"sum":0,
 				}
-			elif "str" == vtype or "list" == vtype:
-				type_info[vtype] = {
+			elif "str" == type_str or "array" == type_str:
+				type_info[type_str] = {
 					"count":0,
 					"min_length":size,
 					"max_length":size,
 					"length_sum":0,
 				}
-			elif "dict" == vtype:
-				type_info[vtype] = {
+			elif "dict" == type_str:
+				type_info[type_str] = {
 					"count":0,
 					"min_keys":size,
 					"max_keys":size,
 					"key_sum":0,
 				}
-			elif "bool" == vtype:
-				type_info[vtype] = {
+			elif "bool" == type_str:
+				type_info[type_str] = {
 					"count":0,
 					"true":0,
 					"false":0,
 				}
 			else:
-				type_info[vtype] = {
+				type_info[type_str] = {
 					"count":0,
 					}
 				pass
 			pass
-		type_info = type_info[vtype]
+		type_info = type_info[type_str]
 		type_info["count"] += 1
-		if "int" == vtype or "float" == vtype:
+		if "int" == type_str or "float" == type_str:
 			if value < type_info["min"]:
 				type_info["min"] = value
 			if value > type_info["max"]:
 				type_info["max"] = value
 			type_info["sum"] += value
 			pass
-		elif "str" == vtype or "list" == vtype:
+		elif "str" == type_str or "array" == type_str:
 			if size < type_info["min_length"]:
 				type_info["min_length"] = size
 			if size > type_info["max_length"]:
 				type_info["max_length"] = size
 			type_info["length_sum"] += size
 			pass
-		elif "dict" == vtype:
+		elif "dict" == type_str:
 			key_count = len(value.keys())
 			if key_count < type_info["min_keys"]:
 				type_info["min_keys"] = key_count
@@ -217,7 +222,7 @@ class PushShiftBase:
 				type_info["max_keys"] = key_count
 			type_info["key_sum"] += key_count
 			pass
-		elif "bool" == vtype:
+		elif "bool" == type_str:
 			if value:
 				type_info["true"] += 1
 			else:
@@ -232,23 +237,46 @@ class PushShiftBase:
 				"types": {}
 				}
 			pass
-		vtype = type(value).__name__
-		if "NoneType" == vtype:
-			vtype = "null"
+		type_str = type(value).__name__
+		if "NoneType" == type_str:
+			type_str = "null"
+		elif "list" == type_str:
+			type_str = "array"
 			pass
-		self.track_types(self.attribs[key]["types"],vtype,value,size)
-		self.track_types(self.value_types,vtype,value,size)
+		self.track_types(self.attribs[key]["types"],type_str,value,size)
+		self.track_types(self.value_types,type_str,value,size)
 		self.attribs[key]["count"] += 1
 		self.attribs[key]["size"] += size
 		pass
 
+	def save_json_meta(self):
+		print(f"Saving info to '{self.json_file}'")
+		with open(self.json_file,'w') as fh:
+			try:
+				json.dump(self.data,fh,indent=2,sort_keys=True)
+			except:
+				print(self.data)
+				raise
+			pass
+		return self
+
 	pass
 
 class PushShiftFile(PushShiftBase):
+	"""Class to process one file in the format found on pushshift.io.
+
+	It will create a JSON-based meta file which contains information on
+	all of the types of attributes found for the particular type of file
+	(tested on RC (Reddit Comments) and RS (Reddit Submission) files.
+
+	When finised, it will pass the information to the parent so that an
+	aggregate meta file for all files can be created.
+	"""
 	_ext2tool = {
 		".bz2": ["bunzip2","-q","-c"],
 		".zst": ["unzstd","-q","-c"],
 		".gz": ["gunzip","-q","-c"],
+		".xz": ["gunxz","-q","-c"],
 		}
 	def __init__(self,parent,filename):
 		super().__init__()
@@ -257,7 +285,7 @@ class PushShiftFile(PushShiftBase):
 		self.filename = filename
 		self.full_filename = os.path.realpath(os.path.join(filename))
 		self.base, self.extension = os.path.splitext(self.full_filename)
-		print(f"Will process '{self.full_filename}'.")
+		print(f" - Will process '{self.full_filename}'.")
 		self.size = os.path.getsize(self.full_filename)
 		if self.extension in PushShiftFile._ext2tool:
 			self.cmd = PushShiftFile._ext2tool[self.extension]
@@ -273,6 +301,76 @@ class PushShiftFile(PushShiftBase):
 		self.processed = False
 		self.last_save_count = 0
 		pass
+
+	def process_line(self,line):
+		"""Process one input line. The pushshift.io files all seem to
+
+		have a psuedo-JSON format where each line is one object.
+
+		This function processes one such input and adds its info to the
+		meta object.
+
+		"""
+		self.data["processed_data_size"] += len(line)
+		self.data["record_count"] += 1
+		self.parent.record_count += 1
+		if 0 == self.data["record_count"] % self.args.min_record_check:
+			self.show_progress()
+			pass
+		try:
+			self.count_attribs(json.loads(line))
+		except json.decoder.JSONDecodeError as e:
+			print("ERROR on line %s" %(self.data["record_count"]))
+			print("Line:\n%s" %(line))
+			self.show_progress()
+			raise e
+		return self
+
+	def process(self):
+		""" Process the whole file, one line at a time."""
+		# If we need to un-compress the file, do so using the appropriate
+		# command and read in from STDIN.
+		if self.cmd:
+			return self.proc_from_cmd()
+		# Otherwise, just read the file directly and process.
+		with open(self.full_filename,'r') as fh:
+			return self._proc_fh(fh)
+		return self
+	pass
+
+	def proc_from_cmd(self):
+		""" Process STDOUT from a command (e.g., uncompress) """
+		# Don't process a file twice. Not sure why I thought I needed to check,
+		# but much of this code is cut-and-paste from previous code used in
+		# other research.
+		if self.processed:
+			return self
+		# Prepare the command (append the file name to process
+		self.cmd = self.data["subprocess"]
+		self.cmd.append(self.data["file_name"])
+		if args.verbosity > 0:
+			print(f"Running: {self.cmd}")
+			pass
+		proc = subprocess.Popen(
+			self.cmd,
+			stdout=subprocess.PIPE,
+			universal_newlines=True
+			)
+		# Now process like any other file handle.
+		return self._proc_fh(proc.stdout)
+
+	def _proc_fh(self,fh):
+		""" Process the file once we have the file handle from which to read."""
+		for line in fh:
+			try:
+				self.process_line(line)
+			except json.decoder.JSONDecodeError as e:
+				err = f"ERROR in JSON format, aborting load for '{self.filename}'."
+				print(err)
+				self.parent.errors(err)
+				return self.attr_info(last_update=True)
+			pass
+		return self.attr_info(last_update=True)
 
 	def count_attribs(self,obj):
 		for key,value in obj.items():
@@ -306,31 +404,16 @@ class PushShiftFile(PushShiftBase):
 		self.parent.tn = tn
 		num = self.pnum(count)
 		if not self.cmd:
-			rate = me.rate(self.data["data_size"],total=self.size,append="bytes")
+			rate = self.rate(self.data["processed_data_size"],total=self.size,append="bytes")
 		else:
-			rate = me.rate(count,total=args.num_records)
+			rate = self.rate(count,total=args.num_records)
 			pass
-		print(f"Loaded: {num} {rate}")
+		print(f"{self.psecs()} for {num} records. {rate}")
+		self.parent.show_progress()
 		return self
 
 
-	def process_line(self,line):
-		self.data["data_size"] += len(line)
-		self.data["record_count"] += 1
-		self.parent.record_count += 1
-		if 0 == self.data["record_count"] % self.args.min_record_check:
-			self.show_progress()
-			pass
-		try:
-			self.count_attribs(json.loads(line))
-		except json.decoder.JSONDecodeError as e:
-			print("ERROR on line %s" %(self.data["record_count"]))
-			print("Line:\n%s" %(line))
-			self.show_progress()
-			raise e
-		return self
-
-	def attr_info(self):
+	def attr_info(self, last_update=False):
 		# For some reason, the record_count is one ahead of where it should be when this is called.
 		records = self.data["record_count"] -1
 		for attr,inf in self.attribs.items():
@@ -341,58 +424,23 @@ class PushShiftFile(PushShiftBase):
 				#inf["average_size_per_record"] = size / records
 				inf["prevalence"] = float("%0.8f" %(count / records))
 				if "types" in inf:
-					for vtype,data in inf["types"].items():
-						data["p_record"] = float("%0.8f" %(data["count"] / records))
-						data["p_attrib"] = float("%0.8f" %(data["count"] / count))
-						if "bool" == vtype:
-							data["p_true"] = float("%0.8f" %(data["true"] / data["count"]))
-							data["p_false"] = float("%0.8f" %(data["false"] / data["count"]))
+					for type_str,data in inf["types"].items():
+						data["record_p"] = float("%0.8f" %(data["count"] / records))
+						data["attrib_p"] = float("%0.8f" %(data["count"] / count))
+						if "bool" == type_str:
+							data["true_p"] = float("%0.8f" %(data["true"] / data["count"]))
+							data["false_p"] = float("%0.8f" %(data["false"] / data["count"]))
 							pass
 						pass
 					pass
 				pass
 			pass
-		print(f"Saving info to '{self.json_file}'")
-		with open(self.json_file,'w') as fh:
-			try:
-				json.dump(self.data,fh,indent=2,sort_keys=True)
-			except:
-				print(self.data)
-				raise
+		self.save_json_meta()
+		if last_update:
+			self.parent.merge_file_meta(self)
 			pass
 		return self
 
-
-	def _proc_fh(self,fh):
-		for line in fh:
-			try:
-				self.process_line(line)
-			except json.decoder.JSONDecodeError as e:
-				print("ERROR in JSON format, aborting load for this file.")
-				return self.attr_info()
-			pass
-		return self.attr_info()
-
-	def proc_from_cmd(self):
-		if self.processed:
-			return self
-		self.cmd = self.data["subprocess"]
-		self.cmd.append(self.data["file_name"])
-		print(f"Running: {self.cmd}")
-		proc = subprocess.Popen(
-			self.cmd,
-			stdout=subprocess.PIPE,
-			universal_newlines=True
-			)
-		return self._proc_fh(proc.stdout)
-
-	def process(self):
-		if self.cmd:
-			return self.proc_from_cmd()
-		with open(self.full_filename,'r') as fh:
-			return self._proc_fh(fh)
-		return self
-	pass
 
 class PushShiftInfo(PushShiftBase):
 
@@ -405,15 +453,130 @@ class PushShiftInfo(PushShiftBase):
 		self.total_size = 0
 		self.record_count = 0
 		self.files = []
+		self.errs = []
+		self.json_file = args.outfile
 		#print(['self.args.files',self.args.files])
 		for fname in self.args.files:
-			self.prep_file(fname)
+			if "*" in fname:
+				for fname in glob.glob(fname):
+					self.prep_file(fname)
+					pass
+				pass
+			else:
+				self.prep_file(fname)
+				pass
 			pass
 		if self.directory is not None:
 			self.prep_dir(self.directory)
 			pass
-		print(f"Will process a total of {self.file_count} files for {me.pbytes(self.total_size)}.")
+		print(f"Will process a total of {self.file_count} files for {self.pbytes(self.total_size)}.")
 		pass
+
+	def errors(self,msg):
+		self.errs.append(msg)
+		return self
+
+
+	def _dict_add_if_not_exists(self,obj,key,value):
+		if key not in obj:
+			obj[key] = value
+			pass
+		return self
+
+
+	def _dict_sum(self,obj,key,value):
+		if key not in obj:
+			obj[key] = 0
+			pass
+		obj[key]+= value
+		return self
+
+
+	def _sum_key(self,from_obj,to_obj,key):
+		if key not in from_obj:
+			return self
+		if key not in to_obj:
+			to_obj[key] = 0
+			pass
+		to_obj[key] += from_obj[key]
+		return self
+
+	def _max_key(self,from_obj,to_obj,key):
+		if key not in from_obj:
+			return self
+		if key not in to_obj:
+			to_obj[key] = from_obj[key]
+			return self
+		if to_obj[key] > from_obj[key]:
+			to_obj[key] = from_obj[key]
+			pass
+		return self
+
+	def _min_key(self,from_obj,to_obj,key):
+		if key not in from_obj:
+			return self
+		if key not in to_obj:
+			to_obj[key] = from_obj[key]
+			return self
+		if to_obj[key] < from_obj[key]:
+			to_obj[key] = from_obj[key]
+			pass
+		return self
+
+	def merge_file_meta(self,psfmeta):
+		# TODO: Merge PushShiftFile meta.
+		self.data["input_file_name"] = []
+		self.data["attributes"] = {}
+		self.data["value_types"] = {}
+		self.data["record_count"] = 0
+		for psfmeta in self.files:
+			self.data["input_file_name"].append(psfmeta.data["input_file_name"])
+			self.data["record_count"] += psfmeta.data["record_count"]
+			for key,value in psfmeta.data["attributes"].items():
+				from_att = psfmeta.data["attributes"][key]
+				self._dict_add_if_not_exists(self.data["attributes"],key,{"count":0,"size":0,"types": {}})
+				to_att = self.data["attributes"][key]
+				self._sum_key(from_att,to_att,"count")
+				self._sum_key(from_att,to_att,"size")
+				from_types = psfmeta.data["attributes"][key]["types"]
+				to_types = self.data["attributes"][key]["types"]
+				to_all_types = self.data["value_types"]
+				for type_str,type_info in from_types.items():
+					self._dict_add_if_not_exists(to_types,type_str,{})
+					self._dict_add_if_not_exists(to_all_types,type_str,{})
+					for key2 in type_info:
+						if key2 in ["count","false","true","length_sum","length_sum","sum"]:
+							self._sum_key(type_info,to_types[type_str],key2)
+							self._sum_key(type_info,to_all_types[type_str],key2)
+						elif "max" in key2:
+							self._max_key(type_info,to_types[type_str],key2)
+							self._max_key(type_info,to_all_types[type_str],key2)
+						elif "min" in key2:
+							self._min_key(type_info,to_types[type_str],key2)
+							self._min_key(type_info,to_all_types[type_str],key2)
+							pass
+						pass
+					pass
+				pass
+			pass
+		for attr, attr_info in self.data["attributes"].items():
+			attr_info["prevalence"] = attr_info["count"] / self.data["record_count"]
+			attr_info["mean_size"] = attr_info["size"] / self.data["record_count"]
+			for type_str, type_info in attr_info["types"].items():
+				# print(f"attr={attr}'")
+				# print(f"attr_info={attr_info}'")
+				# print(f"type_str={type_str}'")
+				# print(f"type_info={type_info}'")
+				type_info["attrib_p"] = type_info["count"] / attr_info["count"]
+				type_info["record_p"] = type_info["count"] / self.data["record_count"]
+				if "bool" == type_str:
+					type_info["true_p"] = type_info["true"] / attr_info["count"]
+					type_info["false_p"] = type_info["false"] / attr_info["count"]
+					pass
+				pass
+			pass
+		self.save_json_meta()
+		return self
 
 	def prep_file(self,filename):
 		psfile = PushShiftFile(self,filename)
@@ -443,11 +606,42 @@ class PushShiftInfo(PushShiftBase):
 			pass
 		pass
 
+	def show_progress(self):
+		if len(self.files) < 2:
+			return self
+		total_record_count = 0
+		total_size_processed = 0
+		total_size = 0
+		all_no_cmd = True
+		for psfmeta in self.files:
+			total_record_count += psfmeta.data["record_count"]
+			total_size += psfmeta.data["input_file_size"]
+			total_size_processed += psfmeta.data["processed_data_size"]
+			if psfmeta.cmd:
+				all_no_cmd = False
+				pass
+			pass
+		args = self.args
+		tn = datetime.datetime.now()
+		secs = (tn - self.tn).total_seconds()
+		num = self.pnum(total_record_count)
+		if all_no_cmd:
+			rate = self.rate(total_size_processed,total=total_size,append="bytes")
+		else:
+			rate = self.rate(total_record_count,total=args.num_records)
+			pass
+		# Debug stuff here.
+		print([total_record_count,total_size_processed,total_size,all_no_cmd])
+		print(f"Overall: {self.psecs()} for {num} records. {rate}")
+		return self
+
+
 def main():
 	parser = argparse.ArgumentParser(description='Build info about data from PushShift.io files.')
 	parser.add_argument('files', nargs='?', default=[], action='append', help="Files to process.")
 	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
 	parser.add_argument('--dir', '-D', default=None, dest='directory', help="Process files in this directory.")
+	parser.add_argument('--out', '-o', default=None, dest='outfile', help="Save aggregated JSON meta data to this file.")
 	parser.add_argument('--min-record-check', '-mr', default=5, dest='min_record_check', type=int,help="To speed things up, we only check if --min-save-secs after this many thousand records. Default: 5 (i.e., 5,000)")
 	parser.add_argument('--min-save-secs', '-ms', default=10, dest='min_save_secs', type=int,help="The minimum number of secods which must pass before we save progress. Default: 10")
 	parser.add_argument('--save-progress-each', '-pp', default=50, dest='save_progress_each', type=int,help="Number of --min-record-check for printing what we have so far with attribute information.")
@@ -469,6 +663,12 @@ def main():
 		pass
 	args.timestr = time.strftime("%Y%m%d-%H%M%S")
 	pinfo = PushShiftInfo(args)
+	if len(pinfo.files) > 1:
+		if args.outfile is None:
+			print("ERROR: --out required if more than one file.")
+			exit(1)
+			pass
+		pass
 	pinfo.process()
 	pass
 
