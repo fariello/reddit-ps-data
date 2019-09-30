@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import os
+import sys
+import glob
+
+class JSONSearch:
+	def __init__(self,args):
+		self.args = args
+		pass
+
+	def find_path(self,obj,after,before=[]):
+		this_key = after[0]
+		if "*" == this_key:
+			results = []
+			if isinstance(obj, dict):
+				if len(after) > 1:
+					after = after[1:]
+					for key,value in obj.items():
+						results += self.find_path(value,after,before+[key])
+				else:
+					results += [f"{'.'.join(before)}={json.dumps(obj)}"]
+					pass
+				return results
+			pass
+		before.append(this_key)
+		if this_key not in obj:
+			if self.args.show_missing:
+				return [f"{'.'.join(before)} is missing."]
+			else:
+				return [None]
+			pass
+		value = obj[this_key]
+		if len(after) > 1:
+			after = after[1:]
+			return self.find_path(obj[this_key],after,before)
+		return [f"{'.'.join(before)}={json.dumps(obj[this_key])}"]
+
+	def find_in_file(self,fname,attributes):
+		try:
+			with open(fname,'r') as fh:
+				obj = json.load(fh)
+				for attribute_path in attributes:
+					# No idea why I need to specify []
+					results = self.find_path(obj,attribute_path,[])
+					for result in results:
+						if result is None:
+							continue
+						print(f"{fname}: {result}")
+						pass
+					pass
+				pass
+			pass
+		except:
+			print(f"ERROR with '{fname}'")
+			raise
+		pass
+
+def main():
+	parser = argparse.ArgumentParser(description='Quick-and-dirty JSON attribute finder.')
+	parser.add_argument('files', nargs='?', default=[], action='append', help="Files to process.")
+	parser.add_argument('--attribute', '-a', default=[], action='append', dest='attributes', help="Attribute(s) to display in key1.key2.key3 format.")
+	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
+	parser.add_argument('--show-missing', '-M', default=False, action='store_true', dest='show_missing', help="Show missing attributes.")
+	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
+	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
+
+	args = parser.parse_args()
+	args.verbosity = 1 + args.verbosity - args.quiet
+	if len(args.files) < 1:
+		print("Which files?")
+		exit(1)
+		pass
+	new_attribs = []
+	for attribute in args.attributes:
+		new_attribs.append(attribute.split('.'))
+		pass
+	args.attributes = new_attribs
+	if len(args.attributes) < 1:
+		print("Which attribuates?")
+		exit(1)
+		pass
+	ps = JSONSearch(args)
+	for fname in args.files:
+		if "*" in fname:
+			files = glob.glob(fname)
+			for fname in files:
+				ps.find_in_file(fname,args.attributes)
+				pass
+			pass
+		else:
+			ps.find_in_file(fname,args.attributes)
+			pass
+		pass
+	pass
+
+if __name__ == "__main__":
+	main()
+	sys.exit(0)
+	pass
