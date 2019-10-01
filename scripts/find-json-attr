@@ -6,12 +6,259 @@ import os
 import sys
 import glob
 
-class JSONSearch:
-	def __init__(self,args):
-		self.args = args
+
+
+class FileJSONObj:
+	def __init__(self,obj,fname,line_no=None):
+		self.obj = obj
+		self.fname = fname
+		self.line_no = line_no
+		self.results = []
+		if self.line_no is None:
+			self.str = self.fname
+		else:
+			self.str = f"{self.fname} line:{self.line_no:04d}"
+			pass
 		pass
 
-	def find_path(self,obj,after,before=[]):
+
+class FileJSONResult:
+	def __init__(self,path,value,missing,fob):
+		self.path = path
+		self.path_str = '.'.join(self.path)
+		self.value = value
+		self.missing = missing
+		self.fob = fob
+		pass
+
+
+class FileJSONPath:
+	def __init__(self,path):
+		self.path_list = path.split(".")
+		pass
+
+	def _add_result(self,path,value,missing=False):
+		self.current_results.append(FileJSONResult(path,value,missing,self.current_fob))
+		return self
+
+	def get(self,fob):
+		self.current_fob = fob
+		self.current_fob.results = [] # Reset each time.
+		self.current_results = self.current_fob.results
+		self._get(self.current_fob.obj,path_before=[],path_to_go=self.path_list)
+		return self.current_fob.results
+
+	def _get(self,obj,path_before,path_to_go):
+		this_attribute = path_to_go[0]
+		count_left = len(path_to_go) - 1
+		if "*" == this_attribute:
+			# For dicts, iterate over keys
+			if isinstance(obj,dict):
+				len_keys = len(obj.keys())
+				if len_keys < 1: # If there are no keys
+					if count_left > 0: # If we want something in the dict
+						return self._add_result(path_before + [this_attribute],None,missing=True)
+					# Return empty obj
+					return self._add_result(path_before + [this_attribute],{})
+				# If there is no path left to go, and don't have any attributes
+				if count_left < 1 and len_keys < 1:
+					return self._add_result(path_before + [key],None,missing=True)
+				for key in obj.keys():
+					self._add_result(path_before + [key], '[attribute]')
+					pass
+				return self
+			# Since it's not a dict, "*" does not match any attribute names
+			return self._add_result(path_before + [this_attribute],None,missing=True)
+		new_path_before = path_before + [this_attribute]
+		if this_attribute not in obj:
+			return self._add_result(new_path_before, None, missing=True)
+		new_obj = obj[this_attribute]
+		if count_left < 1:
+			return self._add_result(new_path_before, new_obj)
+		return self._get(new_obj,new_path_before,path_to_go[1:])
+
+class FileJSONPathSearch:
+	def __init__(self,args):
+		self.args = args
+		self.error_count = 0
+		self.files = []
+		self.uniqs = {}
+		for fname in args.files:
+			if "*" in fname:
+				for fname in glob.glob(fname):
+					self.files.append(fname)
+					pass
+				pass
+			else:
+				self.files.append(fname)
+				pass
+			pass
+		pass
+
+	def _print_line(self,line,verbosity=1,preface=""):
+		# Print if self.args.verbosity >= verbosity
+		if(self.args.verbosity >= verbosity):
+			print(f"{preface}{line}")
+			pass
+		return self
+
+	def _print_lines(self,lines,verbosity=1,preface=""):
+		for line in lines:
+			self._print_line(line,verbosity,preface)
+			pass
+		pass
+
+	def _print_something(self,messages,verbosity=1,preface=""):
+		if isinstance(messages, list):
+			return self._print_lines(messages,verbosity,preface)
+		self._print_line(line,verbosity,preface)
+		pass
+
+	def print_error(self,messages):
+		self.error_count += 1
+		if self.error_count <= self.args.max_error_count:
+			return self._print_something(messages,verbosity=-2,preface="[ERROR]: ")
+		return self
+
+	def print_result(self,result):
+		if result.missing:
+			if not self.args.show_missing:
+				return self
+			else:
+				self._print_line(f"{result.fob.str}: {result.path_str} is missing.")
+				return self
+			pass
+		return self._print_line(f"{result.fob.str}: {result.path_str}={result.value}.")
+
+
+	def _count_uniq(self,path,key):
+		key = json.dumps(key)
+		if path not in self.uniqs:
+			self.uniqs[path] = {key:0}
+			pass
+		elif "Too Many" == self.uniqs[path]:
+			return
+		elif key not in self.uniqs[path]:
+			self.uniqs[path][key] = 1
+			return
+		if len(self.uniqs[path].keys()) > self.args.max_uniq:
+			self.uniqs[path] = "Too Many"
+			return
+		self.uniqs[path][key] += 1
+		return
+
+	def process_obj(self,obj,fob):
+		for path in self.reg_paths:
+			for result in path.get(fob):
+				self.print_result(result)
+				pass
+			pass
+		for path in self.uniq_paths:
+			for result in path.get(fob):
+				if result.missing:
+					self._count_uniq(result.path_str,"is missing.")
+				elif isinstance(result.value,dict):
+					# Consider key names are the values
+					for key in result.value.keys():
+						self._count_uniq(result.path_str,key)
+						pass
+				else:
+					self._count_uniq(result.path_str,result.value)
+					pass
+				pass
+			pass
+		pass
+
+	def _get_results_from_path(self,fname,attribute_paths):
+		self.attribute_paths = attribute_paths
+		with open(fname,'r') as fh:
+			if self.args.multi_line:
+				line_num = 0
+				for line in fh:
+					line_num += 1
+					try:
+						obj = json.loads(line)
+						self.process_obj(obj,fname)
+					except json.decoder.JSONDecodeError as e:
+						self.print_error([f"Bad JSON in {fname} line #{line_num}:\n{line}",e.msg])
+						pass
+					pass
+			else:
+				try:
+					obj = json.load(fh)
+					self.process_obj(obj,fname)
+				except json.decoder.JSONDecodeError as e:
+					self.print_error([f"Unable to load JSON from '{fname}'",e.msg])
+					pass
+				pass
+			pass
+		pass
+
+	def process_files(self):
+		self.error_count = 0
+		self.reg_paths = []
+		for path in self.args.attribute_value_path:
+			self.reg_paths.append(FileJSONPath(path))
+			pass
+		self.uniq_paths = []
+		for path in self.args.attribute_unique_value_path:
+			self.uniq_paths.append(FileJSONPath(path))
+			pass
+		for fname in self.files:
+			self.get_results_from_file(fname)
+			pass
+		for path_str,unique_values in self.uniqs.items():
+			if "Too Many" == unique_values:
+				self._print_line(f"{path_str} had too many unique values.")
+				continue
+			values = sorted(unique_values.keys())
+			for value in values:
+				if "is missing." == value:
+					self._print_line(f"{path_str} was missing {unique_values[value]} times.")
+				else:
+					self._print_line(f"{path_str}={value} {unique_values[value]} times.")
+					pass
+				pass
+			pass
+		return self
+
+	def get_results_from_file(self,fname):
+		# NOTE: self.to_call needs to be set before calling this.
+		self.obj_count = 0
+		with open(fname,'r') as fh:
+			if self.args.multi_line:
+				line_num = 0
+				for line in fh:
+					line_num += 1
+					try:
+						obj = json.loads(line)
+						self.obj_count += 1
+						if self.args.max_objects is not None and self.obj_count > self.args.max_objects:
+							self._print_line("Maximum number of object reached.")
+							return
+						fob = FileJSONObj(obj,fname,line_num)
+						self.process_obj(obj,fob)
+					except json.decoder.JSONDecodeError as e:
+						self.print_error([f"Bad JSON in {fname} line #{line_num}:\n{line}",e.msg])
+						pass
+					pass
+			else:
+				try:
+					obj = json.load(fh)
+					self.obj_count += 1
+					if self.args.max_objects is not None and self.obj_count > self.args.max_objects:
+						self._print_line("Maximum number of object reached.")
+						return
+					fob = FileJSONObj(obj,fname)
+					self.process_obj(obj,fob)
+				except json.decoder.JSONDecodeError as e:
+					self.print_error([f"Unable to load JSON from '{fname}'",e.msg])
+					pass
+				pass
+			pass
+		pass
+
+	def get_result_from_path(self,obj,after,before=[]):
 		this_key = after[0]
 		if "*" == this_key:
 			results = []
@@ -19,7 +266,7 @@ class JSONSearch:
 				if len(after) > 1:
 					after = after[1:]
 					for key,value in obj.items():
-						results += self.find_path(value,after,before+[key])
+						results += self.get_result_from_path(value,after,before+[key])
 				else:
 					results += [f"{'.'.join(before)}={json.dumps(obj)}"]
 					pass
@@ -35,37 +282,55 @@ class JSONSearch:
 		value = obj[this_key]
 		if len(after) > 1:
 			after = after[1:]
-			return self.find_path(obj[this_key],after,before)
+			return self.get_result_from_path(obj[this_key],after,before)
 		return [f"{'.'.join(before)}={json.dumps(obj[this_key])}"]
 
-	def find_in_file(self,fname,attributes):
-		try:
-			with open(fname,'r') as fh:
-				obj = json.load(fh)
-				for attribute_path in attributes:
-					# No idea why I need to specify []
-					results = self.find_path(obj,attribute_path,[])
-					for result in results:
-						if result is None:
-							continue
-						print(f"{fname}: {result}")
-						pass
+	def get_unique_value_from_path(self,obj,after,before=[]):
+		this_key = after[0]
+		if "*" == this_key:
+			results = []
+			if isinstance(obj, dict):
+				if len(after) > 1:
+					after = after[1:]
+					for key,value in obj.items():
+						results += self.get_unique_value_from_path(value,after,before+[key])
+				else:
+					vals = []
+					for key,value in obj.items():
+						vals += [key]
+					results += [f"{'.'.join(before)} = unique_keys:{vals}"]
 					pass
-				pass
+				return results
 			pass
-		except:
-			print(f"ERROR with '{fname}'")
-			raise
-		pass
+		before.append(this_key)
+		if this_key not in obj:
+			if self.args.show_missing:
+				return [f"{'.'.join(before)} is missing."]
+			else:
+				return [None]
+			pass
+		value = obj[this_key]
+		if len(after) > 1:
+			after = after[1:]
+			return self.get_unique_value_from_path(obj[this_key],after,before)
+		return [f"{'.'.join(before)}={json.dumps(obj[this_key])}"]
+
+
+	pass
 
 def main():
 	parser = argparse.ArgumentParser(description='Quick-and-dirty JSON attribute finder.')
-	parser.add_argument('files', nargs='?', default=[], action='append', help="Files to process.")
-	parser.add_argument('--attribute', '-a', default=[], action='append', dest='attributes', help="Attribute(s) to display in key1.key2.key3 format.")
+	parser.add_argument('files', nargs='+', help="Files to process.")
+	parser.add_argument('--attribute-values', '-a', default=[], action='append', dest='attribute_value_path', help="Path to attribute(s) to display the values in key1.key2.key3 format.")
+	parser.add_argument('--attribute-unique-values', '-u', default=[], action='append', dest='attribute_unique_value_path', help="Path to attribute(s) to display unique names in key1.key2.key3 format.")
 	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
 	parser.add_argument('--show-missing', '-M', default=False, action='store_true', dest='show_missing', help="Show missing attributes.")
+	parser.add_argument('--multi-line', '-m', default=False, action='store_true', dest='multi_line', help="Process one line at a time as a JSON object in stead of the whole file.")
 	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
 	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
+	parser.add_argument('--max-errors', '-mxe', default=20, dest='max_error_count', type=int,help="Maximum number of errors to print and before giving up.")
+	parser.add_argument('--max-unique', '-mun', default=20, dest='max_uniq', type=int,help="Maximum number of unique values/attribute names to track.")
+	parser.add_argument('--max-objects', '-mob', default=None, dest='max_objects', type=int,help="Maximum number of JSON object to process (if any).")
 
 	args = parser.parse_args()
 	args.verbosity = 1 + args.verbosity - args.quiet
@@ -73,27 +338,13 @@ def main():
 		print("Which files?")
 		exit(1)
 		pass
-	new_attribs = []
-	for attribute in args.attributes:
-		new_attribs.append(attribute.split('.'))
-		pass
-	args.attributes = new_attribs
-	if len(args.attributes) < 1:
+	new_paths = []
+	if len(args.attribute_value_path + args.attribute_unique_value_path) < 1:
 		print("Which attribuates?")
 		exit(1)
 		pass
-	ps = JSONSearch(args)
-	for fname in args.files:
-		if "*" in fname:
-			files = glob.glob(fname)
-			for fname in files:
-				ps.find_in_file(fname,args.attributes)
-				pass
-			pass
-		else:
-			ps.find_in_file(fname,args.attributes)
-			pass
-		pass
+	fjps = FileJSONPathSearch(args)
+	fjps.process_files()
 	pass
 
 if __name__ == "__main__":
