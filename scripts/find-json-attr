@@ -48,32 +48,47 @@ class FileJSONPath:
 		self._get(self.current_fob.obj,path_before=[],path_to_go=self.path_list)
 		return self.current_fob.results
 
+
+	def _get_wildcard_dict(self,obj,path_before,path_to_go,more_path):
+		is_empty = len(obj.keys()) == 0
+		# Handle empty dicts ({})
+		if is_empty: # If there are no keys
+			if more_path: # If we want something in the dict
+				return self._add_result(path_before + [this_attribute],None,missing=True)
+			# Return empty obj
+			return self._add_result(path_before + [this_attribute],{})
+		# Handle non-empty dicts as end-points
+		if not more_path:
+			for key in obj.keys():
+				self._add_result(path_before + [key], '[attribute]')
+				pass
+			return self
+		# Go down the rabbit hole
+		path_to_go = path_to_go[1:]
+		for key,new_obj in obj.items():
+			self._get(new_obj, path_before + [key],path_to_go)
+			pass
+		return self
+
+
+	def _get_wildcard(self,obj,path_before,path_to_go,more_path):
+		# For dicts, iterate over keys
+		if isinstance(obj,dict):
+			return self._get_wildcard_dict(obj,path_before,path_to_go,more_path)
+		# Since it's not a dict, "*" does not match any attribute names
+		return self._add_result(path_before + [this_attribute],None,missing=True)
+
+
 	def _get(self,obj,path_before,path_to_go):
 		this_attribute = path_to_go[0]
-		count_left = len(path_to_go) - 1
+		more_path = len(path_to_go) > 1
 		if "*" == this_attribute:
-			# For dicts, iterate over keys
-			if isinstance(obj,dict):
-				len_keys = len(obj.keys())
-				if len_keys < 1: # If there are no keys
-					if count_left > 0: # If we want something in the dict
-						return self._add_result(path_before + [this_attribute],None,missing=True)
-					# Return empty obj
-					return self._add_result(path_before + [this_attribute],{})
-				# If there is no path left to go, and don't have any attributes
-				if count_left < 1 and len_keys < 1:
-					return self._add_result(path_before + [key],None,missing=True)
-				for key in obj.keys():
-					self._add_result(path_before + [key], '[attribute]')
-					pass
-				return self
-			# Since it's not a dict, "*" does not match any attribute names
-			return self._add_result(path_before + [this_attribute],None,missing=True)
+			return self._get_wildcard(obj,path_before,path_to_go,more_path)
 		new_path_before = path_before + [this_attribute]
 		if this_attribute not in obj:
 			return self._add_result(new_path_before, None, missing=True)
 		new_obj = obj[this_attribute]
-		if count_left < 1:
+		if not more_path:
 			return self._add_result(new_path_before, new_obj)
 		return self._get(new_obj,new_path_before,path_to_go[1:])
 
