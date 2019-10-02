@@ -73,6 +73,8 @@ class MyInfo:
 		return (tn - t0).total_seconds()
 
 	def pbytes(self,num):
+		if num >= 1000000000000000:
+			return "%0.2fPB" %(num / 1000000000000000)
 		if num >= 1000000000000:
 			return "%0.2fTB" %(num / 1000000000000)
 		if num >= 1000000000:
@@ -84,6 +86,10 @@ class MyInfo:
 		return "%3s Bytes" %(num)
 
 	def pnum(self,num):
+		if num >= 1000000000000000:
+			return "%0.2fP" %(num / 1000000000000000)
+		if num >= 1000000000000:
+			return "%0.2fT" %(num / 1000000000000)
 		if num >= 1000000000:
 			return "%0.2fG" %(num / 1000000000)
 		if num >= 1000000:
@@ -91,7 +97,6 @@ class MyInfo:
 		if  num >= 1000:
 			return "%0.2fK" %(num / 1000)
 		return "%3s " %(num)
-
 
 	def psecs(self, secs=None):
 		if secs is None:
@@ -124,145 +129,299 @@ class MyInfo:
 			secs_remain = (total - count) / rate
 			percent = f"{count * 100 / total:0.2f}"
 			estimate = self.psecs(secs_remain)
-			estimate = f" ({me.pnum(count)} of {me.pnum(total)} {percent}% ~ {estimate} Remaining)"
+			estimate = f" ({self.pnum(count)} of {self.pnum(total)} {percent}% ~ {estimate} Remaining)"
 		else:
 			estimate = ""
 			pass
 		if rate <= 1.0 / self.secs_per_year:
-			return f"{rate * self.secs_per_year:0.2f}/Year{estimate}"
-		if rate <= 1.0 / self.secs_per_month:
-			return f"{rate * self.secs_per_week:0.2f}/Month{estimate}"
-		if rate <= 1.0 / self.secs_per_week:
-			return f"{rate * self.secs_per_week:0.2f}/Week{estimate}"
-		if rate <= 1.0 / self.secs_per_week:
-			return f"{rate * self.secs_per_day:0.2f}/Day{estimate}"
-		if rate <= 1.0 / self.secs_per_hour:
-			return f"{rate * self.secs_per_hour:0.2f}/Hour{estimate}"
-		if rate <= 1.0 / self.secs_per_minute:
-			return f"{rate * self.secs_per_minute:0.2f}/Minute{estimate}"
-		if rate >= 1000:
+			rate = rate * self.secs_per_year
+			unit = "Year"
+		elif rate <= 1.0 / self.secs_per_month:
+			rate = rate * self.secs_per_month
+			unit = "Month"
+		elif rate <= 1.0 / self.secs_per_week:
+			rate = rate * self.secs_per_week
+			unit = "Week"
+		elif rate <= 1.0 / self.secs_per_hour:
+			rate = rate * self.secs_per_hour
+			unit = "Hour"
+		elif rate <= 1.0 / self.secs_per_minute:
+			rate = rate * self.secs_per_minute
+			unit = "Minute"
+		elif rate >= 1000:
 			rate = self.pnum(rate)
+			return f"{rate}/Sec{estimate}"
+		else:
+			unit = "Second"
 			pass
-		return f"{rate}{append}/Sec{estimate}"
+		return f"{rate:0.2f}/{unit}{estimate}"
 	pass
 me = MyInfo()
 
-class PushShiftBase(MyInfo):
+
+class ValueTypeTracker:
+	def __init__(self,attribute_obj,type_str,name=None):
+		self.attr = attribute_obj
+		self.str = type_str
+		if name is None:
+			self.name = self.str
+		else:
+			self.name = name
+			pass
+		self.count = 0
+		self.max_unique = 250
+		self.too_many = False
+		self.unique_value_count = 0
+		self.unique_values = {}
+		pass
+	def set_too_many(self):
+		self.too_many = True
+		self.unique_values = "Too Many"
+		self.unique_value_count = None
+		return self
+	def track_unique(self,value):
+		if self.too_many:
+			return self
+		if value not in self.unique_values:
+			if self.unique_value_count >= self.max_unique:
+				return self.set_too_many()
+			self.unique_values[value] = 0
+			self.unique_value_count += 1
+			pass
+		self.unique_values[value] += 1
+		return self
+	def track(self,value):
+		self.count += 1
+		return self
+	def merge(self,other):
+		self.count += other.count
+		return self
+	def to_dict(self):
+		return {"count":self.count }
+	pass
+
+class NoneValueTypeTracker(ValueTypeTracker):
+	def __init__(self,attribute_obj,type_str):
+		super().__init__(attribute_obj,type_str,"null")
+		pass
+	pass
+
+class UniqueValueTypeTracker(ValueTypeTracker):
+	def __init__(self,attribute_obj,type_str,name=None,max_unique=250):
+		super().__init__(attribute_obj,type_str,name)
+		self.max_unique = max_unique
+		self.size = 0
+		pass
+	def track(self,value):
+		self.count += 1
+		return self.track_unique(value)
+	def merge(self,other):
+		super().merge(other)
+		if other.too_many:
+			return self.set_too_many()
+		if self.too_many:
+			return self
+		for value,count in other.unique_values.items():
+			if value not in self.unique_values:
+				self.unique_values[value] = 0
+				pass
+			self.unique_values[value] += other.unique_values[value]
+			pass
+		if len(self.unique_values.keys()) > self.max_unique:
+			self.set_too_many()
+		return self
+	def to_dict(self):
+		return {"count":self.count,"unique_values":self.unique_values}
+	pass
+class BoolValueTypeTracker(UniqueValueTypeTracker):
+	pass
+class NumericValueTypeTracker(UniqueValueTypeTracker):
+	def __init__(self,attribute_obj,type_str,name=None):
+		super().__init__(attribute_obj,type_str,name)
+		self.min = None
+		self.max = None
+		self.sum = 0
+		pass
+	def track(self,value,num=None):
+		super().track(value)
+		if num is None:
+			num = value
+			pass
+		self.sum += num
+		if self.max is None or num > self.max:
+			self.max = num
+			pass
+		if self.min is None or num < self.min:
+			self.min = num
+			pass
+		return self
+	def merge(self,other):
+		super().merge(other)
+		self.sum += other.sum
+		if self.min is None or other.min < self.min:
+			self.min = other.min
+			pass
+		if self.max is None or other.max > self.max:
+			self.max = other.max
+			pass
+		return self
+	def to_dict(self):
+		return {
+			"count":self.count,
+			"sum":self.sum,
+			"min":self.min,
+			"max":self.max,
+			"mean": self.sum / self.count,
+			"unique_values": self.unique_values,
+			}
+	pass
+class IntValueTypeTracker(NumericValueTypeTracker):
+	pass
+class FloatValueTypeTracker(NumericValueTypeTracker):
+	pass
+class LenthyValueTypeTracker(NumericValueTypeTracker):
+	def track(self,value):
+		return super().track(len(value))
+	def to_dict(self):
+		return {
+			"count":self.count,
+			"min_length":self.min,
+			"max_length":self.max,
+			"mean_length": self.sum / self.count,
+			"unique_lengths": self.unique_values,
+			}
+	pass
+class StrValueTypeTracker(NumericValueTypeTracker):
+	def track(self,value):
+		return super().track(value,len(value))
+	def to_dict(self):
+		return {
+			"count":self.count,
+			"length_sum":self.sum,
+			"min_length":self.min,
+			"max_length":self.max,
+			"mean_length": self.sum / self.count,
+			"unique_values": self.unique_values,
+			}
+	pass
+class ListValueTypeTracker(LenthyValueTypeTracker):
+	_name = "array"
+	pass
+class DictValueTypeTracker(LenthyValueTypeTracker):
+	def track(self,value):
+		super().track(value.keys())
+		pass
+	pass
+
+class AttributeTracker:
+	_value_type_map = {
+		"list": ListValueTypeTracker,
+		"bool": BoolValueTypeTracker,
+		"dict": DictValueTypeTracker,
+		"float": FloatValueTypeTracker,
+		"int": IntValueTypeTracker,
+		"NoneType": NoneValueTypeTracker,
+		"str": StrValueTypeTracker,
+		}
+	def __init__(self,parent,name):
+		self.parent = parent
+		self.name = name
+		self.count = 0
+		self.value_trackers = {}
+		pass
+
+	def reset(self):
+		self.parent = None
+		self.count = 0
+		self.value_trackers = {}
+		pass
+
+	def get_type_tracker(self,type_str):
+		if type_str not in AttributeTracker._value_type_map:
+			raise ValueError(f"Unknown type='{type_str}' for value='{value}'")
+		if type_str not in self.value_trackers:
+			self.value_trackers[type_str] = AttributeTracker._value_type_map[type_str](self,type_str)
+			pass
+		return self.value_trackers[type_str]
+
+	def track(self,value):
+		self.count += 1
+		self.get_type_tracker(type(value).__name__).track(value)
+		return self
+
+	def merge(self,other):
+		self.count += other.count
+		for type_str,type_tracker in other.value_trackers.items():
+			my_tracker = self.get_type_tracker(type_str)
+			my_tracker.merge(type_tracker)
+			pass
+		pass
+
+	def to_dict(self):
+		value_trackers = {}
+		for type_str,type_tracker in self.value_trackers.items():
+			value_trackers[type_tracker.name] = type_tracker.to_dict()
+			pass
+		return {
+			"count":self.count,
+			"value_types":value_trackers,
+			"prevalence": self.count / self.parent.object_count,
+			}
+
+class RedditBase(MyInfo):
 	def __init__(self):
 		super().__init__()
-		self.data = {
-			"input_file_name":"",
-			"record_count":0,
-			"input_file_size":0,
-			"processed_data_size":0,
-			"value_types":{},
-			"attributes":{},
+		self.object_count = 0
+		self.files = []
+		self.attribute_trackers = {}
+		self.bytes_total = 0
+		self.bytes_read = 0
+		self.t0 = datetime.datetime.now()
+		pass
+	def get_attribute_tracker(self,attribute_name):
+		if attribute_name not in self.attribute_trackers:
+			self.attribute_trackers[attribute_name] = AttributeTracker(self,attribute_name)
+			pass
+		return self.attribute_trackers[attribute_name]
+
+	def track_attrib(self,attribute_name,attribute_value):
+		self.get_attribute_tracker(attribute_name).track(attribute_value)
+		return self
+
+	def to_dict(self):
+		attrs = {}
+		for attribute_name,attribute_tracker in self.attribute_trackers.items():
+			attrs[attribute_name] = attribute_tracker.to_dict()
+			pass
+		my_dict = {
+			"attributes":attrs,
+			"object_count": self.object_count,
+			"input_files": self.files,
+			"seconds": ( datetime.datetime.now() - self.t0 ).total_seconds(),
+			"bytes_total": self.bytes_total,
+			"bytes_read": self.bytes_read,
+			"t0": self.t0.strftime("%y-%m-%d %H:%M:%S"),
 			}
-		self.attribs = self.data["attributes"]
-		self.value_types = self.data["value_types"]
-		self.data["record_count"] = 0
-		pass
+		return my_dict
 
-	def track_types(self,type_info,type_str,value,size):
-		if type_str not in type_info:
-			if "int" == type_str or "float" == type_str:
-				type_info[type_str] = {
-					"count":0,
-					"min":value,
-					"max":value,
-					"sum":0,
-				}
-			elif "str" == type_str or "array" == type_str:
-				type_info[type_str] = {
-					"count":0,
-					"min_length":size,
-					"max_length":size,
-					"length_sum":0,
-				}
-			elif "dict" == type_str:
-				type_info[type_str] = {
-					"count":0,
-					"min_keys":size,
-					"max_keys":size,
-					"key_sum":0,
-				}
-			elif "bool" == type_str:
-				type_info[type_str] = {
-					"count":0,
-					"true":0,
-					"false":0,
-				}
-			else:
-				type_info[type_str] = {
-					"count":0,
-					}
-				pass
-			pass
-		type_info = type_info[type_str]
-		type_info["count"] += 1
-		if "int" == type_str or "float" == type_str:
-			if value < type_info["min"]:
-				type_info["min"] = value
-			if value > type_info["max"]:
-				type_info["max"] = value
-			type_info["sum"] += value
-			pass
-		elif "str" == type_str or "array" == type_str:
-			if size < type_info["min_length"]:
-				type_info["min_length"] = size
-			if size > type_info["max_length"]:
-				type_info["max_length"] = size
-			type_info["length_sum"] += size
-			pass
-		elif "dict" == type_str:
-			key_count = len(value.keys())
-			if key_count < type_info["min_keys"]:
-				type_info["min_keys"] = key_count
-			if key_count > type_info["max_keys"]:
-				type_info["max_keys"] = key_count
-			type_info["key_sum"] += key_count
-			pass
-		elif "bool" == type_str:
-			if value:
-				type_info["true"] += 1
-			else:
-				type_info["false"] += 1
-		pass
-
-	def track_attrib(self,key,value,size):
-		if key not in self.attribs:
-			self.attribs[key] = {
-				"count":0,
-				"size":0,
-				"types": {}
-				}
-			pass
-		type_str = type(value).__name__
-		if "NoneType" == type_str:
-			type_str = "null"
-		elif "list" == type_str:
-			type_str = "array"
-			pass
-		self.track_types(self.attribs[key]["types"],type_str,value,size)
-		self.track_types(self.value_types,type_str,value,size)
-		self.attribs[key]["count"] += 1
-		self.attribs[key]["size"] += size
-		pass
-
-	def save_json_meta(self):
+	def save_json_meta(self,last_update=False):
 		print(f"Saving info to '{self.json_file}'")
 		with open(self.json_file,'w') as fh:
+			obj = self.to_dict()
+			if last_update:
+				obj["finished"] = True
+				pass
 			try:
-				json.dump(self.data,fh,indent=2,sort_keys=True)
+				json.dump(obj,fh,indent=2,sort_keys=True)
 			except:
-				print(self.data)
+				print(obj)
 				raise
 			pass
 		return self
 
 	pass
 
-class PushShiftFile(PushShiftBase):
+class RedditFile(RedditBase):
 	"""Class to process one file in the format found on pushshift.io.
 
 	It will create a JSON-based meta file which contains information on
@@ -283,21 +442,20 @@ class PushShiftFile(PushShiftBase):
 		self.parent = parent
 		self.args = parent.args
 		self.filename = filename
+		self.short_filename = os.path.basename(filename)
+		self.files = [self.short_filename]
 		self.full_filename = os.path.realpath(os.path.join(filename))
 		self.base, self.extension = os.path.splitext(self.full_filename)
 		print(f" - Will process '{self.full_filename}'.")
-		self.size = os.path.getsize(self.full_filename)
-		if self.extension in PushShiftFile._ext2tool:
-			self.cmd = PushShiftFile._ext2tool[self.extension]
+		self.file_size = os.path.getsize(self.full_filename)
+		if self.extension in RedditFile._ext2tool:
+			self.cmd = RedditFile._ext2tool[self.extension]
 		else:
 			self.cmd = None
+			self.bytes_total = self.file_size
+			pass
 		self.ext = self.extension
-		self.data["subprocess"] = self.cmd
-		self.data["input_file_name"] = os.path.basename(self.filename)
-		#self.data["file_name"] = self.filename
-		self.data["input_file_size"] = self.size
-		self.json_file = f"{self.base}-meta.json"
-		self.data["output_json_file"] = os.path.basename(self.json_file)
+		self.json_file = f"{self.base}-meta2.json"
 		self.processed = False
 		self.last_save_count = 0
 		pass
@@ -311,23 +469,24 @@ class PushShiftFile(PushShiftBase):
 		meta object.
 
 		"""
-		self.data["processed_data_size"] += len(line)
-		self.data["record_count"] += 1
+		self.bytes_read += len(line)
+		self.object_count += 1
 		self.parent.record_count += 1
-		if 0 == self.data["record_count"] % self.args.min_record_check:
-			self.show_progress()
+		if 0 == self.object_count % self.args.min_record_check:
+			self.update_progress()
 			pass
 		try:
 			self.count_attribs(json.loads(line))
 		except json.decoder.JSONDecodeError as e:
-			print("ERROR on line %s" %(self.data["record_count"]))
+			print("ERROR on line %s" %(self.object_count))
 			print("Line:\n%s" %(line))
-			self.show_progress()
+			self.update_progress()
 			raise e
 		return self
 
 	def process(self):
 		""" Process the whole file, one line at a time."""
+		self.t0 = datetime.datetime.now()
 		# If we need to un-compress the file, do so using the appropriate
 		# command and read in from STDIN.
 		if self.cmd:
@@ -368,30 +527,20 @@ class PushShiftFile(PushShiftBase):
 				err = f"ERROR in JSON format, aborting load for '{self.filename}'."
 				print(err)
 				self.parent.errors(err)
-				return self.attr_info(last_update=True)
+				return self.save_progress(last_update=True)
 			pass
-		return self.attr_info(last_update=True)
+		return self.save_progress(last_update=True)
 
 	def count_attribs(self,obj):
 		for key,value in obj.items():
-			size = len(str(value))
-			self.track_attrib(key,value,size)
-			#self.parent.track_attrib(key,value,size)
+			#size = len(str(value))
+			self.track_attrib(key,value)
+			#self.track_attrib(key,value,size)
 			pass
 		pass
 
-	def pnum(self,num):
-		if num >= 1000000000:
-			return "%3sG" %(num / 1000000000)
-		if num >= 1000000:
-			return "%3sM" %(num / 1000000)
-		if  num >= 1000:
-			return "%3sK" %(num / 1000)
-		return "%3s " %(num)
-
-
-	def show_progress(self):
-		count = self.data["record_count"]
+	def update_progress(self):
+		count = self.object_count
 		args = self.args
 		tn = datetime.datetime.now()
 		secs = (tn - self.parent.tn).total_seconds()
@@ -399,63 +548,45 @@ class PushShiftFile(PushShiftBase):
 			return self
 		if args.save_progress_each and count - self.last_save_count >= args.save_progress_each:
 			self.last_save_count = count
-			self.attr_info()
+			self.save_progress()
 			pass
 		self.parent.tn = tn
 		num = self.pnum(count)
 		if not self.cmd:
-			rate = self.rate(self.data["processed_data_size"],total=self.size,append="bytes")
+			rate = self.rate(self.bytes_read,total=self.file_size,append="bytes")
 		else:
 			rate = self.rate(count,total=args.num_records)
 			pass
-		print(f"{self.psecs()} for {num} records. {rate}")
-		self.parent.show_progress()
+		print(f"{self.short_filename}: {self.psecs()} for {num} records. {rate}")
+		self.parent.update_progress()
 		return self
 
 
-	def attr_info(self, last_update=False):
-		# For some reason, the record_count is one ahead of where it should be when this is called.
-		records = self.data["record_count"] -1
-		for attr,inf in self.attribs.items():
-			if "count" in inf:
-				count = inf["count"]
-				size = inf["size"]
-				#inf["average_size"] = size / count
-				#inf["average_size_per_record"] = size / records
-				inf["prevalence"] = float("%0.8f" %(count / records))
-				if "types" in inf:
-					for type_str,data in inf["types"].items():
-						data["record_p"] = float("%0.8f" %(data["count"] / records))
-						data["attrib_p"] = float("%0.8f" %(data["count"] / count))
-						if "bool" == type_str:
-							data["true_p"] = float("%0.8f" %(data["true"] / data["count"]))
-							data["false_p"] = float("%0.8f" %(data["false"] / data["count"]))
-							pass
-						pass
-					pass
-				pass
-			pass
-		self.save_json_meta()
+	def save_progress(self, last_update=False):
 		if last_update:
-			self.parent.merge_file_meta(self)
+			#self.parent.update_progress()
+			self.save_json_meta(last_update=last_update)
+			self.parent.merge_file_trackers(self)
+		elif self.object_count - self.last_save_count >= self.args.save_progress_each:
+			self.last_save_count = self.object_count
 			pass
 		return self
 
 
-class PushShiftInfo(PushShiftBase):
+class RedditFileGroup(RedditBase):
 
 	def __init__(self,args):
 		super().__init__()
 		self.args = args
 		self.directory = args.directory
+		self.json_file = args.outfile
 		self.tn = datetime.datetime.now()
 		self.file_count = 0
 		self.total_size = 0
 		self.record_count = 0
-		self.files = []
+		self.file_objs = []
 		self.errs = []
-		self.json_file = args.outfile
-		#print(['self.args.files',self.args.files])
+		self.jso_file = args.outfile
 		for fname in self.args.files:
 			if "*" in fname:
 				for fname in glob.glob(fname):
@@ -476,113 +607,30 @@ class PushShiftInfo(PushShiftBase):
 		self.errs.append(msg)
 		return self
 
-
-	def _dict_add_if_not_exists(self,obj,key,value):
-		if key not in obj:
-			obj[key] = value
-			pass
-		return self
-
-
-	def _dict_sum(self,obj,key,value):
-		if key not in obj:
-			obj[key] = 0
-			pass
-		obj[key]+= value
-		return self
-
-
-	def _sum_key(self,from_obj,to_obj,key):
-		if key not in from_obj:
-			return self
-		if key not in to_obj:
-			to_obj[key] = 0
-			pass
-		to_obj[key] += from_obj[key]
-		return self
-
-	def _max_key(self,from_obj,to_obj,key):
-		if key not in from_obj:
-			return self
-		if key not in to_obj:
-			to_obj[key] = from_obj[key]
-			return self
-		if to_obj[key] > from_obj[key]:
-			to_obj[key] = from_obj[key]
-			pass
-		return self
-
-	def _min_key(self,from_obj,to_obj,key):
-		if key not in from_obj:
-			return self
-		if key not in to_obj:
-			to_obj[key] = from_obj[key]
-			return self
-		if to_obj[key] < from_obj[key]:
-			to_obj[key] = from_obj[key]
-			pass
-		return self
-
-	def merge_file_meta(self,psfmeta):
-		# TODO: Merge PushShiftFile meta.
-		self.data["input_file_name"] = []
-		self.data["attributes"] = {}
-		self.data["value_types"] = {}
-		self.data["record_count"] = 0
-		for psfmeta in self.files:
-			self.data["input_file_name"].append(psfmeta.data["input_file_name"])
-			self.data["record_count"] += psfmeta.data["record_count"]
-			for key,value in psfmeta.data["attributes"].items():
-				from_att = psfmeta.data["attributes"][key]
-				self._dict_add_if_not_exists(self.data["attributes"],key,{"count":0,"size":0,"types": {}})
-				to_att = self.data["attributes"][key]
-				self._sum_key(from_att,to_att,"count")
-				self._sum_key(from_att,to_att,"size")
-				from_types = psfmeta.data["attributes"][key]["types"]
-				to_types = self.data["attributes"][key]["types"]
-				to_all_types = self.data["value_types"]
-				for type_str,type_info in from_types.items():
-					self._dict_add_if_not_exists(to_types,type_str,{})
-					self._dict_add_if_not_exists(to_all_types,type_str,{})
-					for key2 in type_info:
-						if key2 in ["count","false","true","length_sum","length_sum","sum"]:
-							self._sum_key(type_info,to_types[type_str],key2)
-							self._sum_key(type_info,to_all_types[type_str],key2)
-						elif "max" in key2:
-							self._max_key(type_info,to_types[type_str],key2)
-							self._max_key(type_info,to_all_types[type_str],key2)
-						elif "min" in key2:
-							self._min_key(type_info,to_types[type_str],key2)
-							self._min_key(type_info,to_all_types[type_str],key2)
-							pass
-						pass
-					pass
-				pass
-			pass
-		for attr, attr_info in self.data["attributes"].items():
-			attr_info["prevalence"] = attr_info["count"] / self.data["record_count"]
-			attr_info["mean_size"] = attr_info["size"] / self.data["record_count"]
-			for type_str, type_info in attr_info["types"].items():
-				# print(f"attr={attr}'")
-				# print(f"attr_info={attr_info}'")
-				# print(f"type_str={type_str}'")
-				# print(f"type_info={type_info}'")
-				type_info["attrib_p"] = type_info["count"] / attr_info["count"]
-				type_info["record_p"] = type_info["count"] / self.data["record_count"]
-				if "bool" == type_str:
-					type_info["true_p"] = type_info["true"] / attr_info["count"]
-					type_info["false_p"] = type_info["false"] / attr_info["count"]
-					pass
+	def merge_file_trackers(self,psfmeta):
+		self.files = []
+		self.object_count = 0
+		self.bytes_total = 0
+		self.bytes_read = 0
+		del(self.attribute_trackers)
+		self.attribute_trackers = {}
+		for file_tracker in self.file_objs:
+			self.object_count += file_tracker.object_count
+			self.bytes_total += file_tracker.bytes_total
+			self.bytes_read += file_tracker.bytes_read
+			self.files += file_tracker.files
+			for attribute_name, tracker in file_tracker.attribute_trackers.items():
+				self.get_attribute_tracker(attribute_name).merge(tracker)
 				pass
 			pass
 		self.save_json_meta()
 		return self
 
 	def prep_file(self,filename):
-		psfile = PushShiftFile(self,filename)
-		self.files.append(psfile)
+		psfile = RedditFile(self,filename)
+		self.file_objs.append(psfile)
 		self.file_count += 1
-		self.total_size += psfile.size
+		self.total_size += psfile.file_size
 		pass
 
 	def prep_dir(self,directory):
@@ -591,8 +639,6 @@ class PushShiftInfo(PushShiftBase):
 			exit()
 			pass
 		print(f"Working on '{directory}' ...")
-		count = 0
-		total_size = 0
 		for (dirpath,dirnames,filenames) in os.walk(directory):
 			for filename in filenames:
 				full_filename = os.path.realpath(os.path.join(dirpath,filename))
@@ -601,52 +647,49 @@ class PushShiftInfo(PushShiftBase):
 		pass
 
 	def process(self):
-		for ofile in self.files:
+		self.t0 = datetime.datetime.now()
+		for ofile in self.file_objs:
 			ofile.process()
 			pass
 		pass
 
-	def show_progress(self):
-		if len(self.files) < 2:
+	def update_progress(self):
+		if len(self.file_objs) < 2:
 			return self
-		total_record_count = 0
-		total_size_processed = 0
-		total_size = 0
-		all_no_cmd = True
-		for psfmeta in self.files:
-			total_record_count += psfmeta.data["record_count"]
-			total_size += psfmeta.data["input_file_size"]
-			total_size_processed += psfmeta.data["processed_data_size"]
+		can_know_input_bytes = True
+		self.bytes_read = 0
+		self.object_count = 0
+		for psfmeta in self.file_objs:
+			self.bytes_read += psfmeta.bytes_read
+			self.object_count += psfmeta.object_count
 			if psfmeta.cmd:
-				all_no_cmd = False
+				can_know_input_bytes = False
 				pass
 			pass
 		args = self.args
 		tn = datetime.datetime.now()
 		secs = (tn - self.tn).total_seconds()
-		num = self.pnum(total_record_count)
-		if all_no_cmd:
-			rate = self.rate(total_size_processed,total=total_size,append="bytes")
+		num = self.pnum(self.object_count)
+		if can_know_input_bytes:
+			rate = self.rate(self.bytes_read,total=self.total_size,append="bytes")
 		else:
-			rate = self.rate(total_record_count,total=args.num_records)
+			rate = self.rate(self.object_count,total=args.num_records)
 			pass
-		# Debug stuff here.
-		print([total_record_count,total_size_processed,total_size,all_no_cmd])
 		print(f"Overall: {self.psecs()} for {num} records. {rate}")
 		return self
 
 
 def main():
-	parser = argparse.ArgumentParser(description='Build info about data from PushShift.io files.')
-	parser.add_argument('files', nargs='?', default=[], action='append', help="Files to process.")
+	parser = argparse.ArgumentParser(description='Build info about data from pushshift.io Reddit files.')
+	parser.add_argument('files', nargs='+', help="Files to process.")
 	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
 	parser.add_argument('--dir', '-D', default=None, dest='directory', help="Process files in this directory.")
-	parser.add_argument('--out', '-o', default=None, dest='outfile', help="Save aggregated JSON meta data to this file.")
-	parser.add_argument('--min-record-check', '-mr', default=5, dest='min_record_check', type=int,help="To speed things up, we only check if --min-save-secs after this many thousand records. Default: 5 (i.e., 5,000)")
-	parser.add_argument('--min-save-secs', '-ms', default=10, dest='min_save_secs', type=int,help="The minimum number of secods which must pass before we save progress. Default: 10")
-	parser.add_argument('--save-progress-each', '-pp', default=50, dest='save_progress_each', type=int,help="Number of --min-record-check for printing what we have so far with attribute information.")
+	parser.add_argument('--min-record-check', '-mr', default=100, dest='min_record_check', type=int,help="To speed things up, we only check if --min-save-secs after this many thousand records. Default: 5 (i.e., 5,000)")
+	parser.add_argument('--min-save-secs', '-ms', default=60, dest='min_save_secs', type=int,help="The minimum number of secods which must pass before we save progress. Default: 10")
 	parser.add_argument('--num-records', '-nr', default=None, dest='num_records', type=int,help="Number of records expected. Used to estimate time remaining.")
+	parser.add_argument('--out', '-o', default=None, dest='outfile', help="Save aggregated JSON meta data to this file.")
 	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
+	parser.add_argument('--save-progress-each', '-sp', default=10, dest='save_progress_each', type=int,help="Number of --min-record-check for printing what we have so far with attribute information.")
 	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
 
 	args = parser.parse_args()
@@ -657,12 +700,12 @@ def main():
 		pass
 	if args.verbosity > 0:
 		print(f"Settings:")
-		print(f" - {me.pnum(args.min_record_check)} lines before save/print.")
+		print(f" - {me.pnum(args.min_record_check)} lines before checking for save or print.")
 		print(f" - {me.psecs(args.min_save_secs)} minimum between progress output.")
 		print(f" - Save/print after {me.pnum(args.save_progress_each)} records if {me.psecs(args.min_save_secs)} have passed.")
 		pass
 	args.timestr = time.strftime("%Y%m%d-%H%M%S")
-	pinfo = PushShiftInfo(args)
+	pinfo = RedditFileGroup(args)
 	if len(pinfo.files) > 1:
 		if args.outfile is None:
 			print("ERROR: --out required if more than one file.")
