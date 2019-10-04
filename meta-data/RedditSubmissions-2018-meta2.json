@@ -1,0 +1,2451 @@
+{
+  "attributes": {
+    "adserver_click_url": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177536
+        }
+      }
+    },
+    "adserver_imp_pixel": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177536
+        }
+      }
+    },
+    "approved_by": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "archived": {
+      "count": 152281465,
+      "prevalence": 0.9990194247644023,
+      "value_types": {
+        "bool": {
+          "count": 152281465,
+          "unique_values": {
+            "false": 152281456,
+            "true": 9
+          }
+        }
+      }
+    },
+    "author": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 1656604282,
+          "max_length": 20,
+          "mean_length": 10.867900810291559,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_cakeday": {
+      "count": 425496,
+      "prevalence": 0.002791401889649237,
+      "value_types": {
+        "bool": {
+          "count": 425496,
+          "unique_values": {
+            "true": 425496
+          }
+        }
+      }
+    },
+    "author_created_utc": {
+      "count": 87254078,
+      "prevalence": 0.5724171277962705,
+      "value_types": {
+        "int": {
+          "count": 76893704,
+          "max": 1546300646,
+          "mean": 1477515960.9868865,
+          "min": 1118030400,
+          "sum": 113611674959401204,
+          "unique_values": "Too Many"
+        },
+        "null": {
+          "count": 10360374
+        }
+      }
+    },
+    "author_flair_background_color": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "null": {
+          "count": 85669505
+        },
+        "str": {
+          "count": 32874244,
+          "length_sum": 5598962,
+          "max_length": 11,
+          "mean_length": 0.170314547765722,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_css_class": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 134026342
+        },
+        "str": {
+          "count": 18404593,
+          "length_sum": 88531123,
+          "max_length": 127,
+          "mean_length": 4.8102733377478115,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_richtext": {
+      "count": 96600983,
+      "prevalence": 0.6337360785722399,
+      "value_types": {
+        "list": {
+          "count": 96600983,
+          "max_length": 21,
+          "mean_length": 0.03942247668432111,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 93233913,
+            "1": 3029196,
+            "2": 283485,
+            "3": 21950,
+            "4": 25321,
+            "5": 3226,
+            "6": 1170,
+            "7": 1530,
+            "8": 416,
+            "9": 490,
+            "10": 102,
+            "11": 70,
+            "12": 28,
+            "13": 35,
+            "14": 30,
+            "15": 15,
+            "21": 6
+          }
+        }
+      }
+    },
+    "author_flair_template_id": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "null": {
+          "count": 113165678
+        },
+        "str": {
+          "count": 5378071,
+          "length_sum": 178880652,
+          "max_length": 36,
+          "mean_length": 33.2611176014597,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 132499402
+        },
+        "str": {
+          "count": 19931533,
+          "length_sum": 221124882,
+          "max_length": 241,
+          "mean_length": 11.09422351005314,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text_color": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "null": {
+          "count": 85669505
+        },
+        "str": {
+          "count": 32874244,
+          "length_sum": 131792425,
+          "max_length": 5,
+          "mean_length": 4.008987248497639,
+          "min_length": 4,
+          "unique_values": {
+            "dark": 32578795,
+            "light": 295449
+          }
+        }
+      }
+    },
+    "author_flair_type": {
+      "count": 96600983,
+      "prevalence": 0.6337360785722399,
+      "value_types": {
+        "str": {
+          "count": 96600983,
+          "length_sum": 399872212,
+          "max_length": 8,
+          "mean_length": 4.139421769652178,
+          "min_length": 4,
+          "unique_values": {
+            "richtext": 3367070,
+            "text": 93233913
+          }
+        }
+      }
+    },
+    "author_fullname": {
+      "count": 87254078,
+      "prevalence": 0.5724171277962705,
+      "value_types": {
+        "null": {
+          "count": 10303927
+        },
+        "str": {
+          "count": 76950151,
+          "length_sum": 732274242,
+          "max_length": 11,
+          "mean_length": 9.516215790141855,
+          "min_length": 7,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_id": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 1082
+        },
+        "str": {
+          "count": 176454,
+          "length_sum": 1759512,
+          "max_length": 11,
+          "mean_length": 9.97150532150022,
+          "min_length": 7,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_patreon_flair": {
+      "count": 45381090,
+      "prevalence": 0.2977157491030282,
+      "value_types": {
+        "bool": {
+          "count": 45381090,
+          "unique_values": {
+            "false": 45379879,
+            "true": 1211
+          }
+        }
+      }
+    },
+    "banned_by": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "brand_safe": {
+      "count": 33887186,
+      "prevalence": 0.22231173744358387,
+      "value_types": {
+        "bool": {
+          "count": 33887186,
+          "unique_values": {
+            "false": 17462817,
+            "true": 16424369
+          }
+        }
+      }
+    },
+    "call_to_action": {
+      "count": 74618,
+      "prevalence": 0.0004895200570671564,
+      "value_types": {
+        "null": {
+          "count": 100
+        },
+        "str": {
+          "count": 74518,
+          "length_sum": 646864,
+          "max_length": 13,
+          "mean_length": 8.680640918972598,
+          "min_length": 7,
+          "unique_values": {
+            "Apply Now": 1749,
+            "Contact Us": 705,
+            "Download": 3205,
+            "Get Showtimes": 301,
+            "Get a Quote": 408,
+            "Install": 3126,
+            "Learn More": 21665,
+            "Play Now": 2295,
+            "See Menu": 70,
+            "Shop Now": 20634,
+            "Sign Up": 7866,
+            "View More": 9742,
+            "Watch Now": 2752
+          }
+        }
+      }
+    },
+    "can_gild": {
+      "count": 130556861,
+      "prevalence": 0.8564984594498486,
+      "value_types": {
+        "bool": {
+          "count": 130556861,
+          "unique_values": {
+            "false": 23941171,
+            "true": 106615690
+          }
+        }
+      }
+    },
+    "can_mod_post": {
+      "count": 94457365,
+      "prevalence": 0.6196731982258064,
+      "value_types": {
+        "bool": {
+          "count": 94457365,
+          "unique_values": {
+            "false": 94457365
+          }
+        }
+      }
+    },
+    "category": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "null": {
+          "count": 118423211
+        },
+        "str": {
+          "count": 120538,
+          "length_sum": 1172848,
+          "max_length": 20,
+          "mean_length": 9.730110006802834,
+          "min_length": 3,
+          "unique_values": {
+            "animals": 5669,
+            "art": 2465,
+            "diy": 885,
+            "diy_and_crafts": 7831,
+            "drawing_and_painting": 16253,
+            "entertainment": 11754,
+            "food": 692,
+            "funny": 362,
+            "gaming": 16324,
+            "memes": 1041,
+            "music": 6483,
+            "photography": 12749,
+            "pics_and_gifs": 1479,
+            "video_games": 1161,
+            "videos": 24490,
+            "writing": 10900
+          }
+        }
+      }
+    },
+    "clicked": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "bool": {
+          "count": 24086384,
+          "unique_values": {
+            "false": 24086384
+          }
+        }
+      }
+    },
+    "collections": {
+      "count": 1256,
+      "prevalence": 8.239797256377126e-06,
+      "value_types": {
+        "list": {
+          "count": 1256,
+          "max_length": 1,
+          "mean_length": 1.0,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 1256
+          }
+        }
+      }
+    },
+    "content_categories": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "list": {
+          "count": 1997918,
+          "max_length": 2,
+          "mean_length": 1.0004029194391362,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 1997113,
+            "2": 805
+          }
+        },
+        "null": {
+          "count": 116545831
+        }
+      }
+    },
+    "contest_mode": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 152350889,
+            "true": 80046
+          }
+        }
+      }
+    },
+    "created": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "float": {
+          "count": 24086384,
+          "max": 1527839999.0,
+          "mean": 1525168396.3520539,
+          "min": 1519891200.0,
+          "sum": 3.673579165919977e+16,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "created_utc": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 1546300799,
+          "mean": 1531279059.2497098,
+          "min": 1514764800,
+          "sum": 233414298747353675,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent": {
+      "count": 3389982,
+      "prevalence": 0.022239462088190956,
+      "value_types": {
+        "str": {
+          "count": 3389982,
+          "length_sum": 30508626,
+          "max_length": 9,
+          "mean_length": 8.99964247597775,
+          "min_length": 5,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent_list": {
+      "count": 3389982,
+      "prevalence": 0.022239462088190956,
+      "value_types": {
+        "list": {
+          "count": 3389982,
+          "max_length": 1,
+          "mean_length": 0.9922386018568831,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 26311,
+            "1": 3363671
+          }
+        }
+      }
+    },
+    "distinguished": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 151675914
+        },
+        "str": {
+          "count": 755021,
+          "length_sum": 6793215,
+          "max_length": 9,
+          "mean_length": 8.99738550318468,
+          "min_length": 5,
+          "unique_values": {
+            "admin": 493,
+            "moderator": 754527,
+            "special": 1
+          }
+        }
+      }
+    },
+    "domain": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 2019413389,
+          "max_length": 282,
+          "mean_length": 13.248054858418339,
+          "min_length": 1,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "domain_override": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 52408
+        },
+        "str": {
+          "count": 125128,
+          "length_sum": 3151281,
+          "max_length": 116,
+          "mean_length": 25.1844591138674,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "downs": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "int": {
+          "count": 24086384,
+          "max": 0,
+          "mean": 0.0,
+          "min": 0,
+          "sum": 0,
+          "unique_values": {
+            "0": 24086384
+          }
+        }
+      }
+    },
+    "edited": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 147136218,
+          "unique_values": {
+            "false": 147136218
+          }
+        },
+        "float": {
+          "count": 3428012,
+          "max": 1537361254.0,
+          "mean": 1525507220.9507782,
+          "min": 1514764966.0,
+          "sum": 5229457059505919.0,
+          "unique_values": "Too Many"
+        },
+        "int": {
+          "count": 1866705,
+          "max": 1548992000,
+          "mean": 1541277116.1254237,
+          "min": 1535760155,
+          "sum": 2877109699056909,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "embed_type": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 176844
+        },
+        "str": {
+          "count": 692,
+          "length_sum": 4152,
+          "max_length": 6,
+          "mean_length": 6.0,
+          "min_length": 6,
+          "unique_values": {
+            "iframe": 147,
+            "scrape": 545
+          }
+        }
+      }
+    },
+    "embed_url": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 176844
+        },
+        "str": {
+          "count": 692,
+          "length_sum": 35988,
+          "max_length": 119,
+          "mean_length": 52.005780346820806,
+          "min_length": 21,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "event_end": {
+      "count": 977,
+      "prevalence": 6.409460126974882e-06,
+      "value_types": {
+        "float": {
+          "count": 977,
+          "max": 253394483400.0,
+          "mean": 1880593061.5148413,
+          "min": 1536237000.0,
+          "sum": 1837339421100.0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "event_is_live": {
+      "count": 977,
+      "prevalence": 6.409460126974882e-06,
+      "value_types": {
+        "bool": {
+          "count": 977,
+          "unique_values": {
+            "false": 977
+          }
+        }
+      }
+    },
+    "event_start": {
+      "count": 977,
+      "prevalence": 6.409460126974882e-06,
+      "value_types": {
+        "float": {
+          "count": 977,
+          "max": 253394469000.0,
+          "mean": 1880572799.4022517,
+          "min": 1536233400.0,
+          "sum": 1837319625016.0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "events": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "list": {
+          "count": 177536,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "eventsOnRender": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "list": {
+          "count": 177536,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "gilded": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 511,
+          "mean": 0.0007393512347083615,
+          "min": 0,
+          "sum": 112700,
+          "unique_values": {
+            "0": 152337431,
+            "1": 84390,
+            "2": 5968,
+            "3": 1604,
+            "4": 626,
+            "5": 335,
+            "6": 182,
+            "7": 99,
+            "8": 63,
+            "9": 35,
+            "10": 36,
+            "11": 26,
+            "12": 20,
+            "13": 20,
+            "14": 14,
+            "15": 12,
+            "16": 5,
+            "17": 11,
+            "18": 6,
+            "19": 4,
+            "20": 4,
+            "21": 6,
+            "22": 3,
+            "24": 1,
+            "25": 1,
+            "28": 2,
+            "29": 1,
+            "30": 3,
+            "31": 3,
+            "32": 2,
+            "34": 1,
+            "36": 1,
+            "37": 1,
+            "40": 2,
+            "41": 1,
+            "44": 1,
+            "45": 1,
+            "48": 1,
+            "51": 1,
+            "56": 1,
+            "61": 1,
+            "63": 1,
+            "64": 2,
+            "69": 1,
+            "75": 1,
+            "76": 1,
+            "106": 1,
+            "113": 1,
+            "479": 1,
+            "511": 1
+          }
+        }
+      }
+    },
+    "gildings": {
+      "count": 55832472,
+      "prevalence": 0.3662804535050579,
+      "value_types": {
+        "dict": {
+          "count": 55832472,
+          "max_length": 3,
+          "mean_length": 3.0,
+          "min_length": 3,
+          "unique_lengths": {
+            "3": 55832472
+          }
+        }
+      }
+    },
+    "hidden": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 152430935
+          }
+        }
+      }
+    },
+    "hide_score": {
+      "count": 96592085,
+      "prevalence": 0.6336777045945431,
+      "value_types": {
+        "bool": {
+          "count": 96592085,
+          "unique_values": {
+            "false": 96409088,
+            "true": 182997
+          }
+        }
+      }
+    },
+    "href_url": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "str": {
+          "count": 177536,
+          "length_sum": 14936013,
+          "max_length": 1410,
+          "mean_length": 84.12948923035329,
+          "min_length": 9,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "id": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 914585610,
+          "max_length": 6,
+          "mean_length": 6.0,
+          "min_length": 6,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "is_blank": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "bool": {
+          "count": 177536,
+          "unique_values": {
+            "false": 177536
+          }
+        }
+      }
+    },
+    "is_crosspostable": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 91931313,
+            "true": 60499622
+          }
+        }
+      }
+    },
+    "is_meta": {
+      "count": 94457365,
+      "prevalence": 0.6196731982258064,
+      "value_types": {
+        "bool": {
+          "count": 94457365,
+          "unique_values": {
+            "false": 94457067,
+            "true": 298
+          }
+        }
+      }
+    },
+    "is_original_content": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "bool": {
+          "count": 118543749,
+          "unique_values": {
+            "false": 118171206,
+            "true": 372543
+          }
+        }
+      }
+    },
+    "is_reddit_media_domain": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 121185841,
+            "true": 31245094
+          }
+        }
+      }
+    },
+    "is_robot_indexable": {
+      "count": 55680494,
+      "prevalence": 0.36528342491633997,
+      "value_types": {
+        "bool": {
+          "count": 55680494,
+          "unique_values": {
+            "false": 19865700,
+            "true": 35814794
+          }
+        }
+      }
+    },
+    "is_self": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 89653446,
+            "true": 62777489
+          }
+        }
+      }
+    },
+    "is_video": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 150635891,
+            "true": 1795044
+          }
+        }
+      }
+    },
+    "likes": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "link_flair_background_color": {
+      "count": 100295381,
+      "prevalence": 0.6579726155980083,
+      "value_types": {
+        "str": {
+          "count": 100295381,
+          "length_sum": 45744510,
+          "max_length": 7,
+          "mean_length": 0.45609787354015835,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_css_class": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 116214447
+        },
+        "str": {
+          "count": 36216488,
+          "length_sum": 211068492,
+          "max_length": 112,
+          "mean_length": 5.827966864153145,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_richtext": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "list": {
+          "count": 118543749,
+          "max_length": 13,
+          "mean_length": 0.11951600248444985,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 104482490,
+            "1": 13964295,
+            "2": 88614,
+            "3": 7647,
+            "4": 411,
+            "5": 105,
+            "6": 124,
+            "7": 35,
+            "8": 18,
+            "9": 4,
+            "12": 5,
+            "13": 1
+          }
+        }
+      }
+    },
+    "link_flair_template_id": {
+      "count": 97560348,
+      "prevalence": 0.6400298469598708,
+      "value_types": {
+        "null": {
+          "count": 79957384
+        },
+        "str": {
+          "count": 17602964,
+          "length_sum": 624972979,
+          "max_length": 36,
+          "mean_length": 35.50384918130833,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_text": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 115724544
+        },
+        "str": {
+          "count": 36706391,
+          "length_sum": 321881750,
+          "max_length": 79,
+          "mean_length": 8.76909282636912,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_text_color": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "str": {
+          "count": 118543749,
+          "length_sum": 479055749,
+          "max_length": 5,
+          "mean_length": 4.0411725885267895,
+          "min_length": 4,
+          "unique_values": {
+            "dark": 113662996,
+            "light": 4880753
+          }
+        }
+      }
+    },
+    "link_flair_type": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "str": {
+          "count": 118543749,
+          "length_sum": 530420032,
+          "max_length": 8,
+          "mean_length": 4.4744664857866105,
+          "min_length": 4,
+          "unique_values": {
+            "richtext": 14061259,
+            "text": 104482490
+          }
+        }
+      }
+    },
+    "locked": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 150620358,
+            "true": 1810577
+          }
+        }
+      }
+    },
+    "media": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 15317545,
+          "max_length": 4,
+          "mean_length": 1.9417310672173642,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 1744993,
+            "2": 13146324,
+            "4": 426228
+          }
+        },
+        "null": {
+          "count": 137113390
+        }
+      }
+    },
+    "media_embed": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 152430935,
+          "max_length": 5,
+          "mean_length": 0.37073071814458136,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 138858383,
+            "4": 11351930,
+            "5": 2220622
+          }
+        }
+      }
+    },
+    "media_metadata": {
+      "count": 935615,
+      "prevalence": 0.0061379601194468825,
+      "value_types": {
+        "dict": {
+          "count": 20516,
+          "max_length": 20,
+          "mean_length": 1.4793332033534803,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 17015,
+            "2": 1878,
+            "3": 586,
+            "4": 333,
+            "5": 183,
+            "6": 109,
+            "7": 70,
+            "8": 47,
+            "9": 55,
+            "10": 53,
+            "11": 19,
+            "12": 18,
+            "13": 17,
+            "14": 12,
+            "15": 20,
+            "16": 14,
+            "17": 9,
+            "18": 7,
+            "19": 8,
+            "20": 63
+          }
+        },
+        "null": {
+          "count": 915099
+        }
+      }
+    },
+    "media_only": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "bool": {
+          "count": 118543749,
+          "unique_values": {
+            "false": 118542955,
+            "true": 794
+          }
+        }
+      }
+    },
+    "mobile_ad_url": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "str": {
+          "count": 177536,
+          "length_sum": 13103650,
+          "max_length": 85,
+          "mean_length": 73.80841068853641,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "mod_reports": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "list": {
+          "count": 24086384,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 24086384
+          }
+        }
+      }
+    },
+    "name": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "str": {
+          "count": 24086384,
+          "length_sum": 216777456,
+          "max_length": 9,
+          "mean_length": 9.0,
+          "min_length": 9,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "no_follow": {
+      "count": 141124092,
+      "prevalence": 0.9258231736228607,
+      "value_types": {
+        "bool": {
+          "count": 141124092,
+          "unique_values": {
+            "false": 56634071,
+            "true": 84490021
+          }
+        }
+      }
+    },
+    "num_comments": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 517003,
+          "mean": 7.72894678498167,
+          "min": 0,
+          "sum": 1178130585,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "num_crossposts": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 2257,
+          "mean": 0.02188843098023377,
+          "min": 0,
+          "sum": 3336474,
+          "unique_values": {
+            "0": 150401597,
+            "1": 1536118,
+            "2": 268072,
+            "3": 92851,
+            "4": 44255,
+            "5": 25023,
+            "6": 15751,
+            "7": 10395,
+            "8": 7368,
+            "9": 5388,
+            "10": 4191,
+            "11": 3189,
+            "12": 2555,
+            "13": 2110,
+            "14": 1704,
+            "15": 1355,
+            "16": 1146,
+            "17": 1066,
+            "18": 811,
+            "19": 713,
+            "20": 625,
+            "21": 552,
+            "22": 508,
+            "23": 395,
+            "24": 331,
+            "25": 318,
+            "26": 258,
+            "27": 235,
+            "28": 215,
+            "29": 193,
+            "30": 151,
+            "31": 141,
+            "32": 129,
+            "33": 107,
+            "34": 103,
+            "35": 80,
+            "36": 73,
+            "37": 57,
+            "38": 60,
+            "39": 57,
+            "40": 48,
+            "41": 44,
+            "42": 56,
+            "43": 35,
+            "44": 29,
+            "45": 21,
+            "46": 39,
+            "47": 34,
+            "48": 16,
+            "49": 26,
+            "50": 11,
+            "51": 16,
+            "52": 17,
+            "53": 17,
+            "54": 18,
+            "55": 13,
+            "56": 11,
+            "57": 7,
+            "58": 10,
+            "59": 9,
+            "60": 9,
+            "61": 5,
+            "62": 12,
+            "63": 3,
+            "64": 3,
+            "65": 9,
+            "66": 7,
+            "67": 7,
+            "68": 6,
+            "69": 3,
+            "70": 2,
+            "71": 5,
+            "72": 1,
+            "73": 5,
+            "74": 3,
+            "75": 3,
+            "76": 3,
+            "77": 2,
+            "78": 2,
+            "79": 2,
+            "80": 2,
+            "81": 6,
+            "82": 6,
+            "83": 5,
+            "84": 6,
+            "85": 2,
+            "86": 1,
+            "87": 1,
+            "88": 2,
+            "90": 3,
+            "92": 2,
+            "93": 1,
+            "94": 1,
+            "95": 2,
+            "96": 3,
+            "97": 2,
+            "98": 1,
+            "99": 1,
+            "100": 1,
+            "101": 1,
+            "102": 1,
+            "103": 3,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 2,
+            "109": 1,
+            "112": 1,
+            "113": 1,
+            "116": 1,
+            "117": 1,
+            "118": 2,
+            "119": 2,
+            "120": 4,
+            "121": 2,
+            "122": 1,
+            "128": 1,
+            "131": 3,
+            "132": 1,
+            "133": 1,
+            "134": 1,
+            "136": 1,
+            "138": 1,
+            "139": 1,
+            "141": 1,
+            "142": 2,
+            "146": 4,
+            "147": 7,
+            "149": 3,
+            "156": 1,
+            "160": 1,
+            "174": 2,
+            "176": 1,
+            "181": 1,
+            "210": 1,
+            "212": 1,
+            "215": 1,
+            "224": 1,
+            "248": 1,
+            "256": 1,
+            "279": 1,
+            "505": 1,
+            "556": 1,
+            "744": 1,
+            "781": 1,
+            "1121": 1,
+            "2257": 1
+          }
+        }
+      }
+    },
+    "num_reports": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "original_link": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 27,
+          "max_length": 9,
+          "mean_length": 9.0,
+          "min_length": 9,
+          "unique_values": {
+            "t3_7p8olf": 1,
+            "t3_7p8px9": 1,
+            "t3_7qvdr1": 1
+          }
+        }
+      }
+    },
+    "outbound_link": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "dict": {
+          "count": 177536,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "over_18": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 138036899,
+            "true": 14394036
+          }
+        }
+      }
+    },
+    "parent_whitelist_status": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 58777252
+        },
+        "str": {
+          "count": 93653683,
+          "length_sum": 774483009,
+          "max_length": 16,
+          "mean_length": 8.269648178171487,
+          "min_length": 6,
+          "unique_values": {
+            "all_ads": 72313569,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 703804,
+            "promo_adult_nsfw": 8977648,
+            "promo_all": 429573,
+            "promo_specified": 2335287
+          }
+        }
+      }
+    },
+    "permalink": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 10260551992,
+          "max_length": 94,
+          "mean_length": 67.31279311512456,
+          "min_length": 19,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "pinned": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 152430935
+          }
+        }
+      }
+    },
+    "post_categories": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "post_hint": {
+      "count": 60864445,
+      "prevalence": 0.39929194818623925,
+      "value_types": {
+        "str": {
+          "count": 60864445,
+          "length_sum": 316096041,
+          "max_length": 12,
+          "mean_length": 5.193443249174456,
+          "min_length": 4,
+          "unique_values": {
+            "hosted:video": 1120949,
+            "image": 22294816,
+            "link": 24692875,
+            "rich:video": 6892138,
+            "self": 5840642,
+            "video": 23025
+          }
+        }
+      }
+    },
+    "preview": {
+      "count": 60864445,
+      "prevalence": 0.39929194818623925,
+      "value_types": {
+        "dict": {
+          "count": 60864445,
+          "max_length": 3,
+          "mean_length": 2.0195641149771433,
+          "min_length": 2,
+          "unique_lengths": {
+            "2": 59673686,
+            "3": 1190759
+          }
+        }
+      }
+    },
+    "previous_visits": {
+      "count": 418291,
+      "prevalence": 0.0027441345813433472,
+      "value_types": {
+        "list": {
+          "count": 418291,
+          "max_length": 10,
+          "mean_length": 0.032417623137958984,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 411095,
+            "1": 4556,
+            "2": 1260,
+            "3": 565,
+            "4": 304,
+            "5": 138,
+            "6": 97,
+            "7": 68,
+            "8": 53,
+            "9": 149,
+            "10": 6
+          }
+        }
+      }
+    },
+    "priority_id": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177536
+        }
+      }
+    },
+    "promoted": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "bool": {
+          "count": 177536,
+          "unique_values": {
+            "true": 177536
+          }
+        }
+      }
+    },
+    "promoted_by": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177536
+        }
+      }
+    },
+    "promoted_display_name": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 33,
+          "max_length": 11,
+          "mean_length": 11.0,
+          "min_length": 11,
+          "unique_values": {
+            "FX_Official": 3
+          }
+        }
+      }
+    },
+    "promoted_url": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 393,
+          "max_length": 175,
+          "mean_length": 131.0,
+          "min_length": 43,
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackclk/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=": 2,
+            "https://www.youtube.com/watch?v=gr9L5h_Rq7I": 1
+          }
+        }
+      }
+    },
+    "pwls": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "int": {
+          "count": 73099752,
+          "max": 6,
+          "mean": 5.002814578632223,
+          "min": 0,
+          "sum": 365704505,
+          "unique_values": {
+            "0": 2480637,
+            "1": 7229190,
+            "3": 7181755,
+            "5": 318970,
+            "6": 55889200
+          }
+        },
+        "null": {
+          "count": 45443997
+        }
+      }
+    },
+    "quarantine": {
+      "count": 94457365,
+      "prevalence": 0.6196731982258064,
+      "value_types": {
+        "bool": {
+          "count": 94457365,
+          "unique_values": {
+            "false": 94158388,
+            "true": 298977
+          }
+        }
+      }
+    },
+    "removal_reason": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "null": {
+          "count": 118534242
+        },
+        "str": {
+          "count": 9507,
+          "length_sum": 47535,
+          "max_length": 5,
+          "mean_length": 5.0,
+          "min_length": 5,
+          "unique_values": {
+            "legal": 9507
+          }
+        }
+      }
+    },
+    "report_reasons": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 24086384
+        }
+      }
+    },
+    "retrieved_on": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 1549037479,
+          "mean": 1535039980.24186,
+          "min": 1518480156,
+          "sum": 233987579450648246,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "rte_mode": {
+      "count": 24086385,
+      "prevalence": 0.15801507089095793,
+      "value_types": {
+        "str": {
+          "count": 24086385,
+          "length_sum": 192691080,
+          "max_length": 8,
+          "mean_length": 8.0,
+          "min_length": 8,
+          "unique_values": {
+            "markdown": 23436795,
+            "richtext": 649590
+          }
+        }
+      }
+    },
+    "saved": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "bool": {
+          "count": 24086384,
+          "unique_values": {
+            "false": 24086384
+          }
+        }
+      }
+    },
+    "score": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 256841,
+          "mean": 68.73221224418783,
+          "min": 0,
+          "sum": 10476915377,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "secure_media": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 15304191,
+          "max_length": 4,
+          "mean_length": 1.941680288752277,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 1744992,
+            "2": 13132971,
+            "4": 426228
+          }
+        },
+        "null": {
+          "count": 137126744
+        }
+      }
+    },
+    "secure_media_embed": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 152430935,
+          "max_length": 5,
+          "mean_length": 0.4447653292948705,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 138871736,
+            "5": 13559199
+          }
+        }
+      }
+    },
+    "selftext": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 26012850044,
+          "max_length": 256813,
+          "mean_length": 170.6533522476917,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "selftext_html": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "null": {
+          "count": 13031744
+        },
+        "str": {
+          "count": 11054640,
+          "length_sum": 6172758513,
+          "max_length": 366087,
+          "mean_length": 558.3862082347322,
+          "min_length": 75,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "send_replies": {
+      "count": 141124092,
+      "prevalence": 0.9258231736228607,
+      "value_types": {
+        "bool": {
+          "count": 141124092,
+          "unique_values": {
+            "false": 24794745,
+            "true": 116329347
+          }
+        }
+      }
+    },
+    "show_media": {
+      "count": 125024,
+      "prevalence": 0.000820200965112495,
+      "value_types": {
+        "bool": {
+          "count": 125024,
+          "unique_values": {
+            "true": 125024
+          }
+        }
+      }
+    },
+    "spoiler": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430825,
+          "unique_values": {
+            "false": 151534458,
+            "true": 896367
+          }
+        },
+        "null": {
+          "count": 110
+        }
+      }
+    },
+    "stickied": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "unique_values": {
+            "false": 152308445,
+            "true": 122490
+          }
+        }
+      }
+    },
+    "subreddit": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 1643470487,
+          "max_length": 24,
+          "mean_length": 10.781738542770206,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_id": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 1219181289,
+          "max_length": 8,
+          "mean_length": 7.998253694369847,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_name_prefixed": {
+      "count": 94457365,
+      "prevalence": 0.6196731982258064,
+      "value_types": {
+        "str": {
+          "count": 94457365,
+          "length_sum": 1199533635,
+          "max_length": 26,
+          "mean_length": 12.699207044363348,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_subscribers": {
+      "count": 130556861,
+      "prevalence": 0.8564984594498486,
+      "value_types": {
+        "int": {
+          "count": 130556861,
+          "max": 34353258,
+          "mean": 1493483.891019929,
+          "min": -2,
+          "sum": 194984568765628,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_type": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 951970045,
+          "max_length": 15,
+          "mean_length": 6.245254908395071,
+          "min_length": 4,
+          "unique_values": {
+            "archived": 8,
+            "gold_restricted": 280,
+            "private": 1503,
+            "public": 132790346,
+            "restricted": 12776332,
+            "user": 6862466
+          }
+        }
+      }
+    },
+    "suggested_sort": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 130488705
+        },
+        "str": {
+          "count": 21942230,
+          "length_sum": 115028625,
+          "max_length": 13,
+          "mean_length": 5.242339771299453,
+          "min_length": 2,
+          "unique_values": {
+            "confidence": 7930157,
+            "controversial": 62166,
+            "live": 311,
+            "new": 3816794,
+            "old": 189048,
+            "qa": 6951199,
+            "random": 6688,
+            "top": 2985867
+          }
+        }
+      }
+    },
+    "third_party_trackers": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "list": {
+          "count": 173840,
+          "max_length": 8,
+          "mean_length": 0.04614012885411873,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 168412,
+            "1": 3583,
+            "2": 1330,
+            "3": 343,
+            "4": 138,
+            "5": 25,
+            "8": 9
+          }
+        },
+        "null": {
+          "count": 3696
+        }
+      }
+    },
+    "third_party_tracking": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 481,
+          "max_length": 197,
+          "mean_length": 160.33333333333334,
+          "min_length": 142,
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackimp/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;ord={{timestamp}}": 2,
+            "https://secure-gl.imrworldwide.com/cgi-bin/m?ci=ade2015-ca&amp;at=view&amp;rt=banner&amp;st=image&amp;ca=Reddit_BEEV_Lite_CONTROL&amp;cr=site_served&amp;pc=SS110&amp;ce=reddit&amp;rnd={{timestamp}}": 1
+          }
+        }
+      }
+    },
+    "third_party_tracking_2": {
+      "count": 177536,
+      "prevalence": 0.0011646979663281604,
+      "value_types": {
+        "null": {
+          "count": 177536
+        }
+      }
+    },
+    "thumbnail": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 280
+        },
+        "str": {
+          "count": 152430655,
+          "length_sum": 4319446736,
+          "max_length": 80,
+          "mean_length": 28.337126387077454,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "thumbnail_height": {
+      "count": 152430655,
+      "prevalence": 0.9999981631025224,
+      "value_types": {
+        "int": {
+          "count": 84469282,
+          "max": 140,
+          "mean": 108.72594372235815,
+          "min": 1,
+          "sum": 9184002401,
+          "unique_values": {
+            "1": 27293,
+            "2": 786,
+            "3": 1481,
+            "4": 1375,
+            "5": 2474,
+            "6": 2217,
+            "7": 2893,
+            "8": 3314,
+            "9": 3827,
+            "10": 5923,
+            "11": 5585,
+            "12": 5676,
+            "13": 6734,
+            "14": 11108,
+            "15": 7980,
+            "16": 19078,
+            "17": 12304,
+            "18": 12251,
+            "19": 12138,
+            "20": 12653,
+            "21": 13262,
+            "22": 14782,
+            "23": 16519,
+            "24": 17841,
+            "25": 19966,
+            "26": 17331,
+            "27": 15880,
+            "28": 22527,
+            "29": 23764,
+            "30": 19161,
+            "31": 21511,
+            "32": 27176,
+            "33": 22118,
+            "34": 23526,
+            "35": 34824,
+            "36": 29552,
+            "37": 27609,
+            "38": 28689,
+            "39": 72099,
+            "40": 32946,
+            "41": 31569,
+            "42": 35439,
+            "43": 36807,
+            "44": 38460,
+            "45": 41237,
+            "46": 79776,
+            "47": 43824,
+            "48": 46661,
+            "49": 48197,
+            "50": 51862,
+            "51": 54955,
+            "52": 77297,
+            "53": 53526,
+            "54": 52774,
+            "55": 47702,
+            "56": 104163,
+            "57": 77586,
+            "58": 123406,
+            "59": 120145,
+            "60": 106318,
+            "61": 70402,
+            "62": 79979,
+            "63": 78803,
+            "64": 134974,
+            "65": 209370,
+            "66": 105026,
+            "67": 113911,
+            "68": 244567,
+            "69": 129510,
+            "70": 1386087,
+            "71": 157824,
+            "72": 241321,
+            "73": 4487690,
+            "74": 227490,
+            "75": 348257,
+            "76": 231285,
+            "77": 399595,
+            "78": 11343466,
+            "79": 517123,
+            "80": 372673,
+            "81": 217428,
+            "82": 196466,
+            "83": 250794,
+            "84": 443359,
+            "85": 201700,
+            "86": 366166,
+            "87": 727586,
+            "88": 301457,
+            "89": 248696,
+            "90": 280614,
+            "91": 347447,
+            "92": 496585,
+            "93": 3892929,
+            "94": 307433,
+            "95": 247717,
+            "96": 263748,
+            "97": 224802,
+            "98": 311787,
+            "99": 256037,
+            "100": 274005,
+            "101": 214007,
+            "102": 214898,
+            "103": 220330,
+            "104": 629024,
+            "105": 14185163,
+            "106": 192646,
+            "107": 165633,
+            "108": 179004,
+            "109": 154802,
+            "110": 143608,
+            "111": 142436,
+            "112": 239616,
+            "113": 129693,
+            "114": 132253,
+            "115": 117552,
+            "116": 179070,
+            "117": 135684,
+            "118": 111479,
+            "119": 116032,
+            "120": 133219,
+            "121": 111297,
+            "122": 117104,
+            "123": 108008,
+            "124": 117511,
+            "125": 114309,
+            "126": 120166,
+            "127": 110409,
+            "128": 109424,
+            "129": 114521,
+            "130": 116781,
+            "131": 128090,
+            "132": 123115,
+            "133": 137724,
+            "134": 144143,
+            "135": 160246,
+            "136": 181242,
+            "137": 221947,
+            "138": 277016,
+            "139": 343462,
+            "140": 31210632
+          }
+        },
+        "null": {
+          "count": 67961373
+        }
+      }
+    },
+    "thumbnail_width": {
+      "count": 152430655,
+      "prevalence": 0.9999981631025224,
+      "value_types": {
+        "int": {
+          "count": 84469282,
+          "max": 140,
+          "mean": 139.2823406501786,
+          "min": 1,
+          "sum": 11765079310,
+          "unique_values": {
+            "1": 26535,
+            "2": 83,
+            "3": 51,
+            "4": 643,
+            "5": 771,
+            "6": 29,
+            "7": 23,
+            "8": 41,
+            "9": 25,
+            "10": 1324,
+            "11": 51,
+            "12": 47,
+            "13": 14,
+            "14": 101,
+            "15": 119,
+            "16": 10871,
+            "17": 91,
+            "18": 58,
+            "19": 67,
+            "20": 622,
+            "21": 67,
+            "22": 60,
+            "23": 99,
+            "24": 421,
+            "25": 1428,
+            "26": 99,
+            "27": 54,
+            "28": 221,
+            "29": 72,
+            "30": 312,
+            "31": 129,
+            "32": 3859,
+            "33": 179,
+            "34": 260,
+            "35": 218,
+            "36": 769,
+            "37": 137,
+            "38": 250,
+            "39": 150,
+            "40": 2511,
+            "41": 163,
+            "42": 269,
+            "43": 169,
+            "44": 378,
+            "45": 641,
+            "46": 356,
+            "47": 153,
+            "48": 2995,
+            "49": 175,
+            "50": 8291,
+            "51": 199,
+            "52": 306,
+            "53": 386,
+            "54": 353,
+            "55": 442,
+            "56": 1844,
+            "57": 324,
+            "58": 362,
+            "59": 379,
+            "60": 2458,
+            "61": 381,
+            "62": 2682,
+            "63": 460,
+            "64": 10261,
+            "65": 1220,
+            "66": 895,
+            "67": 751,
+            "68": 611,
+            "69": 769,
+            "70": 723437,
+            "140": 83654311
+          }
+        },
+        "null": {
+          "count": 67961373
+        }
+      }
+    },
+    "title": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 8433569115,
+          "max_length": 1717,
+          "mean_length": 55.3271494070413,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "ups": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "int": {
+          "count": 24086384,
+          "max": 194525,
+          "mean": 66.19994840238368,
+          "min": 0,
+          "sum": 1594517378,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "url": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 10876473190,
+          "max_length": 131294,
+          "mean_length": 71.35345059715077,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "user_reports": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "list": {
+          "count": 24086384,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 24086384
+          }
+        }
+      }
+    },
+    "visited": {
+      "count": 24086384,
+      "prevalence": 0.1580150643306098,
+      "value_types": {
+        "bool": {
+          "count": 24086384,
+          "unique_values": {
+            "false": 24086384
+          }
+        }
+      }
+    },
+    "whitelist_status": {
+      "count": 152430935,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 58777252
+        },
+        "str": {
+          "count": 93653683,
+          "length_sum": 781731813,
+          "max_length": 16,
+          "mean_length": 8.347048273584713,
+          "min_length": 6,
+          "unique_values": {
+            "all_ads": 71578451,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 587050,
+            "promo_adult_nsfw": 9836516,
+            "promo_all": 422577,
+            "promo_specified": 2335287
+          }
+        }
+      }
+    },
+    "wls": {
+      "count": 118543749,
+      "prevalence": 0.7776882625564161,
+      "value_types": {
+        "int": {
+          "count": 73099752,
+          "max": 6,
+          "mean": 4.986693347468538,
+          "min": 0,
+          "sum": 364526047,
+          "unique_values": {
+            "0": 2480637,
+            "1": 7208460,
+            "3": 7610421,
+            "5": 315080,
+            "6": 55485154
+          }
+        },
+        "null": {
+          "count": 45443997
+        }
+      }
+    }
+  },
+  "bytes_read": 435797529590,
+  "bytes_total": 435797529590,
+  "input_files": [
+    "RedditSubmissions-2018-01.txt",
+    "RedditSubmissions-2018-02.txt",
+    "RedditSubmissions-2018-03.txt",
+    "RedditSubmissions-2018-04.txt",
+    "RedditSubmissions-2018-05.txt",
+    "RedditSubmissions-2018-06.txt",
+    "RedditSubmissions-2018-07.txt",
+    "RedditSubmissions-2018-08.txt",
+    "RedditSubmissions-2018-09.txt",
+    "RedditSubmissions-2018-10.txt",
+    "RedditSubmissions-2018-11.txt",
+    "RedditSubmissions-2018-12.txt"
+  ],
+  "object_count": 152430935,
+  "seconds": 31561.017353,
+  "t0": "19-10-02 12:25:12"
+}

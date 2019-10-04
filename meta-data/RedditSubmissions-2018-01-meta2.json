@@ -1,0 +1,1474 @@
+{
+  "attributes": {
+    "adserver_click_url": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10270
+        }
+      }
+    },
+    "adserver_imp_pixel": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10270
+        }
+      }
+    },
+    "archived": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11306843
+          }
+        }
+      }
+    },
+    "author": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 123363341,
+          "max_length": 20,
+          "mean_length": 10.910502692926752,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_cakeday": {
+      "count": 33113,
+      "prevalence": 0.0029285805065127376,
+      "value_types": {
+        "bool": {
+          "count": 33113,
+          "unique_values": {
+            "true": 33113
+          }
+        }
+      }
+    },
+    "author_flair_css_class": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 9974282
+        },
+        "str": {
+          "count": 1332561,
+          "length_sum": 9202011,
+          "max_length": 127,
+          "mean_length": 6.905508265662886,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 9807282
+        },
+        "str": {
+          "count": 1499561,
+          "length_sum": 22688090,
+          "max_length": 81,
+          "mean_length": 15.129821327708576,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_id": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 90
+        },
+        "str": {
+          "count": 10180,
+          "length_sum": 95328,
+          "max_length": 10,
+          "mean_length": 9.364243614931238,
+          "min_length": 7,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "brand_safe": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 5695343,
+            "true": 5611500
+          }
+        }
+      }
+    },
+    "contest_mode": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11299692,
+            "true": 7151
+          }
+        }
+      }
+    },
+    "created_utc": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 1517443199,
+          "mean": 1516126182.0595965,
+          "min": 1514764800,
+          "sum": 17142600708737275,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent": {
+      "count": 118605,
+      "prevalence": 0.010489665417659022,
+      "value_types": {
+        "str": {
+          "count": 118605,
+          "length_sum": 1067379,
+          "max_length": 9,
+          "mean_length": 8.999443531048438,
+          "min_length": 8,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent_list": {
+      "count": 118605,
+      "prevalence": 0.010489665417659022,
+      "value_types": {
+        "list": {
+          "count": 118605,
+          "max_length": 1,
+          "mean_length": 0.9910374773407529,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 1063,
+            "1": 117542
+          }
+        }
+      }
+    },
+    "distinguished": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 11260823
+        },
+        "str": {
+          "count": 46020,
+          "length_sum": 414100,
+          "max_length": 9,
+          "mean_length": 8.99826162538027,
+          "min_length": 5,
+          "unique_values": {
+            "admin": 20,
+            "moderator": 46000
+          }
+        }
+      }
+    },
+    "domain": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 151851144,
+          "max_length": 90,
+          "mean_length": 13.430021448073525,
+          "min_length": 1,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "domain_override": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10123
+        },
+        "str": {
+          "count": 147,
+          "length_sum": 2443,
+          "max_length": 32,
+          "mean_length": 16.61904761904762,
+          "min_length": 9,
+          "unique_values": {
+            "amazon.com": 1,
+            "fxnetworks.com": 3,
+            "hackreactor.com": 9,
+            "http://www.cwtv.com/": 6,
+            "http://www.cwtv.com/shows": 1,
+            "http://www.cwtv.com/shows/": 2,
+            "i.redd.it": 16,
+            "madeby.google.com": 4,
+            "mailchimp.com": 1,
+            "store.google.com": 4,
+            "tntdrama.com": 2,
+            "turbotax.intuit.com": 6,
+            "ww.apartmentlist.com": 1,
+            "www.adopt.nycacc": 1,
+            "www.amazon.com": 2,
+            "www.apartmentlist.com": 11,
+            "www.bandainamcoent.com": 11,
+            "www.biltmore.com": 2,
+            "www.boscia.com": 1,
+            "www.callofduty.com": 8,
+            "www.cc.com": 11,
+            "www.fxnetworks.com": 1,
+            "www.hackreactor.com": 1,
+            "www.ibm.com": 1,
+            "www.intuit.quickbooks.com": 1,
+            "www.lexus.com": 2,
+            "www.mailchimp.com": 6,
+            "www.playstation.com": 4,
+            "www.psvue.com": 2,
+            "www.psvue.com/sports": 4,
+            "www.razerzone.com/gaming-laptops": 1,
+            "www.reddit.com/r/IAmA/": 1,
+            "www.thealienist.com": 4,
+            "www.ticketmaster.com": 5,
+            "www.viceland.com": 5,
+            "www.wwenetwork.com": 4,
+            "www.youtube.com": 2
+          }
+        }
+      }
+    },
+    "edited": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 10875495,
+          "unique_values": {
+            "false": 10875495
+          }
+        },
+        "float": {
+          "count": 431348,
+          "max": 1518606437.0,
+          "mean": 1516187366.0873308,
+          "min": 1514764966.0,
+          "sum": 654004387987038.0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "embed_type": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10205
+        },
+        "str": {
+          "count": 65,
+          "length_sum": 390,
+          "max_length": 6,
+          "mean_length": 6.0,
+          "min_length": 6,
+          "unique_values": {
+            "iframe": 11,
+            "scrape": 54
+          }
+        }
+      }
+    },
+    "embed_url": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10205
+        },
+        "str": {
+          "count": 65,
+          "length_sum": 2646,
+          "max_length": 64,
+          "mean_length": 40.707692307692305,
+          "min_length": 25,
+          "unique_values": {
+            "https://d2edvleactrkkb.cloudfront.net/": 1,
+            "https://d2edvleactrkkb.cloudfront.net/banner/index.html": 1,
+            "https://i.redd.it/7gi3xyu7kx701.png": 1,
+            "https://i.redd.it/b139man46j501.jpg": 2,
+            "https://i.redd.it/wkadq75sfx701.jpg": 3,
+            "https://mixer.com/embed/player/218704": 1,
+            "https://player.wbur.org/endlessthread/2018/02/02/and-its-good": 1,
+            "https://www.tntdrama.com/videos/embed/ten-alienist-live": 2,
+            "https://www.youtube.com/embed/caZDomR9Uo4": 2,
+            "https://www.youtube.com/watch?time_continue=2&amp;v=v_NRSoVncJQ": 2,
+            "https://www.youtube.com/watch?time_continue=90&amp;v=J6-8DQALGt4": 1,
+            "https://www.youtube.com/watch?v=4vmIBieypFw": 1,
+            "https://www.youtube.com/watch?v=66201-o0A9w&amp;feature=youtu.be": 1,
+            "https://www.youtube.com/watch?v=8Dj99Rc_854": 4,
+            "https://www.youtube.com/watch?v=EBvnmUHuLcg": 1,
+            "https://www.youtube.com/watch?v=Gyk1S57KwXc": 1,
+            "https://www.youtube.com/watch?v=I64XhxLUMRI": 1,
+            "https://www.youtube.com/watch?v=J6-8DQALGt4": 1,
+            "https://www.youtube.com/watch?v=JW5zPgjmpMA": 1,
+            "https://www.youtube.com/watch?v=NOJmPUN68Gk": 1,
+            "https://www.youtube.com/watch?v=UGh1YpDiQ50": 6,
+            "https://www.youtube.com/watch?v=Vg5zRxLErnw": 5,
+            "https://www.youtube.com/watch?v=eh7lp9umG2I": 1,
+            "https://www.youtube.com/watch?v=i6U4xP4H2rY": 3,
+            "https://www.youtube.com/watch?v=rcfONa2eTW4&amp;feature=youtu.be": 1,
+            "https://www.youtube.com/watch?v=xCdlIcw4S3k": 1,
+            "https://www.youtube.com/watch?v=yw-KVaXZxGs": 3,
+            "https://youtu.be/2un-5DMGd6A": 3,
+            "https://youtu.be/7VuhrY_sUqE": 2,
+            "https://youtu.be/Bhnx_17FwwI": 1,
+            "https://youtu.be/I5X-etEatm4": 1,
+            "https://youtu.be/ODdjINW9Drg": 1,
+            "https://youtu.be/UVMGFqt0": 1,
+            "https://youtu.be/VoREcFjJCCc": 1,
+            "https://youtu.be/iNhx9imvkY0": 1,
+            "https://youtu.be/ltzy5vRmN8Q": 1,
+            "https://youtu.be/mCM2yJj1j4k": 1,
+            "https://youtu.be/ppEcfjLGpu4": 1,
+            "https://youtu.be/xlVS5o0Czfk": 1,
+            "https://youtu.be/yKbkEOlKj-w": 1
+          }
+        }
+      }
+    },
+    "events": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "list": {
+          "count": 10270,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 10270
+          }
+        }
+      }
+    },
+    "eventsOnRender": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "list": {
+          "count": 10270,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 10270
+          }
+        }
+      }
+    },
+    "gilded": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 113,
+          "mean": 0.0005149978645675013,
+          "min": 0,
+          "sum": 5823,
+          "unique_values": {
+            "0": 11301908,
+            "1": 4485,
+            "2": 304,
+            "3": 73,
+            "4": 36,
+            "5": 14,
+            "6": 10,
+            "7": 7,
+            "8": 1,
+            "13": 1,
+            "15": 1,
+            "17": 1,
+            "22": 1,
+            "113": 1
+          }
+        }
+      }
+    },
+    "hidden": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11306843
+          }
+        }
+      }
+    },
+    "hide_score": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11305650,
+            "true": 1193
+          }
+        }
+      }
+    },
+    "href_url": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "str": {
+          "count": 10270,
+          "length_sum": 672341,
+          "max_length": 442,
+          "mean_length": 65.46650438169425,
+          "min_length": 11,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "id": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 67841058,
+          "max_length": 6,
+          "mean_length": 6.0,
+          "min_length": 6,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "is_blank": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "bool": {
+          "count": 10270,
+          "unique_values": {
+            "false": 10270
+          }
+        }
+      }
+    },
+    "is_crosspostable": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11306843
+          }
+        }
+      }
+    },
+    "is_reddit_media_domain": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 9661586,
+            "true": 1645257
+          }
+        }
+      }
+    },
+    "is_self": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 6547268,
+            "true": 4759575
+          }
+        }
+      }
+    },
+    "is_video": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11219898,
+            "true": 86945
+          }
+        }
+      }
+    },
+    "link_flair_css_class": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 8535497
+        },
+        "str": {
+          "count": 2771346,
+          "length_sum": 16380683,
+          "max_length": 73,
+          "mean_length": 5.910731824896638,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_text": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 8484681
+        },
+        "str": {
+          "count": 2822162,
+          "length_sum": 24165155,
+          "max_length": 68,
+          "mean_length": 8.562639210647724,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "locked": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11205444,
+            "true": 101399
+          }
+        }
+      }
+    },
+    "media": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 1271459,
+          "max_length": 2,
+          "mean_length": 1.933981355277677,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 83940,
+            "2": 1187519
+          }
+        },
+        "null": {
+          "count": 10035384
+        }
+      }
+    },
+    "media_embed": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 11306843,
+          "max_length": 4,
+          "mean_length": 0.42010630199782556,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 10119324,
+            "4": 1187519
+          }
+        }
+      }
+    },
+    "media_metadata": {
+      "count": 72,
+      "prevalence": 6.36782521876354e-06,
+      "value_types": {
+        "null": {
+          "count": 72
+        }
+      }
+    },
+    "mobile_ad_url": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "str": {
+          "count": 10270,
+          "length_sum": 675920,
+          "max_length": 80,
+          "mean_length": 65.81499513145083,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "num_comments": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 70990,
+          "mean": 7.7001442400854065,
+          "min": 0,
+          "sum": 87064322,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "num_crossposts": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 139,
+          "mean": 0.010283153308133845,
+          "min": 0,
+          "sum": 116270,
+          "unique_values": {
+            "0": 11223112,
+            "1": 66952,
+            "2": 10568,
+            "3": 3227,
+            "4": 1251,
+            "5": 647,
+            "6": 362,
+            "7": 208,
+            "8": 146,
+            "9": 81,
+            "10": 70,
+            "11": 36,
+            "12": 26,
+            "13": 32,
+            "14": 12,
+            "15": 15,
+            "16": 10,
+            "17": 5,
+            "18": 10,
+            "19": 8,
+            "20": 3,
+            "21": 9,
+            "22": 4,
+            "23": 3,
+            "24": 6,
+            "25": 2,
+            "26": 6,
+            "27": 4,
+            "28": 5,
+            "29": 4,
+            "30": 4,
+            "31": 1,
+            "32": 1,
+            "33": 2,
+            "34": 2,
+            "35": 1,
+            "39": 2,
+            "41": 1,
+            "48": 1,
+            "52": 1,
+            "54": 1,
+            "59": 1,
+            "139": 1
+          }
+        }
+      }
+    },
+    "original_link": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10267
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 27,
+          "max_length": 9,
+          "mean_length": 9.0,
+          "min_length": 9,
+          "unique_values": {
+            "t3_7p8olf": 1,
+            "t3_7p8px9": 1,
+            "t3_7qvdr1": 1
+          }
+        }
+      }
+    },
+    "outbound_link": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "dict": {
+          "count": 10270,
+          "max_length": 0,
+          "mean_length": 0.0,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 10270
+          }
+        }
+      }
+    },
+    "over_18": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 10264149,
+            "true": 1042694
+          }
+        }
+      }
+    },
+    "parent_whitelist_status": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 4332274
+        },
+        "str": {
+          "count": 6974569,
+          "length_sum": 58920290,
+          "max_length": 16,
+          "mean_length": 8.447875417104626,
+          "min_length": 6,
+          "unique_values": {
+            "all_ads": 5611500,
+            "house_only": 65148,
+            "no_ads": 36846,
+            "promo_adult": 140218,
+            "promo_adult_nsfw": 619281,
+            "promo_all": 34550,
+            "promo_specified": 467026
+          }
+        }
+      }
+    },
+    "permalink": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 768507300,
+          "max_length": 94,
+          "mean_length": 67.96833563533163,
+          "min_length": 21,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "pinned": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11306843
+          }
+        }
+      }
+    },
+    "post_hint": {
+      "count": 4687883,
+      "prevalence": 0.4146058276390678,
+      "value_types": {
+        "str": {
+          "count": 4687883,
+          "length_sum": 24220564,
+          "max_length": 12,
+          "mean_length": 5.1666315050951575,
+          "min_length": 4,
+          "unique_values": {
+            "hosted:video": 53365,
+            "image": 1358067,
+            "link": 2145133,
+            "rich:video": 613418,
+            "self": 514363,
+            "video": 3537
+          }
+        }
+      }
+    },
+    "preview": {
+      "count": 4687883,
+      "prevalence": 0.4146058276390678,
+      "value_types": {
+        "dict": {
+          "count": 4687883,
+          "max_length": 3,
+          "mean_length": 2.0012090745438824,
+          "min_length": 2,
+          "unique_lengths": {
+            "2": 4682215,
+            "3": 5668
+          }
+        }
+      }
+    },
+    "priority_id": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10270
+        }
+      }
+    },
+    "promoted": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "bool": {
+          "count": 10270,
+          "unique_values": {
+            "true": 10270
+          }
+        }
+      }
+    },
+    "promoted_by": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10270
+        }
+      }
+    },
+    "promoted_display_name": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10267
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 33,
+          "max_length": 11,
+          "mean_length": 11.0,
+          "min_length": 11,
+          "unique_values": {
+            "FX_Official": 3
+          }
+        }
+      }
+    },
+    "promoted_url": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10267
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 393,
+          "max_length": 175,
+          "mean_length": 131.0,
+          "min_length": 43,
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackclk/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=": 2,
+            "https://www.youtube.com/watch?v=gr9L5h_Rq7I": 1
+          }
+        }
+      }
+    },
+    "retrieved_on": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 1518610001,
+          "mean": 1518545128.1267009,
+          "min": 1518480156,
+          "sum": 17169951352143492,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "score": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "int": {
+          "count": 11306843,
+          "max": 201193,
+          "mean": 57.44472537559777,
+          "min": 0,
+          "sum": 649518491,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "secure_media": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 1258105,
+          "max_length": 2,
+          "mean_length": 1.933281403380481,
+          "min_length": 1,
+          "unique_lengths": {
+            "1": 83939,
+            "2": 1174166
+          }
+        },
+        "null": {
+          "count": 10048738
+        }
+      }
+    },
+    "secure_media_embed": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "dict": {
+          "count": 11306843,
+          "max_length": 5,
+          "mean_length": 0.5192280462371327,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 10132677,
+            "5": 1174166
+          }
+        }
+      }
+    },
+    "selftext": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 1906769823,
+          "max_length": 41003,
+          "mean_length": 168.63856896217627,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "spoiler": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11249669,
+            "true": 57174
+          }
+        }
+      }
+    },
+    "stickied": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "bool": {
+          "count": 11306843,
+          "unique_values": {
+            "false": 11297206,
+            "true": 9637
+          }
+        }
+      }
+    },
+    "subreddit": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 120950294,
+          "max_length": 24,
+          "mean_length": 10.69708794930645,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_id": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 90433455,
+          "max_length": 8,
+          "mean_length": 7.9981171579016355,
+          "min_length": 6,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_type": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 71689933,
+          "max_length": 15,
+          "mean_length": 6.340402267900951,
+          "min_length": 4,
+          "unique_values": {
+            "gold_restricted": 31,
+            "private": 166,
+            "public": 9898083,
+            "restricted": 1110926,
+            "user": 297637
+          }
+        }
+      }
+    },
+    "suggested_sort": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 9874316
+        },
+        "str": {
+          "count": 1432527,
+          "length_sum": 8691187,
+          "max_length": 13,
+          "mean_length": 6.0670318953848685,
+          "min_length": 2,
+          "unique_values": {
+            "confidence": 665759,
+            "controversial": 3866,
+            "new": 278647,
+            "old": 15646,
+            "qa": 305733,
+            "random": 122,
+            "top": 162754
+          }
+        }
+      }
+    },
+    "third_party_trackers": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "list": {
+          "count": 10070,
+          "max_length": 2,
+          "mean_length": 0.017576961271102285,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 9944,
+            "1": 75,
+            "2": 51
+          }
+        },
+        "null": {
+          "count": 200
+        }
+      }
+    },
+    "third_party_tracking": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10267
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 481,
+          "max_length": 197,
+          "mean_length": 160.33333333333334,
+          "min_length": 142,
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackimp/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;ord={{timestamp}}": 2,
+            "https://secure-gl.imrworldwide.com/cgi-bin/m?ci=ade2015-ca&amp;at=view&amp;rt=banner&amp;st=image&amp;ca=Reddit_BEEV_Lite_CONTROL&amp;cr=site_served&amp;pc=SS110&amp;ce=reddit&amp;rnd={{timestamp}}": 1
+          }
+        }
+      }
+    },
+    "third_party_tracking_2": {
+      "count": 10270,
+      "prevalence": 0.0009082995138430771,
+      "value_types": {
+        "null": {
+          "count": 10270
+        }
+      }
+    },
+    "thumbnail": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 134
+        },
+        "str": {
+          "count": 11306709,
+          "length_sum": 319794665,
+          "max_length": 80,
+          "mean_length": 28.283620370878918,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "thumbnail_height": {
+      "count": 11306709,
+      "prevalence": 0.9999881487697317,
+      "value_types": {
+        "int": {
+          "count": 6217926,
+          "max": 140,
+          "mean": 106.91723108316181,
+          "min": 1,
+          "sum": 664803431,
+          "unique_values": {
+            "1": 3561,
+            "2": 58,
+            "3": 87,
+            "4": 97,
+            "5": 193,
+            "6": 166,
+            "7": 264,
+            "8": 275,
+            "9": 340,
+            "10": 756,
+            "11": 416,
+            "12": 396,
+            "13": 449,
+            "14": 588,
+            "15": 586,
+            "16": 1759,
+            "17": 1080,
+            "18": 1930,
+            "19": 1021,
+            "20": 970,
+            "21": 1112,
+            "22": 1034,
+            "23": 963,
+            "24": 1312,
+            "25": 1371,
+            "26": 1196,
+            "27": 1097,
+            "28": 1607,
+            "29": 1675,
+            "30": 1462,
+            "31": 1658,
+            "32": 2215,
+            "33": 1623,
+            "34": 1589,
+            "35": 2678,
+            "36": 2319,
+            "37": 1909,
+            "38": 2441,
+            "39": 4630,
+            "40": 2521,
+            "41": 2181,
+            "42": 2541,
+            "43": 2604,
+            "44": 2645,
+            "45": 2936,
+            "46": 5798,
+            "47": 3132,
+            "48": 3426,
+            "49": 3535,
+            "50": 3938,
+            "51": 3854,
+            "52": 5907,
+            "53": 4032,
+            "54": 3639,
+            "55": 3226,
+            "56": 10816,
+            "57": 5741,
+            "58": 8039,
+            "59": 8815,
+            "60": 8428,
+            "61": 5485,
+            "62": 6354,
+            "63": 5603,
+            "64": 8493,
+            "65": 14324,
+            "66": 7331,
+            "67": 8023,
+            "68": 11047,
+            "69": 9392,
+            "70": 107977,
+            "71": 11369,
+            "72": 17495,
+            "73": 349886,
+            "74": 16699,
+            "75": 22245,
+            "76": 16562,
+            "77": 29126,
+            "78": 870147,
+            "79": 45493,
+            "80": 28171,
+            "81": 16139,
+            "82": 14458,
+            "83": 18704,
+            "84": 36097,
+            "85": 16481,
+            "86": 27013,
+            "87": 58410,
+            "88": 23088,
+            "89": 17582,
+            "90": 19984,
+            "91": 23991,
+            "92": 38771,
+            "93": 304274,
+            "94": 24512,
+            "95": 19155,
+            "96": 22000,
+            "97": 17078,
+            "98": 22587,
+            "99": 18991,
+            "100": 18463,
+            "101": 16040,
+            "102": 15742,
+            "103": 15606,
+            "104": 46209,
+            "105": 1227323,
+            "106": 14300,
+            "107": 11609,
+            "108": 11833,
+            "109": 13789,
+            "110": 9708,
+            "111": 9574,
+            "112": 17528,
+            "113": 7861,
+            "114": 8387,
+            "115": 7649,
+            "116": 14645,
+            "117": 7954,
+            "118": 6719,
+            "119": 7204,
+            "120": 7677,
+            "121": 6754,
+            "122": 6927,
+            "123": 6312,
+            "124": 6661,
+            "125": 6459,
+            "126": 7183,
+            "127": 6228,
+            "128": 6214,
+            "129": 6980,
+            "130": 6255,
+            "131": 7538,
+            "132": 6813,
+            "133": 8117,
+            "134": 8107,
+            "135": 9099,
+            "136": 9708,
+            "137": 11605,
+            "138": 14880,
+            "139": 21452,
+            "140": 2081640
+          }
+        },
+        "null": {
+          "count": 5088783
+        }
+      }
+    },
+    "thumbnail_width": {
+      "count": 11306709,
+      "prevalence": 0.9999881487697317,
+      "value_types": {
+        "int": {
+          "count": 6217926,
+          "max": 140,
+          "mean": 139.1603584539282,
+          "min": 1,
+          "sum": 865288811,
+          "unique_values": {
+            "1": 3453,
+            "3": 3,
+            "4": 8,
+            "5": 3,
+            "7": 2,
+            "8": 2,
+            "9": 5,
+            "10": 318,
+            "11": 1,
+            "12": 1,
+            "13": 1,
+            "14": 5,
+            "15": 13,
+            "16": 1027,
+            "17": 3,
+            "18": 6,
+            "19": 8,
+            "20": 54,
+            "21": 2,
+            "22": 3,
+            "23": 7,
+            "24": 60,
+            "25": 64,
+            "26": 5,
+            "28": 14,
+            "29": 3,
+            "30": 27,
+            "31": 16,
+            "32": 303,
+            "33": 14,
+            "34": 33,
+            "35": 20,
+            "36": 31,
+            "37": 8,
+            "38": 20,
+            "39": 10,
+            "40": 259,
+            "41": 28,
+            "42": 28,
+            "43": 16,
+            "44": 25,
+            "45": 43,
+            "46": 17,
+            "47": 7,
+            "48": 217,
+            "49": 10,
+            "50": 774,
+            "51": 12,
+            "52": 31,
+            "53": 16,
+            "54": 24,
+            "55": 23,
+            "56": 287,
+            "57": 39,
+            "58": 65,
+            "59": 31,
+            "60": 228,
+            "61": 29,
+            "62": 258,
+            "63": 46,
+            "64": 1346,
+            "65": 111,
+            "66": 70,
+            "67": 58,
+            "68": 38,
+            "69": 46,
+            "70": 59160,
+            "140": 6149031
+          }
+        },
+        "null": {
+          "count": 5088783
+        }
+      }
+    },
+    "title": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 634273234,
+          "max_length": 375,
+          "mean_length": 56.096404097943164,
+          "min_length": 1,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "url": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "str": {
+          "count": 11306843,
+          "length_sum": 828243217,
+          "max_length": 8513,
+          "mean_length": 73.25150061781171,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "whitelist_status": {
+      "count": 11306843,
+      "prevalence": 1.0,
+      "value_types": {
+        "null": {
+          "count": 4332274
+        },
+        "str": {
+          "count": 6974569,
+          "length_sum": 59689375,
+          "max_length": 16,
+          "mean_length": 8.558145313351979,
+          "min_length": 6,
+          "unique_values": {
+            "all_ads": 5536611,
+            "house_only": 65148,
+            "no_ads": 36846,
+            "promo_adult": 122100,
+            "promo_adult_nsfw": 712930,
+            "promo_all": 33908,
+            "promo_specified": 467026
+          }
+        }
+      }
+    }
+  },
+  "bytes_read": 25278067691,
+  "bytes_total": 25278067691,
+  "finished": true,
+  "input_files": [
+    "RedditSubmissions-2018-01.txt"
+  ],
+  "object_count": 11306843,
+  "seconds": 1461.165395,
+  "t0": "19-10-02 12:25:12"
+}

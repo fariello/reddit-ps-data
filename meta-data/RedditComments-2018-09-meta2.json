@@ -1,0 +1,632 @@
+{
+  "attributes": {
+    "archived": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 59608397,
+            "true": 41310
+          }
+        }
+      }
+    },
+    "author": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 658898497,
+          "max_length": 20,
+          "mean_length": 11.046131324668535,
+          "min_length": 3,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_cakeday": {
+      "count": 189003,
+      "prevalence": 0.003168548620556533,
+      "value_types": {
+        "bool": {
+          "count": 189003,
+          "unique_values": {
+            "true": 189003
+          }
+        }
+      }
+    },
+    "author_created_utc": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 55383821,
+          "max": 1537273704,
+          "mean": 1447089444.5884163,
+          "min": 1118030400,
+          "sum": 80145342770074273,
+          "unique_values": "Too Many"
+        },
+        "null": {
+          "count": 4265886
+        }
+      }
+    },
+    "author_flair_background_color": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 40557484
+        },
+        "str": {
+          "count": 19092223,
+          "length_sum": 5411149,
+          "max_length": 11,
+          "mean_length": 0.28342163193882663,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_css_class": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 45455694
+        },
+        "str": {
+          "count": 14194013,
+          "length_sum": 124022179,
+          "max_length": 95,
+          "mean_length": 8.737640229017686,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_richtext": {
+      "count": 55394914,
+      "prevalence": 0.9286703297860234,
+      "value_types": {
+        "list": {
+          "count": 55394914,
+          "max_length": 21,
+          "mean_length": 0.14434863099525708,
+          "min_length": 0,
+          "unique_lengths": {
+            "0": 49357443,
+            "1": 4962103,
+            "2": 629022,
+            "3": 22093,
+            "4": 417753,
+            "5": 3592,
+            "6": 1030,
+            "7": 935,
+            "8": 689,
+            "9": 171,
+            "10": 12,
+            "11": 25,
+            "12": 34,
+            "13": 1,
+            "14": 5,
+            "15": 1,
+            "21": 5
+          }
+        }
+      }
+    },
+    "author_flair_template_id": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 52335226
+        },
+        "str": {
+          "count": 7314481,
+          "length_sum": 254670048,
+          "max_length": 36,
+          "mean_length": 34.81724103186542,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 45187086
+        },
+        "str": {
+          "count": 14462621,
+          "length_sum": 211129656,
+          "max_length": 105,
+          "mean_length": 14.598298330572307,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text_color": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 40557484
+        },
+        "str": {
+          "count": 19092223,
+          "length_sum": 76733197,
+          "max_length": 5,
+          "mean_length": 4.019081329607348,
+          "min_length": 4,
+          "unique_values": {
+            "dark": 18727918,
+            "light": 364305
+          }
+        }
+      }
+    },
+    "author_flair_type": {
+      "count": 55394914,
+      "prevalence": 0.9286703297860234,
+      "value_types": {
+        "str": {
+          "count": 55394914,
+          "length_sum": 245729540,
+          "max_length": 8,
+          "mean_length": 4.435958506948851,
+          "min_length": 4,
+          "unique_values": {
+            "richtext": 6037471,
+            "text": 49357443
+          }
+        }
+      }
+    },
+    "author_fullname": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 4254793
+        },
+        "str": {
+          "count": 55394914,
+          "length_sum": 499854728,
+          "max_length": 11,
+          "mean_length": 9.023476920642931,
+          "min_length": 7,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_patreon_flair": {
+      "count": 396369,
+      "prevalence": 0.006644944515067869,
+      "value_types": {
+        "bool": {
+          "count": 396369,
+          "unique_values": {
+            "false": 396369
+          }
+        }
+      }
+    },
+    "body": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 9546465166,
+          "max_length": 12967,
+          "mean_length": 160.04211329990272,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "can_gild": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 1120451,
+            "true": 58529256
+          }
+        }
+      }
+    },
+    "can_mod_post": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 59649707
+          }
+        }
+      }
+    },
+    "collapsed": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 56553885,
+            "true": 3095822
+          }
+        }
+      }
+    },
+    "collapsed_reason": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 58775924
+        },
+        "str": {
+          "count": 873783,
+          "length_sum": 25339707,
+          "max_length": 29,
+          "mean_length": 29.0,
+          "min_length": 29,
+          "unique_values": {
+            "comment score below threshold": 873783
+          }
+        }
+      }
+    },
+    "controversiality": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 59649707,
+          "max": 1,
+          "mean": 0.022595618114268357,
+          "min": 0,
+          "sum": 1347822,
+          "unique_values": {
+            "0": 58301885,
+            "1": 1347822
+          }
+        }
+      }
+    },
+    "created_utc": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 59649707,
+          "max": 1537273770,
+          "mean": 1536523861.913146,
+          "min": 1535760000,
+          "sum": 91653198161627625,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "distinguished": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 58795622
+        },
+        "str": {
+          "count": 854085,
+          "length_sum": 7685769,
+          "max_length": 9,
+          "mean_length": 8.998833839723213,
+          "min_length": 5,
+          "unique_values": {
+            "admin": 249,
+            "moderator": 853836
+          }
+        }
+      }
+    },
+    "edited": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 57892862,
+          "unique_values": {
+            "false": 57892862
+          }
+        },
+        "int": {
+          "count": 1756845,
+          "max": 1539689360,
+          "mean": 1536645531.6345854,
+          "min": 1535760122,
+          "sum": 2699648019024563,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "gilded": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 59649707,
+          "max": 27,
+          "mean": 0.00010249840791338674,
+          "min": 0,
+          "sum": 6114,
+          "unique_values": {
+            "0": 59643913,
+            "1": 5615,
+            "2": 125,
+            "3": 30,
+            "4": 8,
+            "5": 8,
+            "6": 4,
+            "9": 1,
+            "10": 1,
+            "17": 1,
+            "27": 1
+          }
+        }
+      }
+    },
+    "gildings": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "dict": {
+          "count": 59649707,
+          "max_length": 3,
+          "mean_length": 3.0,
+          "min_length": 3,
+          "unique_lengths": {
+            "3": 59649707
+          }
+        }
+      }
+    },
+    "id": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 417547949,
+          "max_length": 7,
+          "mean_length": 7.0,
+          "min_length": 7,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "is_submitter": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 54401858,
+            "true": 5247849
+          }
+        }
+      }
+    },
+    "link_id": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 536847296,
+          "max_length": 9,
+          "mean_length": 8.999998876775706,
+          "min_length": 8,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "no_follow": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 13933953,
+            "true": 45715754
+          }
+        }
+      }
+    },
+    "parent_id": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 571321737,
+          "max_length": 10,
+          "mean_length": 9.577947080276521,
+          "min_length": 8,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "permalink": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 4559032471,
+          "max_length": 101,
+          "mean_length": 76.43008994159854,
+          "min_length": 32,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "removal_reason": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "null": {
+          "count": 59649647
+        },
+        "str": {
+          "count": 60,
+          "length_sum": 300,
+          "max_length": 5,
+          "mean_length": 5.0,
+          "min_length": 5,
+          "unique_values": {
+            "legal": 60
+          }
+        }
+      }
+    },
+    "retrieved_on": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 59649707,
+          "max": 1539730471,
+          "mean": 1538872949.1249647,
+          "min": 1538538086,
+          "sum": 91793320525530053,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "score": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "int": {
+          "count": 59649707,
+          "max": 65693,
+          "mean": 8.980945824260294,
+          "min": -4717,
+          "sum": 535710787,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "send_replies": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 773403,
+            "true": 58876304
+          }
+        }
+      }
+    },
+    "stickied": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "bool": {
+          "count": 59649707,
+          "unique_values": {
+            "false": 59381747,
+            "true": 267960
+          }
+        }
+      }
+    },
+    "subreddit": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 589550363,
+          "max_length": 24,
+          "mean_length": 9.883541640866735,
+          "min_length": 2,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_id": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 477017393,
+          "max_length": 8,
+          "mean_length": 7.996977973420725,
+          "min_length": 6,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_name_prefixed": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 708690447,
+          "max_length": 26,
+          "mean_length": 11.880870546438727,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_type": {
+      "count": 59649707,
+      "prevalence": 0.9999999832354586,
+      "value_types": {
+        "str": {
+          "count": 59649707,
+          "length_sum": 359777996,
+          "max_length": 10,
+          "mean_length": 6.031513214306317,
+          "min_length": 4,
+          "unique_values": {
+            "public": 59060271,
+            "restricted": 509771,
+            "user": 79665
+          }
+        }
+      }
+    }
+  },
+  "bytes_read": 67234610926,
+  "bytes_total": 67234611100,
+  "finished": true,
+  "input_files": [
+    "RedditComments-2018-09.txt"
+  ],
+  "object_count": 59649708,
+  "seconds": 5871.038667,
+  "t0": "19-10-03 15:58:34"
+}

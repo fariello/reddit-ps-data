@@ -1,0 +1,4598 @@
+{
+  "attributes": {
+    "adserver_click_url": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177536,
+          "submissions_count": 177536
+        }
+      }
+    },
+    "adserver_imp_pixel": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177536,
+          "submissions_count": 177536
+        }
+      }
+    },
+    "approved_by": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "comments_count": 34739723,
+          "count": 58826107,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "archived": {
+      "comments_count": 920224957,
+      "count": 1072506422,
+      "found_in": "both",
+      "prevalence": 0.7961169615464255,
+      "submissions_count": 152281465,
+      "value_types": {
+        "bool": {
+          "comments_count": 920224957,
+          "comments_unique_values": {
+            "false": 919523218,
+            "true": 701739
+          },
+          "count": 1072506422,
+          "submissions_count": 152281465,
+          "submissions_unique_values": {
+            "false": 152281456,
+            "true": 9
+          },
+          "unique_values": {
+            "false": 1071804674,
+            "true": 701748
+          }
+        }
+      }
+    },
+    "author": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 13148655908,
+          "comments_max_length": 20,
+          "comments_min_length": 2,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "length_sum": 14805260190,
+          "max_length": 20,
+          "min_length": 2,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 1656604282,
+          "submissions_max_length": 20,
+          "submissions_min_length": 2,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_cakeday": {
+      "comments_count": 3890471,
+      "count": 4315967,
+      "found_in": "both",
+      "prevalence": 0.003203723971896778,
+      "submissions_count": 425496,
+      "value_types": {
+        "bool": {
+          "comments_count": 3890471,
+          "comments_unique_values": {
+            "true": 3890471
+          },
+          "count": 4315967,
+          "submissions_count": 425496,
+          "submissions_unique_values": {
+            "true": 425496
+          },
+          "unique_values": {
+            "true": 4315967
+          }
+        }
+      }
+    },
+    "author_created_utc": {
+      "comments_count": 605770938,
+      "count": 693025016,
+      "found_in": "both",
+      "prevalence": 0.5144295257316258,
+      "submissions_count": 87254078,
+      "value_types": {
+        "int": {
+          "comments_count": 566128529,
+          "comments_max": 1546300721,
+          "comments_min": 1118030400,
+          "comments_sum": 820803628958751641,
+          "comments_unique_values": "Too Many",
+          "count": 643022233,
+          "max": 1546300721,
+          "min": 1118030400,
+          "submissions_count": 76893704,
+          "submissions_max": 1546300646,
+          "submissions_min": 1118030400,
+          "submissions_sum": 113611674959401204,
+          "submissions_unique_values": "Too Many",
+          "sum": 934415303918152845,
+          "unique_values": "Too Many"
+        },
+        "null": {
+          "comments_count": 39642409,
+          "count": 50002783,
+          "submissions_count": 10360374
+        }
+      }
+    },
+    "author_flair_background_color": {
+      "comments_count": 722203629,
+      "count": 840747378,
+      "found_in": "both",
+      "prevalence": 0.6240832075889278,
+      "submissions_count": 118543749,
+      "value_types": {
+        "null": {
+          "comments_count": 491121229,
+          "count": 576790734,
+          "submissions_count": 85669505
+        },
+        "str": {
+          "comments_count": 231082400,
+          "comments_length_sum": 80419100,
+          "comments_max_length": 11,
+          "comments_min_length": 0,
+          "comments_unique_values": "Too Many",
+          "count": 263956644,
+          "length_sum": 86018062,
+          "max_length": 11,
+          "min_length": 0,
+          "submissions_count": 32874244,
+          "submissions_length_sum": 5598962,
+          "submissions_max_length": 11,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_css_class": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "comments_count": 893976145,
+          "count": 1028002487,
+          "submissions_count": 134026342
+        },
+        "str": {
+          "comments_count": 300764847,
+          "comments_length_sum": 2472679790,
+          "comments_max_length": 127,
+          "comments_min_length": 0,
+          "comments_unique_values": "Too Many",
+          "count": 319169440,
+          "length_sum": 2561210913,
+          "max_length": 127,
+          "min_length": 0,
+          "submissions_count": 18404593,
+          "submissions_length_sum": 88531123,
+          "submissions_max_length": 127,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_richtext": {
+      "comments_count": 661579158,
+      "count": 758180141,
+      "found_in": "both",
+      "prevalence": 0.5627938982707187,
+      "submissions_count": 96600983,
+      "value_types": {
+        "list": {
+          "comments_count": 661579158,
+          "comments_max_length": 31,
+          "comments_min_length": 0,
+          "comments_unique_lengths": {
+            "0": 585894509,
+            "1": 65678714,
+            "10": 1816,
+            "11": 1397,
+            "12": 247,
+            "13": 339,
+            "14": 89,
+            "15": 241,
+            "17": 2,
+            "2": 7097107,
+            "21": 13,
+            "3": 274664,
+            "31": 4,
+            "4": 2531241,
+            "5": 48739,
+            "6": 16952,
+            "7": 21167,
+            "8": 6119,
+            "9": 5798
+          },
+          "count": 758180141,
+          "max_length": 31,
+          "min_length": 0,
+          "submissions_count": 96600983,
+          "submissions_max_length": 21,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 93233913,
+            "1": 3029196,
+            "10": 102,
+            "11": 70,
+            "12": 28,
+            "13": 35,
+            "14": 30,
+            "15": 15,
+            "2": 283485,
+            "21": 6,
+            "3": 21950,
+            "4": 25321,
+            "5": 3226,
+            "6": 1170,
+            "7": 1530,
+            "8": 416,
+            "9": 490
+          },
+          "unique_lengths": {
+            "0": 679128422,
+            "1": 68707910,
+            "10": 1918,
+            "11": 1467,
+            "12": 275,
+            "13": 374,
+            "14": 119,
+            "15": 256,
+            "17": 2,
+            "2": 7380592,
+            "21": 19,
+            "3": 296614,
+            "31": 4,
+            "4": 2556562,
+            "5": 51965,
+            "6": 18122,
+            "7": 22697,
+            "8": 6535,
+            "9": 6288
+          }
+        }
+      }
+    },
+    "author_flair_template_id": {
+      "comments_count": 970936505,
+      "count": 1089480254,
+      "found_in": "both",
+      "prevalence": 0.8087165649431496,
+      "submissions_count": 118543749,
+      "value_types": {
+        "null": {
+          "comments_count": 854716337,
+          "count": 967882015,
+          "submissions_count": 113165678
+        },
+        "str": {
+          "comments_count": 116220168,
+          "comments_length_sum": 4069814160,
+          "comments_max_length": 36,
+          "comments_min_length": 0,
+          "comments_unique_values": "Too Many",
+          "count": 121598239,
+          "length_sum": 4248694812,
+          "max_length": 36,
+          "min_length": 0,
+          "submissions_count": 5378071,
+          "submissions_length_sum": 178880652,
+          "submissions_max_length": 36,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "comments_count": 888475147,
+          "count": 1020974549,
+          "submissions_count": 132499402
+        },
+        "str": {
+          "comments_count": 306265845,
+          "comments_length_sum": 4298451311,
+          "comments_max_length": 241,
+          "comments_min_length": 0,
+          "comments_unique_values": "Too Many",
+          "count": 326197378,
+          "length_sum": 4519576193,
+          "max_length": 241,
+          "min_length": 0,
+          "submissions_count": 19931533,
+          "submissions_length_sum": 221124882,
+          "submissions_max_length": 241,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_flair_text_color": {
+      "comments_count": 722203629,
+      "count": 840747378,
+      "found_in": "both",
+      "prevalence": 0.6240832075889278,
+      "submissions_count": 118543749,
+      "value_types": {
+        "null": {
+          "comments_count": 491121229,
+          "count": 576790734,
+          "submissions_count": 85669505
+        },
+        "str": {
+          "comments_count": 231082400,
+          "comments_length_sum": 929148682,
+          "comments_max_length": 5,
+          "comments_min_length": 4,
+          "comments_unique_values": {
+            "dark": 226263318,
+            "light": 4819082
+          },
+          "count": 263956644,
+          "length_sum": 1060941107,
+          "max_length": 5,
+          "min_length": 4,
+          "submissions_count": 32874244,
+          "submissions_length_sum": 131792425,
+          "submissions_max_length": 5,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "dark": 32578795,
+            "light": 295449
+          },
+          "unique_values": {
+            "dark": 258842113,
+            "light": 5114531
+          }
+        }
+      }
+    },
+    "author_flair_type": {
+      "comments_count": 661579158,
+      "count": 758180141,
+      "found_in": "both",
+      "prevalence": 0.5627938982707187,
+      "submissions_count": 96600983,
+      "value_types": {
+        "str": {
+          "comments_count": 661579158,
+          "comments_length_sum": 2949055228,
+          "comments_max_length": 8,
+          "comments_min_length": 4,
+          "comments_unique_values": {
+            "richtext": 75684649,
+            "text": 585894509
+          },
+          "count": 758180141,
+          "length_sum": 3348927440,
+          "max_length": 8,
+          "min_length": 4,
+          "submissions_count": 96600983,
+          "submissions_length_sum": 399872212,
+          "submissions_max_length": 8,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "richtext": 3367070,
+            "text": 93233913
+          },
+          "unique_values": {
+            "richtext": 79051719,
+            "text": 679128422
+          }
+        }
+      }
+    },
+    "author_fullname": {
+      "comments_count": 605770938,
+      "count": 693025016,
+      "found_in": "both",
+      "prevalence": 0.5144295257316258,
+      "submissions_count": 87254078,
+      "value_types": {
+        "null": {
+          "comments_count": 36794356,
+          "count": 47098283,
+          "submissions_count": 10303927
+        },
+        "str": {
+          "comments_count": 568976582,
+          "comments_length_sum": 5167055874,
+          "comments_max_length": 11,
+          "comments_min_length": 7,
+          "comments_unique_values": "Too Many",
+          "count": 645926733,
+          "length_sum": 5899330116,
+          "max_length": 11,
+          "min_length": 7,
+          "submissions_count": 76950151,
+          "submissions_length_sum": 732274242,
+          "submissions_max_length": 11,
+          "submissions_min_length": 7,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_id": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 1082,
+          "submissions_count": 1082
+        },
+        "str": {
+          "count": 176454,
+          "length_sum": 1759512,
+          "max_length": 11,
+          "min_length": 7,
+          "submissions_count": 176454,
+          "submissions_length_sum": 1759512,
+          "submissions_max_length": 11,
+          "submissions_min_length": 7,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "author_patreon_flair": {
+      "comments_count": 308788438,
+      "count": 354169528,
+      "found_in": "both",
+      "prevalence": 0.26289853628838383,
+      "submissions_count": 45381090,
+      "value_types": {
+        "bool": {
+          "comments_count": 308788438,
+          "comments_unique_values": {
+            "false": 308780825,
+            "true": 7613
+          },
+          "count": 354169528,
+          "submissions_count": 45381090,
+          "submissions_unique_values": {
+            "false": 45379879,
+            "true": 1211
+          },
+          "unique_values": {
+            "false": 354160704,
+            "true": 8824
+          }
+        }
+      }
+    },
+    "banned_by": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "comments_count": 34739723,
+          "count": 58826107,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "body": {
+      "comments_count": 1194740992,
+      "count": 1194740992,
+      "found_in": "comments",
+      "prevalence": 0.8868511636623118,
+      "submissions_count": 0,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 195375715918,
+          "comments_max_length": 432872,
+          "comments_min_length": 0,
+          "comments_unique_values": "Too Many",
+          "count": 1194740992,
+          "length_sum": 195375715918,
+          "max_length": 432872,
+          "min_length": 0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "body_html": {
+      "comments_count": 34739723,
+      "count": 34739723,
+      "found_in": "comments",
+      "prevalence": 0.025787148824852887,
+      "submissions_count": 0,
+      "value_types": {
+        "str": {
+          "comments_count": 34739723,
+          "comments_length_sum": 8747726991,
+          "comments_max_length": 191745,
+          "comments_min_length": 4,
+          "comments_unique_values": "Too Many",
+          "count": 34739723,
+          "length_sum": 8747726991,
+          "max_length": 191745,
+          "min_length": 4,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "brand_safe": {
+      "comments_count": 0,
+      "count": 33887186,
+      "found_in": "submissions",
+      "prevalence": 0.025154314230930144,
+      "submissions_count": 33887186,
+      "value_types": {
+        "bool": {
+          "count": 33887186,
+          "submissions_count": 33887186,
+          "submissions_unique_values": {
+            "false": 17462817,
+            "true": 16424369
+          },
+          "unique_values": {
+            "false": 17462817,
+            "true": 16424369
+          }
+        }
+      }
+    },
+    "call_to_action": {
+      "comments_count": 0,
+      "count": 74618,
+      "found_in": "submissions",
+      "prevalence": 5.538862445773885e-05,
+      "submissions_count": 74618,
+      "value_types": {
+        "null": {
+          "count": 100,
+          "submissions_count": 100
+        },
+        "str": {
+          "count": 74518,
+          "length_sum": 646864,
+          "max_length": 13,
+          "min_length": 7,
+          "submissions_count": 74518,
+          "submissions_length_sum": 646864,
+          "submissions_max_length": 13,
+          "submissions_min_length": 7,
+          "submissions_unique_values": {
+            "Apply Now": 1749,
+            "Contact Us": 705,
+            "Download": 3205,
+            "Get Showtimes": 301,
+            "Get a Quote": 408,
+            "Install": 3126,
+            "Learn More": 21665,
+            "Play Now": 2295,
+            "See Menu": 70,
+            "Shop Now": 20634,
+            "Sign Up": 7866,
+            "View More": 9742,
+            "Watch Now": 2752
+          },
+          "unique_values": {
+            "Apply Now": 1749,
+            "Contact Us": 705,
+            "Download": 3205,
+            "Get Showtimes": 301,
+            "Get a Quote": 408,
+            "Install": 3126,
+            "Learn More": 21665,
+            "Play Now": 2295,
+            "See Menu": 70,
+            "Shop Now": 20634,
+            "Sign Up": 7866,
+            "View More": 9742,
+            "Watch Now": 2752
+          }
+        }
+      }
+    },
+    "can_gild": {
+      "comments_count": 1194740992,
+      "count": 1325297853,
+      "found_in": "both",
+      "prevalence": 0.9837629670383096,
+      "submissions_count": 130556861,
+      "value_types": {
+        "bool": {
+          "comments_count": 1194740992,
+          "comments_unique_values": {
+            "false": 16198615,
+            "true": 1178542377
+          },
+          "count": 1325297853,
+          "submissions_count": 130556861,
+          "submissions_unique_values": {
+            "false": 23941171,
+            "true": 106615690
+          },
+          "unique_values": {
+            "false": 40139786,
+            "true": 1285158067
+          }
+        }
+      }
+    },
+    "can_mod_post": {
+      "comments_count": 920224864,
+      "count": 1014682229,
+      "found_in": "both",
+      "prevalence": 0.7531943086925724,
+      "submissions_count": 94457365,
+      "value_types": {
+        "bool": {
+          "comments_count": 920224864,
+          "comments_unique_values": {
+            "false": 920224864
+          },
+          "count": 1014682229,
+          "submissions_count": 94457365,
+          "submissions_unique_values": {
+            "false": 94457365
+          },
+          "unique_values": {
+            "false": 1014682229
+          }
+        }
+      }
+    },
+    "category": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "null": {
+          "count": 118423211,
+          "submissions_count": 118423211
+        },
+        "str": {
+          "count": 120538,
+          "length_sum": 1172848,
+          "max_length": 20,
+          "min_length": 3,
+          "submissions_count": 120538,
+          "submissions_length_sum": 1172848,
+          "submissions_max_length": 20,
+          "submissions_min_length": 3,
+          "submissions_unique_values": {
+            "animals": 5669,
+            "art": 2465,
+            "diy": 885,
+            "diy_and_crafts": 7831,
+            "drawing_and_painting": 16253,
+            "entertainment": 11754,
+            "food": 692,
+            "funny": 362,
+            "gaming": 16324,
+            "memes": 1041,
+            "music": 6483,
+            "photography": 12749,
+            "pics_and_gifs": 1479,
+            "video_games": 1161,
+            "videos": 24490,
+            "writing": 10900
+          },
+          "unique_values": {
+            "animals": 5669,
+            "art": 2465,
+            "diy": 885,
+            "diy_and_crafts": 7831,
+            "drawing_and_painting": 16253,
+            "entertainment": 11754,
+            "food": 692,
+            "funny": 362,
+            "gaming": 16324,
+            "memes": 1041,
+            "music": 6483,
+            "photography": 12749,
+            "pics_and_gifs": 1479,
+            "video_games": 1161,
+            "videos": 24490,
+            "writing": 10900
+          }
+        }
+      }
+    },
+    "clicked": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "bool": {
+          "count": 24086384,
+          "submissions_count": 24086384,
+          "submissions_unique_values": {
+            "false": 24086384
+          },
+          "unique_values": {
+            "false": 24086384
+          }
+        }
+      }
+    },
+    "collapsed": {
+      "comments_count": 622005163,
+      "count": 622005163,
+      "found_in": "comments",
+      "prevalence": 0.4617117905087464,
+      "submissions_count": 0,
+      "value_types": {
+        "bool": {
+          "comments_count": 622005163,
+          "comments_unique_values": {
+            "false": 589508746,
+            "true": 32496417
+          },
+          "count": 622005163,
+          "unique_values": {
+            "false": 589508746,
+            "true": 32496417
+          }
+        }
+      }
+    },
+    "collapsed_reason": {
+      "comments_count": 622005163,
+      "count": 622005163,
+      "found_in": "comments",
+      "prevalence": 0.4617117905087464,
+      "submissions_count": 0,
+      "value_types": {
+        "null": {
+          "comments_count": 613084764,
+          "count": 613084764
+        },
+        "str": {
+          "comments_count": 8920399,
+          "comments_length_sum": 258691571,
+          "comments_max_length": 29,
+          "comments_min_length": 29,
+          "comments_unique_values": {
+            "comment score below threshold": 8920399
+          },
+          "count": 8920399,
+          "length_sum": 258691571,
+          "max_length": 29,
+          "min_length": 29,
+          "unique_values": {
+            "comment score below threshold": 8920399
+          }
+        }
+      }
+    },
+    "collections": {
+      "comments_count": 0,
+      "count": 1256,
+      "found_in": "submissions",
+      "prevalence": 9.323234651011819e-07,
+      "submissions_count": 1256,
+      "value_types": {
+        "list": {
+          "count": 1256,
+          "max_length": 1,
+          "min_length": 1,
+          "submissions_count": 1256,
+          "submissions_max_length": 1,
+          "submissions_min_length": 1,
+          "submissions_unique_lengths": {
+            "1": 1256
+          },
+          "unique_lengths": {
+            "1": 1256
+          }
+        }
+      }
+    },
+    "content_categories": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "list": {
+          "count": 1997918,
+          "max_length": 2,
+          "min_length": 1,
+          "submissions_count": 1997918,
+          "submissions_max_length": 2,
+          "submissions_min_length": 1,
+          "submissions_unique_lengths": {
+            "1": 1997113,
+            "2": 805
+          },
+          "unique_lengths": {
+            "1": 1997113,
+            "2": 805
+          }
+        },
+        "null": {
+          "count": 116545831,
+          "submissions_count": 116545831
+        }
+      }
+    },
+    "contest_mode": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 152350889,
+            "true": 80046
+          },
+          "unique_values": {
+            "false": 152350889,
+            "true": 80046
+          }
+        }
+      }
+    },
+    "controversiality": {
+      "comments_count": 1194740992,
+      "count": 1194740992,
+      "found_in": "comments",
+      "prevalence": 0.8868511636623118,
+      "submissions_count": 0,
+      "value_types": {
+        "int": {
+          "comments_count": 1194740992,
+          "comments_max": 1,
+          "comments_min": 0,
+          "comments_sum": 26845752,
+          "comments_unique_values": {
+            "0": 1167895240,
+            "1": 26845752
+          },
+          "count": 1194740992,
+          "max": 1,
+          "min": 0,
+          "sum": 26845752,
+          "unique_values": {
+            "0": 1167895240,
+            "1": 26845752
+          }
+        }
+      }
+    },
+    "created": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "float": {
+          "count": 24086384,
+          "max": 1527839999.0,
+          "min": 1519891200.0,
+          "submissions_count": 24086384,
+          "submissions_max": 1527839999.0,
+          "submissions_min": 1519891200.0,
+          "submissions_sum": 3.673579165919977e+16,
+          "submissions_unique_values": "Too Many",
+          "sum": 3.673579165919977e+16,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "created_utc": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "comments_count": 1194740992,
+          "comments_max": 1546300799,
+          "comments_min": 1514764800,
+          "comments_sum": 1829166025398324593,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "max": 1546300799,
+          "min": 1514764800,
+          "submissions_count": 152430935,
+          "submissions_max": 1546300799,
+          "submissions_min": 1514764800,
+          "submissions_sum": 233414298747353675,
+          "submissions_unique_values": "Too Many",
+          "sum": 2062580324145678268,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent": {
+      "comments_count": 0,
+      "count": 3389982,
+      "found_in": "submissions",
+      "prevalence": 0.0025163692395466838,
+      "submissions_count": 3389982,
+      "value_types": {
+        "str": {
+          "count": 3389982,
+          "length_sum": 30508626,
+          "max_length": 9,
+          "min_length": 5,
+          "submissions_count": 3389982,
+          "submissions_length_sum": 30508626,
+          "submissions_max_length": 9,
+          "submissions_min_length": 5,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "crosspost_parent_list": {
+      "comments_count": 0,
+      "count": 3389982,
+      "found_in": "submissions",
+      "prevalence": 0.0025163692395466838,
+      "submissions_count": 3389982,
+      "value_types": {
+        "list": {
+          "count": 3389982,
+          "max_length": 1,
+          "min_length": 0,
+          "submissions_count": 3389982,
+          "submissions_max_length": 1,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 26311,
+            "1": 3363671
+          },
+          "unique_lengths": {
+            "0": 26311,
+            "1": 3363671
+          }
+        }
+      }
+    },
+    "distinguished": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "comments_count": 1177715626,
+          "count": 1329391540,
+          "submissions_count": 151675914
+        },
+        "str": {
+          "comments_count": 17025366,
+          "comments_length_sum": 153199840,
+          "comments_max_length": 9,
+          "comments_min_length": 5,
+          "comments_unique_values": {
+            "admin": 7109,
+            "moderator": 17018248,
+            "special": 9
+          },
+          "count": 17780387,
+          "length_sum": 159993055,
+          "max_length": 9,
+          "min_length": 5,
+          "submissions_count": 755021,
+          "submissions_length_sum": 6793215,
+          "submissions_max_length": 9,
+          "submissions_min_length": 5,
+          "submissions_unique_values": {
+            "admin": 493,
+            "moderator": 754527,
+            "special": 1
+          },
+          "unique_values": {
+            "admin": 7602,
+            "moderator": 17772775,
+            "special": 10
+          }
+        }
+      }
+    },
+    "domain": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 2019413389,
+          "max_length": 282,
+          "min_length": 1,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 2019413389,
+          "submissions_max_length": 282,
+          "submissions_min_length": 1,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "domain_override": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 52408,
+          "submissions_count": 52408
+        },
+        "str": {
+          "count": 125128,
+          "length_sum": 3151281,
+          "max_length": 116,
+          "min_length": 2,
+          "submissions_count": 125128,
+          "submissions_length_sum": 3151281,
+          "submissions_max_length": 116,
+          "submissions_min_length": 2,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "downs": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "int": {
+          "count": 24086384,
+          "max": 0,
+          "min": 0,
+          "submissions_count": 24086384,
+          "submissions_max": 0,
+          "submissions_min": 0,
+          "submissions_sum": 0,
+          "submissions_unique_values": {
+            "0": 24086384
+          },
+          "sum": 0,
+          "unique_values": {
+            "0": 24086384
+          }
+        }
+      }
+    },
+    "edited": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "comments_count": 1159106897,
+          "comments_unique_values": {
+            "false": 1159106897
+          },
+          "count": 1306243115,
+          "submissions_count": 147136218,
+          "submissions_unique_values": {
+            "false": 147136218
+          },
+          "unique_values": {
+            "false": 1306243115
+          }
+        },
+        "float": {
+          "comments_count": 26,
+          "comments_max": 1525188056.0,
+          "comments_min": 1519873142.0,
+          "comments_sum": 39551676466.0,
+          "comments_unique_values": {
+            "1519873142.0": 1,
+            "1519966921.0": 1,
+            "1520032036.0": 1,
+            "1520099770.0": 1,
+            "1520351879.0": 1,
+            "1520406421.0": 1,
+            "1520443956.0": 1,
+            "1520461922.0": 1,
+            "1520489261.0": 1,
+            "1520611664.0": 1,
+            "1520763575.0": 1,
+            "1520826735.0": 1,
+            "1520848369.0": 1,
+            "1521164441.0": 1,
+            "1521164467.0": 1,
+            "1521177716.0": 1,
+            "1521177734.0": 1,
+            "1521177745.0": 1,
+            "1521200879.0": 1,
+            "1521200987.0": 1,
+            "1521200992.0": 1,
+            "1522182137.0": 1,
+            "1522448944.0": 1,
+            "1522523717.0": 1,
+            "1524693000.0": 1,
+            "1525188056.0": 1
+          },
+          "count": 3428038,
+          "max": 1537361254.0,
+          "min": 1514764966.0,
+          "submissions_count": 3428012,
+          "submissions_max": 1537361254.0,
+          "submissions_min": 1514764966.0,
+          "submissions_sum": 5229457059505919.0,
+          "submissions_unique_values": "Too Many",
+          "sum": 5229496611182385.0,
+          "unique_values": "Too Many"
+        },
+        "int": {
+          "comments_count": 35634069,
+          "comments_max": 1548339754,
+          "comments_min": 1514764848,
+          "comments_sum": 54548198040200159,
+          "comments_unique_values": "Too Many",
+          "count": 37500774,
+          "max": 1548992000,
+          "min": 1514764848,
+          "submissions_count": 1866705,
+          "submissions_max": 1548992000,
+          "submissions_min": 1535760155,
+          "submissions_sum": 2877109699056909,
+          "submissions_unique_values": "Too Many",
+          "sum": 57425307739257068,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "embed_type": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 176844,
+          "submissions_count": 176844
+        },
+        "str": {
+          "count": 692,
+          "length_sum": 4152,
+          "max_length": 6,
+          "min_length": 6,
+          "submissions_count": 692,
+          "submissions_length_sum": 4152,
+          "submissions_max_length": 6,
+          "submissions_min_length": 6,
+          "submissions_unique_values": {
+            "iframe": 147,
+            "scrape": 545
+          },
+          "unique_values": {
+            "iframe": 147,
+            "scrape": 545
+          }
+        }
+      }
+    },
+    "embed_url": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 176844,
+          "submissions_count": 176844
+        },
+        "str": {
+          "count": 692,
+          "length_sum": 35988,
+          "max_length": 119,
+          "min_length": 21,
+          "submissions_count": 692,
+          "submissions_length_sum": 35988,
+          "submissions_max_length": 119,
+          "submissions_min_length": 21,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "event_end": {
+      "comments_count": 0,
+      "count": 977,
+      "found_in": "submissions",
+      "prevalence": 7.252229501623047e-07,
+      "submissions_count": 977,
+      "value_types": {
+        "float": {
+          "count": 977,
+          "max": 253394483400.0,
+          "min": 1536237000.0,
+          "submissions_count": 977,
+          "submissions_max": 253394483400.0,
+          "submissions_min": 1536237000.0,
+          "submissions_sum": 1837339421100.0,
+          "submissions_unique_values": "Too Many",
+          "sum": 1837339421100.0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "event_is_live": {
+      "comments_count": 0,
+      "count": 977,
+      "found_in": "submissions",
+      "prevalence": 7.252229501623047e-07,
+      "submissions_count": 977,
+      "value_types": {
+        "bool": {
+          "count": 977,
+          "submissions_count": 977,
+          "submissions_unique_values": {
+            "false": 977
+          },
+          "unique_values": {
+            "false": 977
+          }
+        }
+      }
+    },
+    "event_start": {
+      "comments_count": 0,
+      "count": 977,
+      "found_in": "submissions",
+      "prevalence": 7.252229501623047e-07,
+      "submissions_count": 977,
+      "value_types": {
+        "float": {
+          "count": 977,
+          "max": 253394469000.0,
+          "min": 1536233400.0,
+          "submissions_count": 977,
+          "submissions_max": 253394469000.0,
+          "submissions_min": 1536233400.0,
+          "submissions_sum": 1837319625016.0,
+          "submissions_unique_values": "Too Many",
+          "sum": 1837319625016.0,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "events": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "list": {
+          "count": 177536,
+          "max_length": 0,
+          "min_length": 0,
+          "submissions_count": 177536,
+          "submissions_max_length": 0,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 177536
+          },
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "eventsOnRender": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "list": {
+          "count": 177536,
+          "max_length": 0,
+          "min_length": 0,
+          "submissions_count": 177536,
+          "submissions_max_length": 0,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 177536
+          },
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "gilded": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "comments_count": 1194740992,
+          "comments_max": 66,
+          "comments_min": 0,
+          "comments_sum": 195288,
+          "comments_unique_values": {
+            "0": 1194558722,
+            "1": 173959,
+            "10": 20,
+            "11": 8,
+            "12": 11,
+            "13": 7,
+            "14": 2,
+            "15": 5,
+            "16": 9,
+            "17": 3,
+            "18": 3,
+            "19": 1,
+            "2": 6183,
+            "20": 1,
+            "21": 1,
+            "24": 2,
+            "26": 1,
+            "27": 1,
+            "3": 1250,
+            "30": 1,
+            "32": 2,
+            "4": 421,
+            "44": 1,
+            "5": 183,
+            "6": 96,
+            "64": 1,
+            "66": 1,
+            "7": 50,
+            "8": 27,
+            "9": 20
+          },
+          "count": 1347171927,
+          "max": 511,
+          "min": 0,
+          "submissions_count": 152430935,
+          "submissions_max": 511,
+          "submissions_min": 0,
+          "submissions_sum": 112700,
+          "submissions_unique_values": {
+            "0": 152337431,
+            "1": 84390,
+            "10": 36,
+            "106": 1,
+            "11": 26,
+            "113": 1,
+            "12": 20,
+            "13": 20,
+            "14": 14,
+            "15": 12,
+            "16": 5,
+            "17": 11,
+            "18": 6,
+            "19": 4,
+            "2": 5968,
+            "20": 4,
+            "21": 6,
+            "22": 3,
+            "24": 1,
+            "25": 1,
+            "28": 2,
+            "29": 1,
+            "3": 1604,
+            "30": 3,
+            "31": 3,
+            "32": 2,
+            "34": 1,
+            "36": 1,
+            "37": 1,
+            "4": 626,
+            "40": 2,
+            "41": 1,
+            "44": 1,
+            "45": 1,
+            "479": 1,
+            "48": 1,
+            "5": 335,
+            "51": 1,
+            "511": 1,
+            "56": 1,
+            "6": 182,
+            "61": 1,
+            "63": 1,
+            "64": 2,
+            "69": 1,
+            "7": 99,
+            "75": 1,
+            "76": 1,
+            "8": 63,
+            "9": 35
+          },
+          "sum": 307988,
+          "unique_values": {
+            "0": 1346896153,
+            "1": 258349,
+            "10": 56,
+            "106": 1,
+            "11": 34,
+            "113": 1,
+            "12": 31,
+            "13": 27,
+            "14": 16,
+            "15": 17,
+            "16": 14,
+            "17": 14,
+            "18": 9,
+            "19": 5,
+            "2": 12151,
+            "20": 5,
+            "21": 7,
+            "22": 3,
+            "24": 3,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 2,
+            "29": 1,
+            "3": 2854,
+            "30": 4,
+            "31": 3,
+            "32": 4,
+            "34": 1,
+            "36": 1,
+            "37": 1,
+            "4": 1047,
+            "40": 2,
+            "41": 1,
+            "44": 2,
+            "45": 1,
+            "479": 1,
+            "48": 1,
+            "5": 518,
+            "51": 1,
+            "511": 1,
+            "56": 1,
+            "6": 278,
+            "61": 1,
+            "63": 1,
+            "64": 3,
+            "66": 1,
+            "69": 1,
+            "7": 149,
+            "75": 1,
+            "76": 1,
+            "8": 90,
+            "9": 55
+          }
+        }
+      }
+    },
+    "gildings": {
+      "comments_count": 439285064,
+      "count": 495117536,
+      "found_in": "both",
+      "prevalence": 0.3675236439457637,
+      "submissions_count": 55832472,
+      "value_types": {
+        "dict": {
+          "comments_count": 439285064,
+          "comments_max_length": 3,
+          "comments_min_length": 3,
+          "comments_unique_lengths": {
+            "3": 439285064
+          },
+          "count": 495117536,
+          "max_length": 3,
+          "min_length": 3,
+          "submissions_count": 55832472,
+          "submissions_max_length": 3,
+          "submissions_min_length": 3,
+          "submissions_unique_lengths": {
+            "3": 55832472
+          },
+          "unique_lengths": {
+            "3": 495117536
+          }
+        }
+      }
+    },
+    "hidden": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 152430935
+          },
+          "unique_values": {
+            "false": 152430935
+          }
+        }
+      }
+    },
+    "hide_score": {
+      "comments_count": 0,
+      "count": 96592085,
+      "found_in": "submissions",
+      "prevalence": 0.07169989441763368,
+      "submissions_count": 96592085,
+      "value_types": {
+        "bool": {
+          "count": 96592085,
+          "submissions_count": 96592085,
+          "submissions_unique_values": {
+            "false": 96409088,
+            "true": 182997
+          },
+          "unique_values": {
+            "false": 96409088,
+            "true": 182997
+          }
+        }
+      }
+    },
+    "href_url": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "str": {
+          "count": 177536,
+          "length_sum": 14936013,
+          "max_length": 1410,
+          "min_length": 9,
+          "submissions_count": 177536,
+          "submissions_length_sum": 14936013,
+          "submissions_max_length": 1410,
+          "submissions_min_length": 9,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "id": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 8363186944,
+          "comments_max_length": 7,
+          "comments_min_length": 7,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "length_sum": 9277772554,
+          "max_length": 7,
+          "min_length": 6,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 914585610,
+          "submissions_max_length": 6,
+          "submissions_min_length": 6,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "is_blank": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "bool": {
+          "count": 177536,
+          "submissions_count": 177536,
+          "submissions_unique_values": {
+            "false": 177536
+          },
+          "unique_values": {
+            "false": 177536
+          }
+        }
+      }
+    },
+    "is_crosspostable": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 91931313,
+            "true": 60499622
+          },
+          "unique_values": {
+            "false": 91931313,
+            "true": 60499622
+          }
+        }
+      }
+    },
+    "is_meta": {
+      "comments_count": 0,
+      "count": 94457365,
+      "found_in": "submissions",
+      "prevalence": 0.07011530082892285,
+      "submissions_count": 94457365,
+      "value_types": {
+        "bool": {
+          "count": 94457365,
+          "submissions_count": 94457365,
+          "submissions_unique_values": {
+            "false": 94457067,
+            "true": 298
+          },
+          "unique_values": {
+            "false": 94457067,
+            "true": 298
+          }
+        }
+      }
+    },
+    "is_original_content": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "bool": {
+          "count": 118543749,
+          "submissions_count": 118543749,
+          "submissions_unique_values": {
+            "false": 118171206,
+            "true": 372543
+          },
+          "unique_values": {
+            "false": 118171206,
+            "true": 372543
+          }
+        }
+      }
+    },
+    "is_reddit_media_domain": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 121185841,
+            "true": 31245094
+          },
+          "unique_values": {
+            "false": 121185841,
+            "true": 31245094
+          }
+        }
+      }
+    },
+    "is_robot_indexable": {
+      "comments_count": 0,
+      "count": 55680494,
+      "found_in": "submissions",
+      "prevalence": 0.04133139419158087,
+      "submissions_count": 55680494,
+      "value_types": {
+        "bool": {
+          "count": 55680494,
+          "submissions_count": 55680494,
+          "submissions_unique_values": {
+            "false": 19865700,
+            "true": 35814794
+          },
+          "unique_values": {
+            "false": 19865700,
+            "true": 35814794
+          }
+        }
+      }
+    },
+    "is_self": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 89653446,
+            "true": 62777489
+          },
+          "unique_values": {
+            "false": 89653446,
+            "true": 62777489
+          }
+        }
+      }
+    },
+    "is_submitter": {
+      "comments_count": 1194740992,
+      "count": 1194740992,
+      "found_in": "comments",
+      "prevalence": 0.8868511636623118,
+      "submissions_count": 0,
+      "value_types": {
+        "bool": {
+          "comments_count": 1194740992,
+          "comments_unique_values": {
+            "false": 1087396461,
+            "true": 107344531
+          },
+          "count": 1194740992,
+          "unique_values": {
+            "false": 1087396461,
+            "true": 107344531
+          }
+        }
+      }
+    },
+    "is_video": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 150635891,
+            "true": 1795044
+          },
+          "unique_values": {
+            "false": 150635891,
+            "true": 1795044
+          }
+        }
+      }
+    },
+    "likes": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "comments_count": 34739723,
+          "count": 58826107,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "link_flair_background_color": {
+      "comments_count": 0,
+      "count": 100295381,
+      "found_in": "submissions",
+      "prevalence": 0.07444883530856947,
+      "submissions_count": 100295381,
+      "value_types": {
+        "str": {
+          "count": 100295381,
+          "length_sum": 45744510,
+          "max_length": 7,
+          "min_length": 0,
+          "submissions_count": 100295381,
+          "submissions_length_sum": 45744510,
+          "submissions_max_length": 7,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_css_class": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 116214447,
+          "submissions_count": 116214447
+        },
+        "str": {
+          "count": 36216488,
+          "length_sum": 211068492,
+          "max_length": 112,
+          "min_length": 0,
+          "submissions_count": 36216488,
+          "submissions_length_sum": 211068492,
+          "submissions_max_length": 112,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_richtext": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "list": {
+          "count": 118543749,
+          "max_length": 13,
+          "min_length": 0,
+          "submissions_count": 118543749,
+          "submissions_max_length": 13,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 104482490,
+            "1": 13964295,
+            "12": 5,
+            "13": 1,
+            "2": 88614,
+            "3": 7647,
+            "4": 411,
+            "5": 105,
+            "6": 124,
+            "7": 35,
+            "8": 18,
+            "9": 4
+          },
+          "unique_lengths": {
+            "0": 104482490,
+            "1": 13964295,
+            "12": 5,
+            "13": 1,
+            "2": 88614,
+            "3": 7647,
+            "4": 411,
+            "5": 105,
+            "6": 124,
+            "7": 35,
+            "8": 18,
+            "9": 4
+          }
+        }
+      }
+    },
+    "link_flair_template_id": {
+      "comments_count": 0,
+      "count": 97560348,
+      "found_in": "submissions",
+      "prevalence": 0.07241863192980666,
+      "submissions_count": 97560348,
+      "value_types": {
+        "null": {
+          "count": 79957384,
+          "submissions_count": 79957384
+        },
+        "str": {
+          "count": 17602964,
+          "length_sum": 624972979,
+          "max_length": 36,
+          "min_length": 0,
+          "submissions_count": 17602964,
+          "submissions_length_sum": 624972979,
+          "submissions_max_length": 36,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_text": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 115724544,
+          "submissions_count": 115724544
+        },
+        "str": {
+          "count": 36706391,
+          "length_sum": 321881750,
+          "max_length": 79,
+          "min_length": 0,
+          "submissions_count": 36706391,
+          "submissions_length_sum": 321881750,
+          "submissions_max_length": 79,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "link_flair_text_color": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "str": {
+          "count": 118543749,
+          "length_sum": 479055749,
+          "max_length": 5,
+          "min_length": 4,
+          "submissions_count": 118543749,
+          "submissions_length_sum": 479055749,
+          "submissions_max_length": 5,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "dark": 113662996,
+            "light": 4880753
+          },
+          "unique_values": {
+            "dark": 113662996,
+            "light": 4880753
+          }
+        }
+      }
+    },
+    "link_flair_type": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "str": {
+          "count": 118543749,
+          "length_sum": 530420032,
+          "max_length": 8,
+          "min_length": 4,
+          "submissions_count": 118543749,
+          "submissions_length_sum": 530420032,
+          "submissions_max_length": 8,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "richtext": 14061259,
+            "text": 104482490
+          },
+          "unique_values": {
+            "richtext": 14061259,
+            "text": 104482490
+          }
+        }
+      }
+    },
+    "link_id": {
+      "comments_count": 1194740992,
+      "count": 1194740992,
+      "found_in": "comments",
+      "prevalence": 0.8868511636623118,
+      "submissions_count": 0,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 10752662507,
+          "comments_max_length": 9,
+          "comments_min_length": 8,
+          "comments_unique_values": "Too Many",
+          "count": 1194740992,
+          "length_sum": 10752662507,
+          "max_length": 9,
+          "min_length": 8,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "locked": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 150620358,
+            "true": 1810577
+          },
+          "unique_values": {
+            "false": 150620358,
+            "true": 1810577
+          }
+        }
+      }
+    },
+    "media": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "dict": {
+          "count": 15317545,
+          "max_length": 4,
+          "min_length": 1,
+          "submissions_count": 15317545,
+          "submissions_max_length": 4,
+          "submissions_min_length": 1,
+          "submissions_unique_lengths": {
+            "1": 1744993,
+            "2": 13146324,
+            "4": 426228
+          },
+          "unique_lengths": {
+            "1": 1744993,
+            "2": 13146324,
+            "4": 426228
+          }
+        },
+        "null": {
+          "count": 137113390,
+          "submissions_count": 137113390
+        }
+      }
+    },
+    "media_embed": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "dict": {
+          "count": 152430935,
+          "max_length": 5,
+          "min_length": 0,
+          "submissions_count": 152430935,
+          "submissions_max_length": 5,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 138858383,
+            "4": 11351930,
+            "5": 2220622
+          },
+          "unique_lengths": {
+            "0": 138858383,
+            "4": 11351930,
+            "5": 2220622
+          }
+        }
+      }
+    },
+    "media_metadata": {
+      "comments_count": 0,
+      "count": 935615,
+      "found_in": "submissions",
+      "prevalence": 0.0006945030404463713,
+      "submissions_count": 935615,
+      "value_types": {
+        "dict": {
+          "count": 20516,
+          "max_length": 20,
+          "min_length": 1,
+          "submissions_count": 20516,
+          "submissions_max_length": 20,
+          "submissions_min_length": 1,
+          "submissions_unique_lengths": {
+            "1": 17015,
+            "10": 53,
+            "11": 19,
+            "12": 18,
+            "13": 17,
+            "14": 12,
+            "15": 20,
+            "16": 14,
+            "17": 9,
+            "18": 7,
+            "19": 8,
+            "2": 1878,
+            "20": 63,
+            "3": 586,
+            "4": 333,
+            "5": 183,
+            "6": 109,
+            "7": 70,
+            "8": 47,
+            "9": 55
+          },
+          "unique_lengths": {
+            "1": 17015,
+            "10": 53,
+            "11": 19,
+            "12": 18,
+            "13": 17,
+            "14": 12,
+            "15": 20,
+            "16": 14,
+            "17": 9,
+            "18": 7,
+            "19": 8,
+            "2": 1878,
+            "20": 63,
+            "3": 586,
+            "4": 333,
+            "5": 183,
+            "6": 109,
+            "7": 70,
+            "8": 47,
+            "9": 55
+          }
+        },
+        "null": {
+          "count": 915099,
+          "submissions_count": 915099
+        }
+      }
+    },
+    "media_only": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "bool": {
+          "count": 118543749,
+          "submissions_count": 118543749,
+          "submissions_unique_values": {
+            "false": 118542955,
+            "true": 794
+          },
+          "unique_values": {
+            "false": 118542955,
+            "true": 794
+          }
+        }
+      }
+    },
+    "mobile_ad_url": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "str": {
+          "count": 177536,
+          "length_sum": 13103650,
+          "max_length": 85,
+          "min_length": 0,
+          "submissions_count": 177536,
+          "submissions_length_sum": 13103650,
+          "submissions_max_length": 85,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "mod_reports": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "list": {
+          "comments_count": 34739723,
+          "comments_max_length": 0,
+          "comments_min_length": 0,
+          "comments_unique_lengths": {
+            "0": 34739723
+          },
+          "count": 58826107,
+          "max_length": 0,
+          "min_length": 0,
+          "submissions_count": 24086384,
+          "submissions_max_length": 0,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 24086384
+          },
+          "unique_lengths": {
+            "0": 58826107
+          }
+        }
+      }
+    },
+    "name": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "str": {
+          "count": 24086384,
+          "length_sum": 216777456,
+          "max_length": 9,
+          "min_length": 9,
+          "submissions_count": 24086384,
+          "submissions_length_sum": 216777456,
+          "submissions_max_length": 9,
+          "submissions_min_length": 9,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "no_follow": {
+      "comments_count": 1016715219,
+      "count": 1157839311,
+      "found_in": "both",
+      "prevalence": 0.8594592025970422,
+      "submissions_count": 141124092,
+      "value_types": {
+        "bool": {
+          "comments_count": 1016715219,
+          "comments_unique_values": {
+            "false": 231860364,
+            "true": 784854855
+          },
+          "count": 1157839311,
+          "submissions_count": 141124092,
+          "submissions_unique_values": {
+            "false": 56634071,
+            "true": 84490021
+          },
+          "unique_values": {
+            "false": 288494435,
+            "true": 869344876
+          }
+        }
+      }
+    },
+    "num_comments": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 517003,
+          "min": 0,
+          "submissions_count": 152430935,
+          "submissions_max": 517003,
+          "submissions_min": 0,
+          "submissions_sum": 1178130585,
+          "submissions_unique_values": "Too Many",
+          "sum": 1178130585,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "num_crossposts": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "count": 152430935,
+          "max": 2257,
+          "min": 0,
+          "submissions_count": 152430935,
+          "submissions_max": 2257,
+          "submissions_min": 0,
+          "submissions_sum": 3336474,
+          "submissions_unique_values": {
+            "0": 150401597,
+            "1": 1536118,
+            "10": 4191,
+            "100": 1,
+            "101": 1,
+            "102": 1,
+            "103": 3,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 2,
+            "109": 1,
+            "11": 3189,
+            "112": 1,
+            "1121": 1,
+            "113": 1,
+            "116": 1,
+            "117": 1,
+            "118": 2,
+            "119": 2,
+            "12": 2555,
+            "120": 4,
+            "121": 2,
+            "122": 1,
+            "128": 1,
+            "13": 2110,
+            "131": 3,
+            "132": 1,
+            "133": 1,
+            "134": 1,
+            "136": 1,
+            "138": 1,
+            "139": 1,
+            "14": 1704,
+            "141": 1,
+            "142": 2,
+            "146": 4,
+            "147": 7,
+            "149": 3,
+            "15": 1355,
+            "156": 1,
+            "16": 1146,
+            "160": 1,
+            "17": 1066,
+            "174": 2,
+            "176": 1,
+            "18": 811,
+            "181": 1,
+            "19": 713,
+            "2": 268072,
+            "20": 625,
+            "21": 552,
+            "210": 1,
+            "212": 1,
+            "215": 1,
+            "22": 508,
+            "224": 1,
+            "2257": 1,
+            "23": 395,
+            "24": 331,
+            "248": 1,
+            "25": 318,
+            "256": 1,
+            "26": 258,
+            "27": 235,
+            "279": 1,
+            "28": 215,
+            "29": 193,
+            "3": 92851,
+            "30": 151,
+            "31": 141,
+            "32": 129,
+            "33": 107,
+            "34": 103,
+            "35": 80,
+            "36": 73,
+            "37": 57,
+            "38": 60,
+            "39": 57,
+            "4": 44255,
+            "40": 48,
+            "41": 44,
+            "42": 56,
+            "43": 35,
+            "44": 29,
+            "45": 21,
+            "46": 39,
+            "47": 34,
+            "48": 16,
+            "49": 26,
+            "5": 25023,
+            "50": 11,
+            "505": 1,
+            "51": 16,
+            "52": 17,
+            "53": 17,
+            "54": 18,
+            "55": 13,
+            "556": 1,
+            "56": 11,
+            "57": 7,
+            "58": 10,
+            "59": 9,
+            "6": 15751,
+            "60": 9,
+            "61": 5,
+            "62": 12,
+            "63": 3,
+            "64": 3,
+            "65": 9,
+            "66": 7,
+            "67": 7,
+            "68": 6,
+            "69": 3,
+            "7": 10395,
+            "70": 2,
+            "71": 5,
+            "72": 1,
+            "73": 5,
+            "74": 3,
+            "744": 1,
+            "75": 3,
+            "76": 3,
+            "77": 2,
+            "78": 2,
+            "781": 1,
+            "79": 2,
+            "8": 7368,
+            "80": 2,
+            "81": 6,
+            "82": 6,
+            "83": 5,
+            "84": 6,
+            "85": 2,
+            "86": 1,
+            "87": 1,
+            "88": 2,
+            "9": 5388,
+            "90": 3,
+            "92": 2,
+            "93": 1,
+            "94": 1,
+            "95": 2,
+            "96": 3,
+            "97": 2,
+            "98": 1,
+            "99": 1
+          },
+          "sum": 3336474,
+          "unique_values": {
+            "0": 150401597,
+            "1": 1536118,
+            "10": 4191,
+            "100": 1,
+            "101": 1,
+            "102": 1,
+            "103": 3,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 2,
+            "109": 1,
+            "11": 3189,
+            "112": 1,
+            "1121": 1,
+            "113": 1,
+            "116": 1,
+            "117": 1,
+            "118": 2,
+            "119": 2,
+            "12": 2555,
+            "120": 4,
+            "121": 2,
+            "122": 1,
+            "128": 1,
+            "13": 2110,
+            "131": 3,
+            "132": 1,
+            "133": 1,
+            "134": 1,
+            "136": 1,
+            "138": 1,
+            "139": 1,
+            "14": 1704,
+            "141": 1,
+            "142": 2,
+            "146": 4,
+            "147": 7,
+            "149": 3,
+            "15": 1355,
+            "156": 1,
+            "16": 1146,
+            "160": 1,
+            "17": 1066,
+            "174": 2,
+            "176": 1,
+            "18": 811,
+            "181": 1,
+            "19": 713,
+            "2": 268072,
+            "20": 625,
+            "21": 552,
+            "210": 1,
+            "212": 1,
+            "215": 1,
+            "22": 508,
+            "224": 1,
+            "2257": 1,
+            "23": 395,
+            "24": 331,
+            "248": 1,
+            "25": 318,
+            "256": 1,
+            "26": 258,
+            "27": 235,
+            "279": 1,
+            "28": 215,
+            "29": 193,
+            "3": 92851,
+            "30": 151,
+            "31": 141,
+            "32": 129,
+            "33": 107,
+            "34": 103,
+            "35": 80,
+            "36": 73,
+            "37": 57,
+            "38": 60,
+            "39": 57,
+            "4": 44255,
+            "40": 48,
+            "41": 44,
+            "42": 56,
+            "43": 35,
+            "44": 29,
+            "45": 21,
+            "46": 39,
+            "47": 34,
+            "48": 16,
+            "49": 26,
+            "5": 25023,
+            "50": 11,
+            "505": 1,
+            "51": 16,
+            "52": 17,
+            "53": 17,
+            "54": 18,
+            "55": 13,
+            "556": 1,
+            "56": 11,
+            "57": 7,
+            "58": 10,
+            "59": 9,
+            "6": 15751,
+            "60": 9,
+            "61": 5,
+            "62": 12,
+            "63": 3,
+            "64": 3,
+            "65": 9,
+            "66": 7,
+            "67": 7,
+            "68": 6,
+            "69": 3,
+            "7": 10395,
+            "70": 2,
+            "71": 5,
+            "72": 1,
+            "73": 5,
+            "74": 3,
+            "744": 1,
+            "75": 3,
+            "76": 3,
+            "77": 2,
+            "78": 2,
+            "781": 1,
+            "79": 2,
+            "8": 7368,
+            "80": 2,
+            "81": 6,
+            "82": 6,
+            "83": 5,
+            "84": 6,
+            "85": 2,
+            "86": 1,
+            "87": 1,
+            "88": 2,
+            "9": 5388,
+            "90": 3,
+            "92": 2,
+            "93": 1,
+            "94": 1,
+            "95": 2,
+            "96": 3,
+            "97": 2,
+            "98": 1,
+            "99": 1
+          }
+        }
+      }
+    },
+    "num_reports": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "comments_count": 34739723,
+          "count": 58826107,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "original_link": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177533,
+          "submissions_count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 27,
+          "max_length": 9,
+          "min_length": 9,
+          "submissions_count": 3,
+          "submissions_length_sum": 27,
+          "submissions_max_length": 9,
+          "submissions_min_length": 9,
+          "submissions_unique_values": {
+            "t3_7p8olf": 1,
+            "t3_7p8px9": 1,
+            "t3_7qvdr1": 1
+          },
+          "unique_values": {
+            "t3_7p8olf": 1,
+            "t3_7p8px9": 1,
+            "t3_7qvdr1": 1
+          }
+        }
+      }
+    },
+    "outbound_link": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "dict": {
+          "count": 177536,
+          "max_length": 0,
+          "min_length": 0,
+          "submissions_count": 177536,
+          "submissions_max_length": 0,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 177536
+          },
+          "unique_lengths": {
+            "0": 177536
+          }
+        }
+      }
+    },
+    "over_18": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 138036899,
+            "true": 14394036
+          },
+          "unique_values": {
+            "false": 138036899,
+            "true": 14394036
+          }
+        }
+      }
+    },
+    "parent_id": {
+      "comments_count": 1194740992,
+      "count": 1194740992,
+      "found_in": "comments",
+      "prevalence": 0.8868511636623118,
+      "submissions_count": 0,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 11446357593,
+          "comments_max_length": 10,
+          "comments_min_length": 8,
+          "comments_unique_values": "Too Many",
+          "count": 1194740992,
+          "length_sum": 11446357593,
+          "max_length": 10,
+          "min_length": 8,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "parent_whitelist_status": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 58777252,
+          "submissions_count": 58777252
+        },
+        "str": {
+          "count": 93653683,
+          "length_sum": 774483009,
+          "max_length": 16,
+          "min_length": 6,
+          "submissions_count": 93653683,
+          "submissions_length_sum": 774483009,
+          "submissions_max_length": 16,
+          "submissions_min_length": 6,
+          "submissions_unique_values": {
+            "all_ads": 72313569,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 703804,
+            "promo_adult_nsfw": 8977648,
+            "promo_all": 429573,
+            "promo_specified": 2335287
+          },
+          "unique_values": {
+            "all_ads": 72313569,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 703804,
+            "promo_adult_nsfw": 8977648,
+            "promo_all": 429573,
+            "promo_specified": 2335287
+          }
+        }
+      }
+    },
+    "permalink": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 91539450775,
+          "comments_max_length": 102,
+          "comments_min_length": 30,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "length_sum": 101800002767,
+          "max_length": 102,
+          "min_length": 19,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 10260551992,
+          "submissions_max_length": 94,
+          "submissions_min_length": 19,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "pinned": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430935,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 152430935
+          },
+          "unique_values": {
+            "false": 152430935
+          }
+        }
+      }
+    },
+    "post_categories": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "count": 24086384,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "post_hint": {
+      "comments_count": 0,
+      "count": 60864445,
+      "found_in": "submissions",
+      "prevalence": 0.04517941899988878,
+      "submissions_count": 60864445,
+      "value_types": {
+        "str": {
+          "count": 60864445,
+          "length_sum": 316096041,
+          "max_length": 12,
+          "min_length": 4,
+          "submissions_count": 60864445,
+          "submissions_length_sum": 316096041,
+          "submissions_max_length": 12,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "hosted:video": 1120949,
+            "image": 22294816,
+            "link": 24692875,
+            "rich:video": 6892138,
+            "self": 5840642,
+            "video": 23025
+          },
+          "unique_values": {
+            "hosted:video": 1120949,
+            "image": 22294816,
+            "link": 24692875,
+            "rich:video": 6892138,
+            "self": 5840642,
+            "video": 23025
+          }
+        }
+      }
+    },
+    "preview": {
+      "comments_count": 0,
+      "count": 60864445,
+      "found_in": "submissions",
+      "prevalence": 0.04517941899988878,
+      "submissions_count": 60864445,
+      "value_types": {
+        "dict": {
+          "count": 60864445,
+          "max_length": 3,
+          "min_length": 2,
+          "submissions_count": 60864445,
+          "submissions_max_length": 3,
+          "submissions_min_length": 2,
+          "submissions_unique_lengths": {
+            "2": 59673686,
+            "3": 1190759
+          },
+          "unique_lengths": {
+            "2": 59673686,
+            "3": 1190759
+          }
+        }
+      }
+    },
+    "previous_visits": {
+      "comments_count": 0,
+      "count": 418291,
+      "found_in": "submissions",
+      "prevalence": 0.00031049563259604975,
+      "submissions_count": 418291,
+      "value_types": {
+        "list": {
+          "count": 418291,
+          "max_length": 10,
+          "min_length": 0,
+          "submissions_count": 418291,
+          "submissions_max_length": 10,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 411095,
+            "1": 4556,
+            "10": 6,
+            "2": 1260,
+            "3": 565,
+            "4": 304,
+            "5": 138,
+            "6": 97,
+            "7": 68,
+            "8": 53,
+            "9": 149
+          },
+          "unique_lengths": {
+            "0": 411095,
+            "1": 4556,
+            "10": 6,
+            "2": 1260,
+            "3": 565,
+            "4": 304,
+            "5": 138,
+            "6": 97,
+            "7": 68,
+            "8": 53,
+            "9": 149
+          }
+        }
+      }
+    },
+    "priority_id": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177536,
+          "submissions_count": 177536
+        }
+      }
+    },
+    "promoted": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "bool": {
+          "count": 177536,
+          "submissions_count": 177536,
+          "submissions_unique_values": {
+            "true": 177536
+          },
+          "unique_values": {
+            "true": 177536
+          }
+        }
+      }
+    },
+    "promoted_by": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177536,
+          "submissions_count": 177536
+        }
+      }
+    },
+    "promoted_display_name": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177533,
+          "submissions_count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 33,
+          "max_length": 11,
+          "min_length": 11,
+          "submissions_count": 3,
+          "submissions_length_sum": 33,
+          "submissions_max_length": 11,
+          "submissions_min_length": 11,
+          "submissions_unique_values": {
+            "FX_Official": 3
+          },
+          "unique_values": {
+            "FX_Official": 3
+          }
+        }
+      }
+    },
+    "promoted_url": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177533,
+          "submissions_count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 393,
+          "max_length": 175,
+          "min_length": 43,
+          "submissions_count": 3,
+          "submissions_length_sum": 393,
+          "submissions_max_length": 175,
+          "submissions_min_length": 43,
+          "submissions_unique_values": {
+            "https://ad.doubleclick.net/ddm/trackclk/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=": 2,
+            "https://www.youtube.com/watch?v=gr9L5h_Rq7I": 1
+          },
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackclk/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=": 2,
+            "https://www.youtube.com/watch?v=gr9L5h_Rq7I": 1
+          }
+        }
+      }
+    },
+    "pwls": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "int": {
+          "count": 73099752,
+          "max": 6,
+          "min": 0,
+          "submissions_count": 73099752,
+          "submissions_max": 6,
+          "submissions_min": 0,
+          "submissions_sum": 365704505,
+          "submissions_unique_values": {
+            "0": 2480637,
+            "1": 7229190,
+            "3": 7181755,
+            "5": 318970,
+            "6": 55889200
+          },
+          "sum": 365704505,
+          "unique_values": {
+            "0": 2480637,
+            "1": 7229190,
+            "3": 7181755,
+            "5": 318970,
+            "6": 55889200
+          }
+        },
+        "null": {
+          "count": 45443997,
+          "submissions_count": 45443997
+        }
+      }
+    },
+    "quarantine": {
+      "comments_count": 0,
+      "count": 94457365,
+      "found_in": "submissions",
+      "prevalence": 0.07011530082892285,
+      "submissions_count": 94457365,
+      "value_types": {
+        "bool": {
+          "count": 94457365,
+          "submissions_count": 94457365,
+          "submissions_unique_values": {
+            "false": 94158388,
+            "true": 298977
+          },
+          "unique_values": {
+            "false": 94158388,
+            "true": 298977
+          }
+        }
+      }
+    },
+    "removal_reason": {
+      "comments_count": 954966804,
+      "count": 1073510553,
+      "found_in": "both",
+      "prevalence": 0.7968623237226481,
+      "submissions_count": 118543749,
+      "value_types": {
+        "null": {
+          "comments_count": 954965041,
+          "count": 1073499283,
+          "submissions_count": 118534242
+        },
+        "str": {
+          "comments_count": 1763,
+          "comments_length_sum": 8815,
+          "comments_max_length": 5,
+          "comments_min_length": 5,
+          "comments_unique_values": {
+            "legal": 1763
+          },
+          "count": 11270,
+          "length_sum": 56350,
+          "max_length": 5,
+          "min_length": 5,
+          "submissions_count": 9507,
+          "submissions_length_sum": 47535,
+          "submissions_max_length": 5,
+          "submissions_min_length": 5,
+          "submissions_unique_values": {
+            "legal": 9507
+          },
+          "unique_values": {
+            "legal": 11270
+          }
+        }
+      }
+    },
+    "replies": {
+      "comments_count": 34741847,
+      "count": 34741847,
+      "found_in": "comments",
+      "prevalence": 0.025788725461031132,
+      "submissions_count": 0,
+      "value_types": {
+        "str": {
+          "comments_count": 34741847,
+          "comments_length_sum": 0,
+          "comments_max_length": 0,
+          "comments_min_length": 0,
+          "comments_unique_values": {
+            "": 34741847
+          },
+          "count": 34741847,
+          "length_sum": 0,
+          "max_length": 0,
+          "min_length": 0,
+          "unique_values": {
+            "": 34741847
+          }
+        }
+      }
+    },
+    "report_reasons": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "comments_count": 34739723,
+          "count": 58826107,
+          "submissions_count": 24086384
+        }
+      }
+    },
+    "retrieved_on": {
+      "comments_count": 1194738868,
+      "count": 1347169803,
+      "found_in": "both",
+      "prevalence": 0.999998422621526,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "comments_count": 1194738775,
+          "comments_max": 1548461827,
+          "comments_min": 1515282628,
+          "comments_sum": 1832284104559836673,
+          "comments_unique_values": "Too Many",
+          "count": 1347169710,
+          "max": 1549037479,
+          "min": 1515282628,
+          "submissions_count": 152430935,
+          "submissions_max": 1549037479,
+          "submissions_min": 1518480156,
+          "submissions_sum": 233987579450648246,
+          "submissions_unique_values": "Too Many",
+          "sum": 2066271684010484919,
+          "unique_values": "Too Many"
+        },
+        "null": {
+          "comments_count": 93,
+          "count": 93
+        }
+      }
+    },
+    "rte_mode": {
+      "comments_count": 100198466,
+      "count": 124284851,
+      "found_in": "both",
+      "prevalence": 0.09225611699355422,
+      "submissions_count": 24086385,
+      "value_types": {
+        "str": {
+          "comments_count": 100198466,
+          "comments_length_sum": 801587728,
+          "comments_max_length": 8,
+          "comments_min_length": 8,
+          "comments_unique_values": {
+            "markdown": 92833078,
+            "richtext": 7365388
+          },
+          "count": 124284851,
+          "length_sum": 994278808,
+          "max_length": 8,
+          "min_length": 8,
+          "submissions_count": 24086385,
+          "submissions_length_sum": 192691080,
+          "submissions_max_length": 8,
+          "submissions_min_length": 8,
+          "submissions_unique_values": {
+            "markdown": 23436795,
+            "richtext": 649590
+          },
+          "unique_values": {
+            "markdown": 116269873,
+            "richtext": 8014978
+          }
+        }
+      }
+    },
+    "saved": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "bool": {
+          "comments_count": 34739723,
+          "comments_unique_values": {
+            "false": 34739723
+          },
+          "count": 58826107,
+          "submissions_count": 24086384,
+          "submissions_unique_values": {
+            "false": 24086384
+          },
+          "unique_values": {
+            "false": 58826107
+          }
+        }
+      }
+    },
+    "score": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "int": {
+          "comments_count": 1194740992,
+          "comments_max": 90192,
+          "comments_min": -88960,
+          "comments_sum": 10775116570,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "max": 256841,
+          "min": -88960,
+          "submissions_count": 152430935,
+          "submissions_max": 256841,
+          "submissions_min": 0,
+          "submissions_sum": 10476915377,
+          "submissions_unique_values": "Too Many",
+          "sum": 21252031947,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "score_hidden": {
+      "comments_count": 406371153,
+      "count": 406371153,
+      "found_in": "comments",
+      "prevalence": 0.3016475807978683,
+      "submissions_count": 0,
+      "value_types": {
+        "bool": {
+          "comments_count": 406371153,
+          "comments_unique_values": {
+            "false": 404274588,
+            "true": 2096565
+          },
+          "count": 406371153,
+          "unique_values": {
+            "false": 404274588,
+            "true": 2096565
+          }
+        }
+      }
+    },
+    "secure_media": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "dict": {
+          "count": 15304191,
+          "max_length": 4,
+          "min_length": 1,
+          "submissions_count": 15304191,
+          "submissions_max_length": 4,
+          "submissions_min_length": 1,
+          "submissions_unique_lengths": {
+            "1": 1744992,
+            "2": 13132971,
+            "4": 426228
+          },
+          "unique_lengths": {
+            "1": 1744992,
+            "2": 13132971,
+            "4": 426228
+          }
+        },
+        "null": {
+          "count": 137126744,
+          "submissions_count": 137126744
+        }
+      }
+    },
+    "secure_media_embed": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "dict": {
+          "count": 152430935,
+          "max_length": 5,
+          "min_length": 0,
+          "submissions_count": 152430935,
+          "submissions_max_length": 5,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 138871736,
+            "5": 13559199
+          },
+          "unique_lengths": {
+            "0": 138871736,
+            "5": 13559199
+          }
+        }
+      }
+    },
+    "selftext": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 26012850044,
+          "max_length": 256813,
+          "min_length": 0,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 26012850044,
+          "submissions_max_length": 256813,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "selftext_html": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "null": {
+          "count": 13031744,
+          "submissions_count": 13031744
+        },
+        "str": {
+          "count": 11054640,
+          "length_sum": 6172758513,
+          "max_length": 366087,
+          "min_length": 75,
+          "submissions_count": 11054640,
+          "submissions_length_sum": 6172758513,
+          "submissions_max_length": 366087,
+          "submissions_min_length": 75,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "send_replies": {
+      "comments_count": 1016715219,
+      "count": 1157839311,
+      "found_in": "both",
+      "prevalence": 0.8594592025970422,
+      "submissions_count": 141124092,
+      "value_types": {
+        "bool": {
+          "comments_count": 1016715219,
+          "comments_unique_values": {
+            "false": 12787911,
+            "true": 1003927308
+          },
+          "count": 1157839311,
+          "submissions_count": 141124092,
+          "submissions_unique_values": {
+            "false": 24794745,
+            "true": 116329347
+          },
+          "unique_values": {
+            "false": 37582656,
+            "true": 1120256655
+          }
+        }
+      }
+    },
+    "show_media": {
+      "comments_count": 0,
+      "count": 125024,
+      "found_in": "submissions",
+      "prevalence": 9.2804784156696e-05,
+      "submissions_count": 125024,
+      "value_types": {
+        "bool": {
+          "count": 125024,
+          "submissions_count": 125024,
+          "submissions_unique_values": {
+            "true": 125024
+          },
+          "unique_values": {
+            "true": 125024
+          }
+        }
+      }
+    },
+    "spoiler": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "count": 152430825,
+          "submissions_count": 152430825,
+          "submissions_unique_values": {
+            "false": 151534458,
+            "true": 896367
+          },
+          "unique_values": {
+            "false": 151534458,
+            "true": 896367
+          }
+        },
+        "null": {
+          "count": 110,
+          "submissions_count": 110
+        }
+      }
+    },
+    "stickied": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "bool": {
+          "comments_count": 1194740992,
+          "comments_unique_values": {
+            "false": 1189717251,
+            "true": 5023741
+          },
+          "count": 1347171927,
+          "submissions_count": 152430935,
+          "submissions_unique_values": {
+            "false": 152308445,
+            "true": 122490
+          },
+          "unique_values": {
+            "false": 1342025696,
+            "true": 5146231
+          }
+        }
+      }
+    },
+    "subreddit": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 11814751218,
+          "comments_max_length": 24,
+          "comments_min_length": 2,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "length_sum": 13458221705,
+          "max_length": 24,
+          "min_length": 2,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 1643470487,
+          "submissions_max_length": 24,
+          "submissions_min_length": 2,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_id": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 9553870232,
+          "comments_max_length": 8,
+          "comments_min_length": 6,
+          "comments_unique_values": "Too Many",
+          "count": 1347171927,
+          "length_sum": 10773051521,
+          "max_length": 8,
+          "min_length": 4,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 1219181289,
+          "submissions_max_length": 8,
+          "submissions_min_length": 4,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_name_prefixed": {
+      "comments_count": 622005163,
+      "count": 716462528,
+      "found_in": "both",
+      "prevalence": 0.5318270913376693,
+      "submissions_count": 94457365,
+      "value_types": {
+        "str": {
+          "comments_count": 622005163,
+          "comments_length_sum": 7445029059,
+          "comments_max_length": 26,
+          "comments_min_length": 4,
+          "comments_unique_values": "Too Many",
+          "count": 716462528,
+          "length_sum": 8644562694,
+          "max_length": 26,
+          "min_length": 4,
+          "submissions_count": 94457365,
+          "submissions_length_sum": 1199533635,
+          "submissions_max_length": 26,
+          "submissions_min_length": 4,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_subscribers": {
+      "comments_count": 0,
+      "count": 130556861,
+      "found_in": "submissions",
+      "prevalence": 0.0969118033759979,
+      "submissions_count": 130556861,
+      "value_types": {
+        "int": {
+          "count": 130556861,
+          "max": 34353258,
+          "min": -2,
+          "submissions_count": 130556861,
+          "submissions_max": 34353258,
+          "submissions_min": -2,
+          "submissions_sum": 194984568765628,
+          "submissions_unique_values": "Too Many",
+          "sum": 194984568765628,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "subreddit_type": {
+      "comments_count": 1194740992,
+      "count": 1347171927,
+      "found_in": "both",
+      "prevalence": 0.9999999992577042,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "comments_count": 1194740992,
+          "comments_length_sum": 7236399421,
+          "comments_max_length": 15,
+          "comments_min_length": 4,
+          "comments_unique_values": {
+            "archived": 3,
+            "gold_restricted": 11,
+            "public": 1174661215,
+            "restricted": 18018815,
+            "user": 2060948
+          },
+          "count": 1347171927,
+          "length_sum": 8188369466,
+          "max_length": 15,
+          "min_length": 4,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 951970045,
+          "submissions_max_length": 15,
+          "submissions_min_length": 4,
+          "submissions_unique_values": {
+            "archived": 8,
+            "gold_restricted": 280,
+            "private": 1503,
+            "public": 132790346,
+            "restricted": 12776332,
+            "user": 6862466
+          },
+          "unique_values": {
+            "archived": 11,
+            "gold_restricted": 291,
+            "private": 1503,
+            "public": 1307451561,
+            "restricted": 30795147,
+            "user": 8923414
+          }
+        }
+      }
+    },
+    "suggested_sort": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 130488705,
+          "submissions_count": 130488705
+        },
+        "str": {
+          "count": 21942230,
+          "length_sum": 115028625,
+          "max_length": 13,
+          "min_length": 2,
+          "submissions_count": 21942230,
+          "submissions_length_sum": 115028625,
+          "submissions_max_length": 13,
+          "submissions_min_length": 2,
+          "submissions_unique_values": {
+            "confidence": 7930157,
+            "controversial": 62166,
+            "live": 311,
+            "new": 3816794,
+            "old": 189048,
+            "qa": 6951199,
+            "random": 6688,
+            "top": 2985867
+          },
+          "unique_values": {
+            "confidence": 7930157,
+            "controversial": 62166,
+            "live": 311,
+            "new": 3816794,
+            "old": 189048,
+            "qa": 6951199,
+            "random": 6688,
+            "top": 2985867
+          }
+        }
+      }
+    },
+    "third_party_trackers": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "list": {
+          "count": 173840,
+          "max_length": 8,
+          "min_length": 0,
+          "submissions_count": 173840,
+          "submissions_max_length": 8,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 168412,
+            "1": 3583,
+            "2": 1330,
+            "3": 343,
+            "4": 138,
+            "5": 25,
+            "8": 9
+          },
+          "unique_lengths": {
+            "0": 168412,
+            "1": 3583,
+            "2": 1330,
+            "3": 343,
+            "4": 138,
+            "5": 25,
+            "8": 9
+          }
+        },
+        "null": {
+          "count": 3696,
+          "submissions_count": 3696
+        }
+      }
+    },
+    "third_party_tracking": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177533,
+          "submissions_count": 177533
+        },
+        "str": {
+          "count": 3,
+          "length_sum": 481,
+          "max_length": 197,
+          "min_length": 142,
+          "submissions_count": 3,
+          "submissions_length_sum": 481,
+          "submissions_max_length": 197,
+          "submissions_min_length": 142,
+          "submissions_unique_values": {
+            "https://ad.doubleclick.net/ddm/trackimp/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;ord={{timestamp}}": 2,
+            "https://secure-gl.imrworldwide.com/cgi-bin/m?ci=ade2015-ca&amp;at=view&amp;rt=banner&amp;st=image&amp;ca=Reddit_BEEV_Lite_CONTROL&amp;cr=site_served&amp;pc=SS110&amp;ce=reddit&amp;rnd={{timestamp}}": 1
+          },
+          "unique_values": {
+            "https://ad.doubleclick.net/ddm/trackimp/N494401.131843REDDITINC/B20629722.212228240;dc_trk_aid=411796183;dc_trk_cid=96835062;ord={{timestamp}}": 2,
+            "https://secure-gl.imrworldwide.com/cgi-bin/m?ci=ade2015-ca&amp;at=view&amp;rt=banner&amp;st=image&amp;ca=Reddit_BEEV_Lite_CONTROL&amp;cr=site_served&amp;pc=SS110&amp;ce=reddit&amp;rnd={{timestamp}}": 1
+          }
+        }
+      }
+    },
+    "third_party_tracking_2": {
+      "comments_count": 0,
+      "count": 177536,
+      "found_in": "submissions",
+      "prevalence": 0.00013178421871035305,
+      "submissions_count": 177536,
+      "value_types": {
+        "null": {
+          "count": 177536,
+          "submissions_count": 177536
+        }
+      }
+    },
+    "thumbnail": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 280,
+          "submissions_count": 280
+        },
+        "str": {
+          "count": 152430655,
+          "length_sum": 4319446736,
+          "max_length": 80,
+          "min_length": 4,
+          "submissions_count": 152430655,
+          "submissions_length_sum": 4319446736,
+          "submissions_max_length": 80,
+          "submissions_min_length": 4,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "thumbnail_height": {
+      "comments_count": 0,
+      "count": 152430655,
+      "found_in": "submissions",
+      "prevalence": 0.11314862775258185,
+      "submissions_count": 152430655,
+      "value_types": {
+        "int": {
+          "count": 84469282,
+          "max": 140,
+          "min": 1,
+          "submissions_count": 84469282,
+          "submissions_max": 140,
+          "submissions_min": 1,
+          "submissions_sum": 9184002401,
+          "submissions_unique_values": {
+            "1": 27293,
+            "10": 5923,
+            "100": 274005,
+            "101": 214007,
+            "102": 214898,
+            "103": 220330,
+            "104": 629024,
+            "105": 14185163,
+            "106": 192646,
+            "107": 165633,
+            "108": 179004,
+            "109": 154802,
+            "11": 5585,
+            "110": 143608,
+            "111": 142436,
+            "112": 239616,
+            "113": 129693,
+            "114": 132253,
+            "115": 117552,
+            "116": 179070,
+            "117": 135684,
+            "118": 111479,
+            "119": 116032,
+            "12": 5676,
+            "120": 133219,
+            "121": 111297,
+            "122": 117104,
+            "123": 108008,
+            "124": 117511,
+            "125": 114309,
+            "126": 120166,
+            "127": 110409,
+            "128": 109424,
+            "129": 114521,
+            "13": 6734,
+            "130": 116781,
+            "131": 128090,
+            "132": 123115,
+            "133": 137724,
+            "134": 144143,
+            "135": 160246,
+            "136": 181242,
+            "137": 221947,
+            "138": 277016,
+            "139": 343462,
+            "14": 11108,
+            "140": 31210632,
+            "15": 7980,
+            "16": 19078,
+            "17": 12304,
+            "18": 12251,
+            "19": 12138,
+            "2": 786,
+            "20": 12653,
+            "21": 13262,
+            "22": 14782,
+            "23": 16519,
+            "24": 17841,
+            "25": 19966,
+            "26": 17331,
+            "27": 15880,
+            "28": 22527,
+            "29": 23764,
+            "3": 1481,
+            "30": 19161,
+            "31": 21511,
+            "32": 27176,
+            "33": 22118,
+            "34": 23526,
+            "35": 34824,
+            "36": 29552,
+            "37": 27609,
+            "38": 28689,
+            "39": 72099,
+            "4": 1375,
+            "40": 32946,
+            "41": 31569,
+            "42": 35439,
+            "43": 36807,
+            "44": 38460,
+            "45": 41237,
+            "46": 79776,
+            "47": 43824,
+            "48": 46661,
+            "49": 48197,
+            "5": 2474,
+            "50": 51862,
+            "51": 54955,
+            "52": 77297,
+            "53": 53526,
+            "54": 52774,
+            "55": 47702,
+            "56": 104163,
+            "57": 77586,
+            "58": 123406,
+            "59": 120145,
+            "6": 2217,
+            "60": 106318,
+            "61": 70402,
+            "62": 79979,
+            "63": 78803,
+            "64": 134974,
+            "65": 209370,
+            "66": 105026,
+            "67": 113911,
+            "68": 244567,
+            "69": 129510,
+            "7": 2893,
+            "70": 1386087,
+            "71": 157824,
+            "72": 241321,
+            "73": 4487690,
+            "74": 227490,
+            "75": 348257,
+            "76": 231285,
+            "77": 399595,
+            "78": 11343466,
+            "79": 517123,
+            "8": 3314,
+            "80": 372673,
+            "81": 217428,
+            "82": 196466,
+            "83": 250794,
+            "84": 443359,
+            "85": 201700,
+            "86": 366166,
+            "87": 727586,
+            "88": 301457,
+            "89": 248696,
+            "9": 3827,
+            "90": 280614,
+            "91": 347447,
+            "92": 496585,
+            "93": 3892929,
+            "94": 307433,
+            "95": 247717,
+            "96": 263748,
+            "97": 224802,
+            "98": 311787,
+            "99": 256037
+          },
+          "sum": 9184002401,
+          "unique_values": {
+            "1": 27293,
+            "10": 5923,
+            "100": 274005,
+            "101": 214007,
+            "102": 214898,
+            "103": 220330,
+            "104": 629024,
+            "105": 14185163,
+            "106": 192646,
+            "107": 165633,
+            "108": 179004,
+            "109": 154802,
+            "11": 5585,
+            "110": 143608,
+            "111": 142436,
+            "112": 239616,
+            "113": 129693,
+            "114": 132253,
+            "115": 117552,
+            "116": 179070,
+            "117": 135684,
+            "118": 111479,
+            "119": 116032,
+            "12": 5676,
+            "120": 133219,
+            "121": 111297,
+            "122": 117104,
+            "123": 108008,
+            "124": 117511,
+            "125": 114309,
+            "126": 120166,
+            "127": 110409,
+            "128": 109424,
+            "129": 114521,
+            "13": 6734,
+            "130": 116781,
+            "131": 128090,
+            "132": 123115,
+            "133": 137724,
+            "134": 144143,
+            "135": 160246,
+            "136": 181242,
+            "137": 221947,
+            "138": 277016,
+            "139": 343462,
+            "14": 11108,
+            "140": 31210632,
+            "15": 7980,
+            "16": 19078,
+            "17": 12304,
+            "18": 12251,
+            "19": 12138,
+            "2": 786,
+            "20": 12653,
+            "21": 13262,
+            "22": 14782,
+            "23": 16519,
+            "24": 17841,
+            "25": 19966,
+            "26": 17331,
+            "27": 15880,
+            "28": 22527,
+            "29": 23764,
+            "3": 1481,
+            "30": 19161,
+            "31": 21511,
+            "32": 27176,
+            "33": 22118,
+            "34": 23526,
+            "35": 34824,
+            "36": 29552,
+            "37": 27609,
+            "38": 28689,
+            "39": 72099,
+            "4": 1375,
+            "40": 32946,
+            "41": 31569,
+            "42": 35439,
+            "43": 36807,
+            "44": 38460,
+            "45": 41237,
+            "46": 79776,
+            "47": 43824,
+            "48": 46661,
+            "49": 48197,
+            "5": 2474,
+            "50": 51862,
+            "51": 54955,
+            "52": 77297,
+            "53": 53526,
+            "54": 52774,
+            "55": 47702,
+            "56": 104163,
+            "57": 77586,
+            "58": 123406,
+            "59": 120145,
+            "6": 2217,
+            "60": 106318,
+            "61": 70402,
+            "62": 79979,
+            "63": 78803,
+            "64": 134974,
+            "65": 209370,
+            "66": 105026,
+            "67": 113911,
+            "68": 244567,
+            "69": 129510,
+            "7": 2893,
+            "70": 1386087,
+            "71": 157824,
+            "72": 241321,
+            "73": 4487690,
+            "74": 227490,
+            "75": 348257,
+            "76": 231285,
+            "77": 399595,
+            "78": 11343466,
+            "79": 517123,
+            "8": 3314,
+            "80": 372673,
+            "81": 217428,
+            "82": 196466,
+            "83": 250794,
+            "84": 443359,
+            "85": 201700,
+            "86": 366166,
+            "87": 727586,
+            "88": 301457,
+            "89": 248696,
+            "9": 3827,
+            "90": 280614,
+            "91": 347447,
+            "92": 496585,
+            "93": 3892929,
+            "94": 307433,
+            "95": 247717,
+            "96": 263748,
+            "97": 224802,
+            "98": 311787,
+            "99": 256037
+          }
+        },
+        "null": {
+          "count": 67961373,
+          "submissions_count": 67961373
+        }
+      }
+    },
+    "thumbnail_width": {
+      "comments_count": 0,
+      "count": 152430655,
+      "found_in": "submissions",
+      "prevalence": 0.11314862775258185,
+      "submissions_count": 152430655,
+      "value_types": {
+        "int": {
+          "count": 84469282,
+          "max": 140,
+          "min": 1,
+          "submissions_count": 84469282,
+          "submissions_max": 140,
+          "submissions_min": 1,
+          "submissions_sum": 11765079310,
+          "submissions_unique_values": {
+            "1": 26535,
+            "10": 1324,
+            "11": 51,
+            "12": 47,
+            "13": 14,
+            "14": 101,
+            "140": 83654311,
+            "15": 119,
+            "16": 10871,
+            "17": 91,
+            "18": 58,
+            "19": 67,
+            "2": 83,
+            "20": 622,
+            "21": 67,
+            "22": 60,
+            "23": 99,
+            "24": 421,
+            "25": 1428,
+            "26": 99,
+            "27": 54,
+            "28": 221,
+            "29": 72,
+            "3": 51,
+            "30": 312,
+            "31": 129,
+            "32": 3859,
+            "33": 179,
+            "34": 260,
+            "35": 218,
+            "36": 769,
+            "37": 137,
+            "38": 250,
+            "39": 150,
+            "4": 643,
+            "40": 2511,
+            "41": 163,
+            "42": 269,
+            "43": 169,
+            "44": 378,
+            "45": 641,
+            "46": 356,
+            "47": 153,
+            "48": 2995,
+            "49": 175,
+            "5": 771,
+            "50": 8291,
+            "51": 199,
+            "52": 306,
+            "53": 386,
+            "54": 353,
+            "55": 442,
+            "56": 1844,
+            "57": 324,
+            "58": 362,
+            "59": 379,
+            "6": 29,
+            "60": 2458,
+            "61": 381,
+            "62": 2682,
+            "63": 460,
+            "64": 10261,
+            "65": 1220,
+            "66": 895,
+            "67": 751,
+            "68": 611,
+            "69": 769,
+            "7": 23,
+            "70": 723437,
+            "8": 41,
+            "9": 25
+          },
+          "sum": 11765079310,
+          "unique_values": {
+            "1": 26535,
+            "10": 1324,
+            "11": 51,
+            "12": 47,
+            "13": 14,
+            "14": 101,
+            "140": 83654311,
+            "15": 119,
+            "16": 10871,
+            "17": 91,
+            "18": 58,
+            "19": 67,
+            "2": 83,
+            "20": 622,
+            "21": 67,
+            "22": 60,
+            "23": 99,
+            "24": 421,
+            "25": 1428,
+            "26": 99,
+            "27": 54,
+            "28": 221,
+            "29": 72,
+            "3": 51,
+            "30": 312,
+            "31": 129,
+            "32": 3859,
+            "33": 179,
+            "34": 260,
+            "35": 218,
+            "36": 769,
+            "37": 137,
+            "38": 250,
+            "39": 150,
+            "4": 643,
+            "40": 2511,
+            "41": 163,
+            "42": 269,
+            "43": 169,
+            "44": 378,
+            "45": 641,
+            "46": 356,
+            "47": 153,
+            "48": 2995,
+            "49": 175,
+            "5": 771,
+            "50": 8291,
+            "51": 199,
+            "52": 306,
+            "53": 386,
+            "54": 353,
+            "55": 442,
+            "56": 1844,
+            "57": 324,
+            "58": 362,
+            "59": 379,
+            "6": 29,
+            "60": 2458,
+            "61": 381,
+            "62": 2682,
+            "63": 460,
+            "64": 10261,
+            "65": 1220,
+            "66": 895,
+            "67": 751,
+            "68": 611,
+            "69": 769,
+            "7": 23,
+            "70": 723437,
+            "8": 41,
+            "9": 25
+          }
+        },
+        "null": {
+          "count": 67961373,
+          "submissions_count": 67961373
+        }
+      }
+    },
+    "title": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 8433569115,
+          "max_length": 1717,
+          "min_length": 0,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 8433569115,
+          "submissions_max_length": 1717,
+          "submissions_min_length": 0,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "ups": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "int": {
+          "count": 24086384,
+          "max": 194525,
+          "min": 0,
+          "submissions_count": 24086384,
+          "submissions_max": 194525,
+          "submissions_min": 0,
+          "submissions_sum": 1594517378,
+          "submissions_unique_values": "Too Many",
+          "sum": 1594517378,
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "url": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "str": {
+          "count": 152430935,
+          "length_sum": 10876473190,
+          "max_length": 131294,
+          "min_length": 4,
+          "submissions_count": 152430935,
+          "submissions_length_sum": 10876473190,
+          "submissions_max_length": 131294,
+          "submissions_min_length": 4,
+          "submissions_unique_values": "Too Many",
+          "unique_values": "Too Many"
+        }
+      }
+    },
+    "user_reports": {
+      "comments_count": 34739723,
+      "count": 58826107,
+      "found_in": "both",
+      "prevalence": 0.043666369360392435,
+      "submissions_count": 24086384,
+      "value_types": {
+        "list": {
+          "comments_count": 34739723,
+          "comments_max_length": 0,
+          "comments_min_length": 0,
+          "comments_unique_lengths": {
+            "0": 34739723
+          },
+          "count": 58826107,
+          "max_length": 0,
+          "min_length": 0,
+          "submissions_count": 24086384,
+          "submissions_max_length": 0,
+          "submissions_min_length": 0,
+          "submissions_unique_lengths": {
+            "0": 24086384
+          },
+          "unique_lengths": {
+            "0": 58826107
+          }
+        }
+      }
+    },
+    "visited": {
+      "comments_count": 0,
+      "count": 24086384,
+      "found_in": "submissions",
+      "prevalence": 0.017879220535539544,
+      "submissions_count": 24086384,
+      "value_types": {
+        "bool": {
+          "count": 24086384,
+          "submissions_count": 24086384,
+          "submissions_unique_values": {
+            "false": 24086384
+          },
+          "unique_values": {
+            "false": 24086384
+          }
+        }
+      }
+    },
+    "whitelist_status": {
+      "comments_count": 0,
+      "count": 152430935,
+      "found_in": "submissions",
+      "prevalence": 0.11314883559539254,
+      "submissions_count": 152430935,
+      "value_types": {
+        "null": {
+          "count": 58777252,
+          "submissions_count": 58777252
+        },
+        "str": {
+          "count": 93653683,
+          "length_sum": 781731813,
+          "max_length": 16,
+          "min_length": 6,
+          "submissions_count": 93653683,
+          "submissions_length_sum": 781731813,
+          "submissions_max_length": 16,
+          "submissions_min_length": 6,
+          "submissions_unique_values": {
+            "all_ads": 71578451,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 587050,
+            "promo_adult_nsfw": 9836516,
+            "promo_all": 422577,
+            "promo_specified": 2335287
+          },
+          "unique_values": {
+            "all_ads": 71578451,
+            "house_only": 6161385,
+            "no_ads": 2732417,
+            "promo_adult": 587050,
+            "promo_adult_nsfw": 9836516,
+            "promo_all": 422577,
+            "promo_specified": 2335287
+          }
+        }
+      }
+    },
+    "wls": {
+      "comments_count": 0,
+      "count": 118543749,
+      "found_in": "submissions",
+      "prevalence": 0.0879945213644624,
+      "submissions_count": 118543749,
+      "value_types": {
+        "int": {
+          "count": 73099752,
+          "max": 6,
+          "min": 0,
+          "submissions_count": 73099752,
+          "submissions_max": 6,
+          "submissions_min": 0,
+          "submissions_sum": 364526047,
+          "submissions_unique_values": {
+            "0": 2480637,
+            "1": 7208460,
+            "3": 7610421,
+            "5": 315080,
+            "6": 55485154
+          },
+          "sum": 364526047,
+          "unique_values": {
+            "0": 2480637,
+            "1": 7208460,
+            "3": 7610421,
+            "5": 315080,
+            "6": 55485154
+          }
+        },
+        "null": {
+          "count": 45443997,
+          "submissions_count": 45443997
+        }
+      }
+    }
+  },
+  "bytes_read": 1611996353707,
+  "bytes_total": 1611996353881,
+  "comments_bytes_read": 1176198824117,
+  "comments_bytes_total": 1176198824291,
+  "comments_input_files": [
+    "RedditComments-2018-01.txt",
+    "RedditComments-2018-02.txt",
+    "RedditComments-2018-03.txt",
+    "RedditComments-2018-04.txt",
+    "RedditComments-2018-05.txt",
+    "RedditComments-2018-06.txt",
+    "RedditComments-2018-07.txt",
+    "RedditComments-2018-08.txt",
+    "RedditComments-2018-09.txt",
+    "RedditComments-2018-10.txt",
+    "RedditComments-2018-11.txt",
+    "RedditComments-2018-12.txt"
+  ],
+  "comments_object_count": 1194740993,
+  "comments_seconds": 101489.343188,
+  "input_files": [
+    "RedditComments-2018-01.txt",
+    "RedditComments-2018-02.txt",
+    "RedditComments-2018-03.txt",
+    "RedditComments-2018-04.txt",
+    "RedditComments-2018-05.txt",
+    "RedditComments-2018-06.txt",
+    "RedditComments-2018-07.txt",
+    "RedditComments-2018-08.txt",
+    "RedditComments-2018-09.txt",
+    "RedditComments-2018-10.txt",
+    "RedditComments-2018-11.txt",
+    "RedditComments-2018-12.txt",
+    "RedditSubmissions-2018-01.txt",
+    "RedditSubmissions-2018-02.txt",
+    "RedditSubmissions-2018-03.txt",
+    "RedditSubmissions-2018-04.txt",
+    "RedditSubmissions-2018-05.txt",
+    "RedditSubmissions-2018-06.txt",
+    "RedditSubmissions-2018-07.txt",
+    "RedditSubmissions-2018-08.txt",
+    "RedditSubmissions-2018-09.txt",
+    "RedditSubmissions-2018-10.txt",
+    "RedditSubmissions-2018-11.txt",
+    "RedditSubmissions-2018-12.txt"
+  ],
+  "object_count": 1347171928,
+  "seconds": 133050.360541,
+  "submissions_bytes_read": 435797529590,
+  "submissions_bytes_total": 435797529590,
+  "submissions_input_files": [
+    "RedditSubmissions-2018-01.txt",
+    "RedditSubmissions-2018-02.txt",
+    "RedditSubmissions-2018-03.txt",
+    "RedditSubmissions-2018-04.txt",
+    "RedditSubmissions-2018-05.txt",
+    "RedditSubmissions-2018-06.txt",
+    "RedditSubmissions-2018-07.txt",
+    "RedditSubmissions-2018-08.txt",
+    "RedditSubmissions-2018-09.txt",
+    "RedditSubmissions-2018-10.txt",
+    "RedditSubmissions-2018-11.txt",
+    "RedditSubmissions-2018-12.txt"
+  ],
+  "submissions_object_count": 152430935,
+  "submissions_seconds": 31561.017353,
+  "summary_data": {
+    "combined_bytes_read": "1.61TB",
+    "combined_bytes_total": "1.61TB",
+    "combined_object_count": "1.35G",
+    "combined_time": "1.54 Days",
+    "merge_command_line": [
+      "./merge-json-data",
+      "--comments-file",
+      "../meta-data/RedditComments-meta2.json",
+      "--submissions-file",
+      "../meta-data/RedditSubmissions-meta2.json",
+      "--out-file",
+      "../meta-data/Reddit-2018-meta.json",
+      "--human"
+    ],
+    "merge_run_time": "2019-10-04-11:11:04"
+  }
+}
