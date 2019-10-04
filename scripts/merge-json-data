@@ -1,0 +1,304 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import os
+import sys
+import glob
+
+# Use local libraries first
+libdir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'lib','python')
+if not os.path.isdir(libdir):
+	print( f"WARNING: '{libdir}' is not a directory. You may have problems." )
+	pass
+else:
+	sys.path.insert(0, libdir)
+	pass
+
+from misc.MyInfo import MyInfo
+
+class AttributeTypeMeta:
+	def __init__(self,attribute_meta,type_str):
+		self.parent = attribute_meta
+		self.args = self.parent.args
+		self.name = self.parent.name
+		self.type = type_str
+		self.key = self.type
+		if self.key in self.parent.attribute_types_meta:
+			raise ValueError(f"Only one AttributeTypeMeta per attribute name and type allowed. '{self.key}' is a duplicate.")
+		self.parent.attribute_types_meta[self.key] = self
+		self.meta  = {
+			"count":0,
+			"length_sum":None,
+			"max":None,
+			"max_length":None,
+			"min":None,
+			"min_length":None,
+			"sum":None,
+			"unique_values":None,
+			"unique_lengths":None,
+			}
+		pass
+
+	def merge(self,obj,preface):
+		#print(['typemerge',preface,obj])
+		if preface not in ["comments_","submissions_"]:
+			raise ValueError(f"preface can only be either 'comments_' or 'submissions_', was '{preface}'.")
+		for key in ["count","length_sum","sum"]:
+			if key in obj:
+				self.meta[preface+key] = obj[key]
+				if self.meta[key] is None:
+					self.meta[key] = obj[key]
+				else:
+					self.meta[key] += obj[key]
+					pass
+				pass
+			pass
+		for key in ["max","max_length"]:
+			if key in obj:
+				self.meta[preface+key] = obj[key]
+				if self.meta[key] is None:
+					self.meta[key] = obj[key]
+				elif obj[key] > self.meta[key]:
+					self.meta[key] = obj[key]
+					pass
+				pass
+			pass
+		for key in ["min","min_length"]:
+			if key in obj:
+				self.meta[preface+key] = obj[key]
+				if self.meta[key] is None:
+					self.meta[key] = obj[key]
+				elif obj[key] < self.meta[key]:
+					self.meta[key] = obj[key]
+					pass
+				pass
+			pass
+		if "unique_values" in obj:
+			self.meta[preface+"unique_values"] = obj["unique_values"]
+			if "Too Many" == self.meta["unique_values"] or "Too Many" == obj["unique_values"]:
+				self.meta["unique_values"] = obj["unique_values"]
+			else:
+				if self.meta["unique_values"] is None:
+					self.meta["unique_values"] = {}
+				for value,count in obj["unique_values"].items():
+					#print(['1',self.meta["unique_values"],value,count])
+					if value not in self.meta["unique_values"]:
+						self.meta["unique_values"][value] = 0
+						#print(['2',self.meta["unique_values"],value,count])
+						pass
+					self.meta["unique_values"][value] += count
+					pass
+				pass
+			pass
+		if "unique_lengths" in obj:
+			if self.meta["unique_lengths"] is None:
+				self.meta["unique_lengths"] = {}
+			self.meta[preface+"unique_lengths"] = obj["unique_lengths"]
+			if "Too Many" == self.meta["unique_lengths"] or "Too Many" == obj["unique_lengths"]:
+				self.meta["unique_lengths"] = obj["unique_lengths"]
+			else:
+				for value,count in obj["unique_lengths"].items():
+					#print(['1',self.meta["unique_lengths"],value,count])
+					if value not in self.meta["unique_lengths"]:
+						self.meta["unique_lengths"][value] = 0
+						#print(['2',self.meta["unique_lengths"],value,count])
+						pass
+					self.meta["unique_lengths"][value] += count
+					pass
+				pass
+			pass
+		pass
+
+	def get(attribute_meta,value_type_str):
+		key = value_type_str
+		if key not in attribute_meta.attribute_types_meta:
+			attribute_meta.attribute_types_meta[key] = AttributeTypeMeta(attribute_meta,value_type_str)
+			pass
+		return attribute_meta.attribute_types_meta[key]
+
+	def to_dict(self):
+		new_meta = {}
+		self.count = self.meta["count"]
+		for key,value in self.meta.items():
+			if self.args.only_summary:
+				if key.startswith("comments_") or key.startswith("submissions_"):
+					continue
+				pass
+			if value is not None:
+				#print(['not None',key,value])
+				new_meta[key] = value
+			else:
+				#print(['None',key,value])
+				pass
+			pass
+		return new_meta
+	pass
+
+class AttributeMeta(MyInfo):
+	_by_key = {}
+	def __init__(self,parent,attribute_name):
+		self.parent = parent
+		self.args = self.parent.args
+		self.name = attribute_name
+		self.key = f"{self.name}"
+		if self.key in AttributeMeta._by_key:
+			raise ValueError(f"Only one AttributeMeta per attribute name type allowed. '{self.key}' is a duplicate.")
+		AttributeMeta._by_key[self.key] = self
+		self.attribute_types_meta = {}
+		self.meta  = {
+			"count":0,
+			"submissions_count":0,
+			"comments_count":0,
+			}
+		pass
+
+	def _merge_type(self,type_str,type_meta,preface):
+		AttributeTypeMeta.get(self,type_str).merge(type_meta,preface)
+		return self
+
+	def merge(self,obj,preface):
+		if preface not in ["comments_","submissions_"]:
+			raise ValueError(f"preface can only be either 'comments_' or 'submissions_', was '{preface}'.")
+		self.meta["count"] += obj["count"]
+		self.meta[preface+"count"] += obj["count"]
+		for type_str,type_meta in obj["value_types"].items():
+			self._merge_type(type_str,type_meta,preface)
+			pass
+		return self
+	pass
+
+	def get(parent,attribute_name):
+		key = attribute_name
+		if key not in AttributeMeta._by_key:
+			AttributeMeta._by_key[key] = AttributeMeta(parent,attribute_name)
+			pass
+		return AttributeMeta._by_key[key]
+
+	def to_dict(self):
+		self.meta["value_types"] = {}
+		self.count = self.meta["count"]
+		self.meta["prevalence"] = self.count / self.parent.count
+		for type_str,attribute_type_meta in self.attribute_types_meta.items():
+			self.meta["value_types"][type_str] = attribute_type_meta.to_dict()
+			pass
+		new_meta = {}
+		if self.meta["comments_count"] > 0:
+			if self.meta["submissions_count"] > 0:
+				self.meta["found_in"] = "both"
+				pass
+			else:
+				self.meta["found_in"] = "comments"
+				pass
+			pass
+		else:
+			self.meta["found_in"] = "submissions"
+			pass
+		for key,value in self.meta.items():
+			if self.args.only_summary:
+				if key.startswith("comments_") or key.startswith("submissions_"):
+					continue
+				pass
+			new_meta[key] = value
+			pass
+		return new_meta
+	pass
+
+class Merger(MyInfo):
+	def __init__(self,coms_file,subs_file,args):
+		super().__init__()
+		self.coms_file = coms_file
+		if "RedditComments" not in self.coms_file and "RC_" not in self.coms_file:
+			raise ValueError(f"Expecting comments file name to contain 'RedditComments' or 'RC_'. It's '{self.coms_file}' instead.")
+		self.subs_file = subs_file
+		if "RedditSubmissions" not in self.subs_file and "RS_" not in self.subs_file:
+			raise ValueError(f"Expecting comments file name to contain 'RedditSubmissions' or 'RS_'. It's '{self.subs_file}' instead.")
+		self.args = args
+		pass
+
+	def process(self):
+		self.meta  = {
+			"bytes_read": 0,
+			"bytes_total": 0,
+			"input_files": [],
+			"object_count": 0,
+			"seconds": 0.0,
+			"attributes": None,
+			}
+		self.process_file(self.coms_file,"comments_")
+		self.process_file(self.subs_file,"submissions_")
+		self.finalize()
+		pass
+
+	def process_file(self,filename,preface):
+		print(f"Processing '{filename}'...")
+		with open(filename,'r') as fh:
+			obj = json.load(fh)
+			pass
+		for key in ["bytes_read","bytes_total","input_files","object_count","seconds"]:
+			self.meta[key] += obj[key]
+			self.meta[preface+key] = obj[key]
+			pass
+		self.process_attributes_meta(obj["attributes"],preface)
+		return self
+
+	def process_attributes_meta(self,obj,preface):
+		for attribute_name,attribute_obj in obj.items():
+			AttributeMeta.get(self,attribute_name).merge(attribute_obj,preface)
+			pass
+		self.count = self.meta["object_count"]
+		pass
+
+	def finalize(self):
+		self.meta["attributes"] = {}
+		for attribute_name,attribute_meta in AttributeMeta._by_key.items():
+			attribute_meta_dict = attribute_meta.to_dict()
+			if self.args.only_in_both and "both" != attribute_meta_dict["found_in"]:
+				continue
+			self.meta["attributes"][attribute_name] = attribute_meta_dict
+			pass
+		new_meta = {}
+		for key,value in self.meta.items():
+			if self.args.only_summary:
+				if key.startswith("comments_") or key.startswith("submissions_"):
+					continue
+				pass
+			new_meta[key] = value
+			pass
+		if self.args.human_readable:
+			new_meta["summary_data"] = {
+				"merge_run_time": self.timestr,
+				"merge_command_line": sys.argv,
+				"combined_time": self.psecs(self.meta["seconds"]),
+				"combined_bytes_read": self.pbytes(self.meta["bytes_read"]),
+				"combined_bytes_total": self.pbytes(self.meta["bytes_total"]),
+				"combined_object_count": self.pnum(self.meta["object_count"]),
+				}
+		print(f"Writing '{self.args.out_file}' ...")
+		with open(self.args.out_file,'w') as fh:
+			json.dump(new_meta,fh,indent=2,sort_keys=True)
+			pass
+		pass
+
+def main():
+	parser = argparse.ArgumentParser(description='Take two JSON meta files and output one merged ptyhon config file with some formatting changes to make it easier to edir.')
+	# parser.add_argument('files', nargs='+', help="Files to process.")
+	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
+	parser.add_argument('--only-summary', '-osum', default=False, action='store_true', dest='only_summary', help="Include only summary information, excluding the information about what was in each input file.")
+	parser.add_argument('--human-readable', '--human', '-hr', default=False, action='store_true', dest='human_readable', help="Include human readable summary of seconds, bytes, etc..")
+	parser.add_argument('--only-in-both', '-oboth', default=False, action='store_true', dest='only_in_both', help="Include only attributes that were present in both files.")
+	parser.add_argument('--comments-file', '-com', default=None, required=True, type=str, dest='comments_file', help="The RedditComments-* file.")
+	parser.add_argument('--submissions-file', '-sub', default=None, required=True, type=str, dest='submissions_file', help="The RedditSubmissions-* file.")
+	parser.add_argument('--out-file', '-out', default=None, required=True, type=str, dest='out_file', help="The output file.")
+	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
+	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
+	args = parser.parse_args()
+	args.verbosity = 1 + args.verbosity - args.quiet
+	merger = Merger(args.comments_file,args.submissions_file,args)
+	merger.process()
+	exit()
+
+if __name__ == "__main__":
+	main()
+	sys.exit(0)
+	pass

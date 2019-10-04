@@ -10,154 +10,15 @@ import subprocess
 import pprint
 import glob
 
-# I just like having a class with "my" info
-class MyInfo:
-	# Not super precise, but goot enough for government work.
-	_t0 = datetime.datetime.now()
-	_cwd = os.getcwd()
-
-	def init_class(self):
-		pre = "pico nano micro milli n kilo mega giga tera peta exa zetta yotta".split()
-		MyInfo.prefixes = pre
-		start = -12
-		MyInfo.pre_min = 1.0 * 10**start
-		MyInfo.pre_max = MyInfo.pre_min
-		MyInfo.prefix2val = {}
-		MyInfo.val2long = {}
-		MyInfo.val2short = {}
-		MyInfo.magnitutes = []
-		for prefix in pre:
-			short = prefix[0].upper()
-			current = 1.0 * 10**start
-			MyInfo.pre_max = current
-			MyInfo.magnitutes.append(current)
-			MyInfo.prefix2val[prefix] = current
-			MyInfo.prefix2val[short] = current
-			MyInfo.val2long[current] = prefix
-			MyInfo.val2short[current] = short
-			start += 3
-			pass
-		pass
-
-	def __init__(self):
-		self.t0 = MyInfo._t0
-		self.initial_dir = MyInfo._cwd
-		# This is the "real" filename. If it was called with a symlink, this
-		# will point to the target file not the symlink
-		self.real_filename = os.path.realpath(__file__)
-		# This is the filename of the called script which may not be the same
-		# as the "real" filename
-		self.filename = os.path.abspath(__file__)
-		self.basename = os.path.basename(__file__)
-		self.dir = os.path.dirname(os.path.abspath(__file__))
-		self.simestamp = time.strftime("%Y%m%d-%H%M%S")
-		self.secs_per_minute = 60
-		self.secs_per_hour = 3600
-		self.secs_per_day = self.secs_per_hour * 24
-		self.secs_per_week = self.secs_per_day * 7
-		self.secs_per_year = self.secs_per_day * 365.25
-		self.secs_per_month = self.secs_per_year / 12
-		self.init_class()
-		pass
-
-	def now(self):
-		return datetime.datetime.now()
-
-	def elapsed(self,tn=None,t0=None):
-		if tn is None:
-			tn = self.now()
-			pass
-		if t0 is None:
-			t0 = self.t0
-			pass
-		return (tn - t0).total_seconds()
-
-	def pbytes(self,num):
-		if num >= 1000000000000000:
-			return "%0.2fPB" %(num / 1000000000000000)
-		if num >= 1000000000000:
-			return "%0.2fTB" %(num / 1000000000000)
-		if num >= 1000000000:
-			return "%0.2fGB" %(num / 1000000000)
-		if num >= 1000000:
-			return "%0.2fMB" %(num / 1000000)
-		if  num >= 1000:
-			return "%0.2fKB" %(num / 1000)
-		return "%3s Bytes" %(num)
-
-	def pnum(self,num):
-		if num >= 1000000000000000:
-			return "%0.2fP" %(num / 1000000000000000)
-		if num >= 1000000000000:
-			return "%0.2fT" %(num / 1000000000000)
-		if num >= 1000000000:
-			return "%0.2fG" %(num / 1000000000)
-		if num >= 1000000:
-			return "%0.2fM" %(num / 1000000)
-		if  num >= 1000:
-			return "%0.2fK" %(num / 1000)
-		return "%3s " %(num)
-
-	def psecs(self, secs=None):
-		if secs is None:
-			secs = self.elapsed()
-			pass
-		if secs >= self.secs_per_year:
-			secs = secs / self.secs_per_year
-			return f"{secs:0.2f} Years"
-		if secs >= self.secs_per_month:
-			secs = secs / self.secs_per_month
-			return f"{secs:0.2f} Months"
-		if secs >= self.secs_per_week:
-			secs = secs / self.secs_per_week
-			return f"{secs:0.2f} Weeks"
-		if secs >= self.secs_per_day:
-			secs = secs / self.secs_per_day
-			return f"{secs:0.2f} Days"
-		if secs >= self.secs_per_hour:
-			secs = secs / self.secs_per_hour
-			return f"{secs:0.2f} Hours"
-		if secs >= self.secs_per_minute:
-			secs = secs / self.secs_per_minute
-			return f"{secs:0.2f} Minutes"
-		return f"{secs:0.2f} Secs"
-
-	def rate(self,count,tn=None,t0=None,total=None,append=""):
-		secs = self.elapsed(tn,t0)
-		rate = count / secs
-		if total is not None:
-			secs_remain = (total - count) / rate
-			percent = f"{count * 100 / total:0.2f}"
-			estimate = self.psecs(secs_remain)
-			estimate = f" ({self.pnum(count)} of {self.pnum(total)} {percent}% ~ {estimate} Remaining)"
-		else:
-			estimate = ""
-			pass
-		if rate <= 1.0 / self.secs_per_year:
-			rate = rate * self.secs_per_year
-			unit = "Year"
-		elif rate <= 1.0 / self.secs_per_month:
-			rate = rate * self.secs_per_month
-			unit = "Month"
-		elif rate <= 1.0 / self.secs_per_week:
-			rate = rate * self.secs_per_week
-			unit = "Week"
-		elif rate <= 1.0 / self.secs_per_hour:
-			rate = rate * self.secs_per_hour
-			unit = "Hour"
-		elif rate <= 1.0 / self.secs_per_minute:
-			rate = rate * self.secs_per_minute
-			unit = "Minute"
-		elif rate >= 1000:
-			rate = self.pnum(rate)
-			return f"{rate}/Sec{estimate}"
-		else:
-			unit = "Second"
-			pass
-		return f"{rate:0.2f}/{unit}{estimate}"
+# Use local libraries first
+libdir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'lib','python')
+if not os.path.isdir(libdir):
+	print(f"WARNING: '{libdir}' is not a directory. You may have problems.")
+else:
+	sys.path.insert(0, libdir)
 	pass
-me = MyInfo()
 
+from misc.MyInfo import MyInfo
 
 class ValueTypeTracker:
 	def __init__(self,attribute_obj,type_str,name=None):
@@ -367,6 +228,7 @@ class AttributeTracker:
 			"value_types":value_trackers,
 			"prevalence": self.count / self.parent.object_count,
 			}
+	pass
 
 class RedditBase(MyInfo):
 	def __init__(self):

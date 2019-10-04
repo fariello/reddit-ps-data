@@ -33,8 +33,10 @@ class FileJSONResult:
 
 
 class FileJSONPath:
-	def __init__(self,path):
+	def __init__(self,path,parent):
 		self.path_list = path.split(".")
+		self.parent = parent
+		self.args = self.parent.args
 		pass
 
 	def _add_result(self,path,value,missing=False):
@@ -59,8 +61,12 @@ class FileJSONPath:
 			return self._add_result(path_before + [this_attribute],{})
 		# Handle non-empty dicts as end-points
 		if not more_path:
-			for key in obj.keys():
-				self._add_result(path_before + [key], '[attribute]')
+			for key, val in obj.items():
+				if self.args.show_end:
+					self._add_result(path_before + [key], json.dumps(val))
+				else:
+					self._add_result(path_before + [key], '[attribute]')
+					pass
 				pass
 			return self
 		# Go down the rabbit hole
@@ -213,11 +219,11 @@ class FileJSONPathSearch:
 		self.error_count = 0
 		self.reg_paths = []
 		for path in self.args.attribute_value_path:
-			self.reg_paths.append(FileJSONPath(path))
+			self.reg_paths.append(FileJSONPath(path,self))
 			pass
 		self.uniq_paths = []
 		for path in self.args.attribute_unique_value_path:
-			self.uniq_paths.append(FileJSONPath(path))
+			self.uniq_paths.append(FileJSONPath(path,self))
 			pass
 		for fname in self.files:
 			self.get_results_from_file(fname)
@@ -340,6 +346,7 @@ def main():
 	parser.add_argument('--attribute-unique-values', '-u', default=[], action='append', dest='attribute_unique_value_path', help="Path to attribute(s) to display unique names in key1.key2.key3 format.")
 	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
 	parser.add_argument('--show-missing', '-M', default=False, action='store_true', dest='show_missing', help="Show missing attributes.")
+	parser.add_argument('--show-end', '-E', default=False, action='store_true', dest='show_end', help="Show full last value even if it's a dict or list.")
 	parser.add_argument('--multi-line', '-m', default=False, action='store_true', dest='multi_line', help="Process one line at a time as a JSON object in stead of the whole file.")
 	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
 	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
