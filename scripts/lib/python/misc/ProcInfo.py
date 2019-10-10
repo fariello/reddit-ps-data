@@ -57,7 +57,7 @@ class ProcInfo:
 		self.dir = os.path.dirname(os.path.abspath(main.__file__))
 		self.timestamp = self.t0.strftime("%Y%m%d-%H%M%S")
 		self.timestr = self.t0.strftime("%Y-%m-%d-%H:%M:%S")
-		self.unique_logfilename = f"{self.basename}-{self.timestamp}-{os.getpid()}.log"
+		self.unique_log_filename = f"{self.basename}-{self.timestamp}-{os.getpid()}.log"
 		self.min_tick_seconds = min_tick_seconds
 		self.min_ticks = min_ticks
 		self.last_tick = None

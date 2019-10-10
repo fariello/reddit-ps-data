@@ -1,233 +1,88 @@
 #!/usr/bin/env python3
 
 import argparse
-import json
-import os
-import sys
-import time
-import datetime
-import re
 import csv
+import datetime
+import glob
+import json
+import logging
+import os
+import re
+import sys
 
-# I just like having a class with "my" info
-class MyInfo:
-	# Not super precise, but goot enough for government work.
-	_t0 = datetime.datetime.now()
-	_cwd = os.getcwd()
-
-	def init_class(self):
-		pre = "pico nano micro milli n kilo mega giga tera peta exa zetta yotta".split()
-		MyInfo.prefixes = pre
-		start = -12
-		MyInfo.pre_min = 1.0 * 10**start
-		MyInfo.pre_max = MyInfo.pre_min
-		MyInfo.prefix2val = {}
-		MyInfo.val2long = {}
-		MyInfo.val2short = {}
-		MyInfo.magnitutes = []
-		for prefix in pre:
-			short = prefix[0].upper()
-			current = 1.0 * 10**start
-			MyInfo.pre_max = current
-			MyInfo.magnitutes.append(current)
-			MyInfo.prefix2val[prefix] = current
-			MyInfo.prefix2val[short] = current
-			MyInfo.val2long[current] = prefix
-			MyInfo.val2short[current] = short
-			start += 3
-			pass
-		pass
-
-	def __init__(self):
-		self.t0 = MyInfo._t0
-		self.initial_dir = MyInfo._cwd
-		# This is the "real" filename. If it was called with a symlink, this
-		# will point to the target file not the symlink
-		self.real_filename = os.path.realpath(__file__)
-		# This is the filename of the called script which may not be the same
-		# as the "real" filename
-		self.filename = os.path.abspath(__file__)
-		self.basename = os.path.basename(__file__)
-		self.dir = os.path.dirname(os.path.abspath(__file__))
-		self.simestamp = time.strftime("%Y%m%d-%H%M%S")
-		self.secs_per_minute = 60
-		self.secs_per_hour = 3600
-		self.secs_per_day = self.secs_per_hour * 24
-		self.secs_per_week = self.secs_per_day * 7
-		self.secs_per_year = self.secs_per_day * 365.25
-		self.secs_per_month = self.secs_per_year / 12
-		self.init_class()
-		pass
-
-	def now(self):
-		return datetime.datetime.now()
-
-	def elapsed(self,tn=None,t0=None):
-		if tn is None:
-			tn = self.now()
-			pass
-		if t0 is None:
-			t0 = self.t0
-			pass
-		return (tn - t0).total_seconds()
-
-	def pbytes(self,num):
-		if num >= 1000000000000:
-			return "%0.2fTB" %(num / 1000000000000)
-		if num >= 1000000000:
-			return "%0.2fGB" %(num / 1000000000)
-		if num >= 1000000:
-			return "%0.2fMB" %(num / 1000000)
-		if  num >= 1000:
-			return "%0.2fKB" %(num / 1000)
-		return "%3s Bytes" %(num)
-
-	def pnum(self,num):
-		if num >= 1000000000:
-			return "%0.2fG" %(num / 1000000000)
-		if num >= 1000000:
-			return "%0.2fM" %(num / 1000000)
-		if  num >= 1000:
-			return "%0.2fK" %(num / 1000)
-		return "%3s " %(num)
-
-
-	def psecs(self, secs=None):
-		if secs is None:
-			secs = self.elapsed()
-			pass
-		if secs >= self.secs_per_year:
-			secs = secs / self.secs_per_year
-			return f"{secs:0.2f} Years "
-		if secs >= self.secs_per_month:
-			secs = secs / self.secs_per_month
-			return f"{secs:0.2f} Months"
-		if secs >= self.secs_per_week:
-			secs = secs / self.secs_per_week
-			return f"{secs:0.2f} Weeks "
-		if secs >= self.secs_per_day:
-			secs = secs / self.secs_per_day
-			return f"{secs:0.2f} Days  "
-		if secs >= self.secs_per_hour:
-			secs = secs / self.secs_per_hour
-			return f"{secs:0.2f} Hours "
-		if secs >= self.secs_per_minute:
-			secs = secs / self.secs_per_minute
-			return f"{secs:0.2f} Mins  "
-		return f"{secs:0.2f} Secs  "
-
-	def rate(self,count,tn=None,t0=None,total=None):
-		secs = self.elapsed(tn,t0)
-		rate = count / secs
-		if total is not None:
-			secs_remain = (total - count) / rate
-			estimate = self.psecs(secs_remain)
-			estimate = f" (Estimate: {estimate} Remaining)"
-		else:
-			estimate = ""
-			pass
-		if rate <= 1.0 / self.secs_per_year:
-			return f"{rate * self.secs_per_year:0.2f}/Year{estimate}"
-		if rate <= 1.0 / self.secs_per_month:
-			return f"{rate * self.secs_per_week:0.2f}/Month{estimate}"
-		if rate <= 1.0 / self.secs_per_week:
-			return f"{rate * self.secs_per_week:0.2f}/Week{estimate}"
-		if rate <= 1.0 / self.secs_per_week:
-			return f"{rate * self.secs_per_day:0.2f}/Day{estimate}"
-		if rate <= 1.0 / self.secs_per_hour:
-			return f"{rate * self.secs_per_hour:0.2f}/Hour{estimate}"
-		if rate <= 1.0 / self.secs_per_minute:
-			return f"{rate * self.secs_per_minute:0.2f}/Minute{estimate}"
-		if rate >= 1000:
-			rate = self.pnum(rate)
-			pass
-		return f"{rate}/Sec{estimate}"
+# Use local libraries first
+libdir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'lib','python')
+if not os.path.isdir(libdir):
+	print(f"WARNING: '{libdir}' is not a directory. You may have problems.")
+else:
+	sys.path.insert(0, libdir)
 	pass
-me = MyInfo()
 
+from misc.ProcInfo import ProcInfo,me
 
-class PSComment:
+class PSObject(ProcInfo):
 	_num = 0
-	_clean_space = re.compile('\s+')
-	_re_abortion = re.compile('\Wabortion')
-	_re_atheist = re.compile('\Watheis')
-	_re_barak = re.compile('\Wbarak\W')
-	_re_bill = re.compile('\Wbill\W')
-	_re_christian = re.compile('\W(christian|catholic|protistant|babtist|evangelical)')
-	_re_climate = re.compile('\Wclimate\W')
-	_re_clinton = re.compile('\Wclinton\W')
-	_re_consipracy = re.compile('\Wconspir')
-	_re_democrat = re.compile('\W(democrats?|dems)\W')
-	_re_donald = re.compile('\W(donald|don)\W')
-	_re_fascism = re.compile('\W(fascism|faschists?)\W')
-	_re_godwin = re.compile('\Wgodwin\W')
-	_re_hideki = re.compile('\Whideki\W')
-	_re_hillary = re.compile('\Whillary\W')
-	_re_hitler = re.compile('\Whitler\W')
-	_re_liberals = re.compile('\W(liberals?|libs?|libtards?)\W')
-	_re_libtard = re.compile('\Wlibtards?\W')
-	_re_mussolini = re.compile('\Wmussolini\W')
-	_re_nazi = re.compile('\Wnazis?m?\W')
-	_re_obama = re.compile('\Wobama\W')
-	_re_prochoice = re.compile('\Wpro.?choice')
-	_re_prolife = re.compile('\Wflat.?earth')
-	_re_prolife = re.compile('\Wpro.?lifer?')
-	_re_republican = re.compile('\Wrepublicans?\W')
-	_re_sarcasm = re.compile('(\/s|\\s)')
-	_re_socialis = re.compile('\Wsocialist?m?\W')
-	_re_trump = re.compile('\Wtrump\W')
-	_re_warming = re.compile('\Wglobal.?warm')
-
+	_clean_space = re.compile('\s+|\s+[^a-zA-Z0-9]+\s+')
+	SEARCHES = {
+		"abortion": re.compile('\Wabortion'),
+		"atheist": re.compile('\Watheis'),
+		"barak": re.compile('\Wbarak\W'),
+		"bill": re.compile('\Wbill\W'),
+		"christian": re.compile('\W(christian|catholic|protistant|babtist|evangelical)'),
+		"climate": re.compile('\Wclimate\W'),
+		"clinton": re.compile('\Wclinton\W'),
+		"consipracy": re.compile('\Wconspir'),
+		"democrat": re.compile('\W(democrats?|dems)\W'),
+		"donald": re.compile('\W(donald|don)\W'),
+		"fake_news": re.compile('\Wfake.?news'),
+		"fascism": re.compile('\W(fascism|faschists?)\W'),
+		"foreigner": re.compile('\W(foreigners?|foriegners?)\W'),
+		"fox_news": re.compile('\Wfox.?new'),
+		"godwin": re.compile('\Wgodwin\W'),
+		"hideki": re.compile('\Whideki\W'),
+		"hillary": re.compile('\Whillary\W'),
+		"hitler": re.compile('\Whitler\W'),
+		"immigrants": re.compile('\W(immigrants?)\W'),
+		"invasion": re.compile('\W(invasions?|invader?s?|invador?s?|invading)\W'),
+		"jewish": re.compile('\W(jews?|jewish)'),
+		"liberals": re.compile('\W(liberals?|libs?)\W'),
+		"libtard": re.compile('\Wlibtards?\W'),
+		"maga": re.compile('\W(make.?america.?great.?again|maga?)\W'),
+		"mexican": re.compile('\Wmexican'),
+		"muller": re.compile('\Wmuller'),
+		"muslim": re.compile('\Wmuslim'),
+		"mussolini": re.compile('\Wmussolini\W'),
+		"nazi": re.compile('\Wnazis?m?\W'),
+		"obama": re.compile('\Wobama\W'),
+		"prochoice": re.compile('\Wpro.?choice'),
+		"prolife": re.compile('\Wflat.?earth'),
+		"prolife": re.compile('\Wpro.?lifer?'),
+		"republican": re.compile('\Wrepublicans?\W'),
+		"sarcasm": re.compile('(\/sa?r?|\\sa?r?)\W'),
+		"socialis": re.compile('\Wsocialist?m?\W'),
+		"south_america": re.compile('\Wsouth.?america'),
+		"trump": re.compile('\Wtrump\W'),
+		"undocumented": re.compile('\Wundocumented\W'),
+		"vaccines": re.compile('\W(vax|vaccines?)\W'),
+		"warming": re.compile('\Wglobal.?warm'),
+	}
+	SEARCHES_COLS = sorted(SEARCHES.keys())
 	def __init__(self,json_str):
-		self.num = PSComment._num
-		PSComment._num += 1 # Not thread safe, FYI
+		self.num = PSObject._num
+		PSObject._num += 1 # Not thread safe, FYI
 		self.get_utc = self.get_int # for now
 		self.json_str = json_str
 		self.json = json.loads(json_str)
 		self.had_flair = 0
-		for key in [
-				"author_flair_css_class",
-				"author_flair_richtext",
-				"author_flair_template_id",
-				"author_flair_text",
-				"author_flair_text_color",
-				"author_flair_type",
-				]:
-			if self.get(key,False):
-				self.had_flair = 1
-				break
+		if self.get("author_flair_text",False):
+			self.had_flair = 1
 			pass
-		self.body = self.get_str("body").encode('ascii',errors='ignore').decode().lower()
-		self.body = PSComment._clean_space.sub(' ',self.body)
-		self.matches_abortion = self.count_matches(PSComment._re_abortion)
-		self.matches_atheist = self.count_matches(PSComment._re_atheist)
-		self.matches_barak = self.count_matches(PSComment._re_barak)
-		self.matches_bill = self.count_matches(PSComment._re_bill)
-		self.matches_christian = self.count_matches(PSComment._re_christian)
-		self.matches_climate = self.count_matches(PSComment._re_climate)
-		self.matches_clinton = self.count_matches(PSComment._re_clinton)
-		self.matches_consipracy = self.count_matches(PSComment._re_consipracy)
-		self.matches_democrat = self.count_matches(PSComment._re_democrat)
-		self.matches_donald = self.count_matches(PSComment._re_donald)
-		self.matches_fascism = self.count_matches(PSComment._re_fascism)
-		self.matches_godwin = self.count_matches(PSComment._re_godwin)
-		self.matches_hideki = self.count_matches(PSComment._re_hideki)
-		self.matches_hillary = self.count_matches(PSComment._re_hillary)
-		self.matches_hitler = self.count_matches(PSComment._re_hitler)
-		self.matches_liberals = self.count_matches(PSComment._re_liberals)
-		self.matches_libtard = self.count_matches(PSComment._re_libtard)
-		self.matches_mussolini = self.count_matches(PSComment._re_mussolini)
-		self.matches_nazi = self.count_matches(PSComment._re_nazi)
-		self.matches_obama = self.count_matches(PSComment._re_obama)
-		self.matches_prochoice = self.count_matches(PSComment._re_prochoice)
-		self.matches_prolife = self.count_matches(PSComment._re_prolife)
-		self.matches_prolife = self.count_matches(PSComment._re_prolife)
-		self.matches_republican = self.count_matches(PSComment._re_republican)
-		self.matches_sarcasm = self.count_matches(PSComment._re_sarcasm)
-		self.matches_socialis = self.count_matches(PSComment._re_socialis)
-		self.matches_trump = self.count_matches(PSComment._re_trump)
-		self.matches_warming = self.count_matches(PSComment._re_warming)
-
+		self.body = self.get_str("body")
+		if self.body is None:
+			print(json_str)
+			raise ValueError("No Body!")
+		self.body = self.body.encode('ascii',errors='ignore').decode().lower()
+		self.body = PSObject._clean_space.sub(' ',self.body)
 		self.edited = self.get("edited")
 		if self.edited is True:
 			self.key_warn("edited","Expecting an int or \"False\", got \"True\", treating as \"False\".")
@@ -254,7 +109,7 @@ class PSComment:
 			"controversiality": self.get_int("controversiality"),
 			"created_utc": self.get_utc("created_utc"),
 			"distinguished": self.get_str("distinguished"),
-			"edited": self.edited,
+			"edited": self.get_utc("edited"),
 			"gilded": self.get_int("gilded"),
 			"is_submitter": self.get_bool("is_submitter"),
 			"link_id": self.get_str("link_id"),
@@ -266,92 +121,12 @@ class PSComment:
 			"score": self.get_int("score"),
 			"stickied": self.get_bool("stickied"),
 			"total_awards_received": self.get_int("total_awards_received"),
-			"maches_abortion": self.matches_abortion,
-			"maches_atheist": self.matches_atheist,
-			"maches_barak": self.matches_barak,
-			"maches_bill": self.matches_bill,
-			"maches_christian": self.matches_christian,
-			"maches_climate": self.matches_climate,
-			"maches_clinton": self.matches_clinton,
-			"maches_consipracy": self.matches_consipracy,
-			"maches_democrat": self.matches_democrat,
-			"maches_donald": self.matches_donald,
-			"maches_fascism": self.matches_fascism,
-			"maches_godwin": self.matches_godwin,
-			"maches_hideki": self.matches_hideki,
-			"maches_hillary": self.matches_hillary,
-			"maches_hitler": self.matches_hitler,
-			"maches_liberals": self.matches_liberals,
-			"maches_libtard": self.matches_libtard,
-			"maches_mussolini": self.matches_mussolini,
-			"maches_nazi": self.matches_nazi,
-			"maches_obama": self.matches_obama,
-			"maches_prochoice": self.matches_prochoice,
-			"maches_prolife": self.matches_prolife,
-			"maches_prolife": self.matches_prolife,
-			"maches_republican": self.matches_republican,
-			"maches_sarcasm": self.matches_sarcasm,
-			"maches_socialis": self.matches_socialis,
-			"maches_trump": self.matches_trump,
-			"maches_warming": self.matches_warming,
-			"parent_maches_abortion": None,
-			"parent_maches_atheist": None,
-			"parent_maches_barak": None,
-			"parent_maches_bill": None,
-			"parent_maches_christian": None,
-			"parent_maches_climate": None,
-			"parent_maches_clinton": None,
-			"parent_maches_consipracy": None,
-			"parent_maches_democrat": None,
-			"parent_maches_donald": None,
-			"parent_maches_fascism": None,
-			"parent_maches_godwin": None,
-			"parent_maches_hideki": None,
-			"parent_maches_hillary": None,
-			"parent_maches_hitler": None,
-			"parent_maches_liberals": None,
-			"parent_maches_libtard": None,
-			"parent_maches_mussolini": None,
-			"parent_maches_nazi": None,
-			"parent_maches_obama": None,
-			"parent_maches_prochoice": None,
-			"parent_maches_prolife": None,
-			"parent_maches_prolife": None,
-			"parent_maches_republican": None,
-			"parent_maches_sarcasm": None,
-			"parent_maches_socialis": None,
-			"parent_maches_trump": None,
-			"parent_maches_warming": None,
-			"child_maches_abortion": None,
-			"child_maches_atheist": None,
-			"child_maches_barak": None,
-			"child_maches_bill": None,
-			"child_maches_christian": None,
-			"child_maches_climate": None,
-			"child_maches_clinton": None,
-			"child_maches_consipracy": None,
-			"child_maches_democrat": None,
-			"child_maches_donald": None,
-			"child_maches_fascism": None,
-			"child_maches_godwin": None,
-			"child_maches_hideki": None,
-			"child_maches_hillary": None,
-			"child_maches_hitler": None,
-			"child_maches_liberals": None,
-			"child_maches_libtard": None,
-			"child_maches_mussolini": None,
-			"child_maches_nazi": None,
-			"child_maches_obama": None,
-			"child_maches_prochoice": None,
-			"child_maches_prolife": None,
-			"child_maches_prolife": None,
-			"child_maches_republican": None,
-			"child_maches_sarcasm": None,
-			"child_maches_socialis": None,
-			"child_maches_trump": None,
-			"child_maches_warming": None,
 			"body": self.body,
 			}
+
+		for label,regex in PSObject.SEARCHES.items():
+			self.data[label] = self.count_matches(regex)
+			pass
 		pass
 
 	def count_matches(self,regex):
@@ -359,7 +134,7 @@ class PSComment:
 
 	def key_warn(self,key,msg):
 		if key in self.json:
-			print(f"WARNING: Record #{self.num}; \"{key}\":{self.json[key]}: {msg}")
+			logging.warning(f"WARNING: Record #{self.num}; \"{key}\":{self.json[key]}: {msg}")
 			return self
 
 	def get(self,key,default=None):
@@ -375,6 +150,13 @@ class PSComment:
 			if isinstance(val,vtype):
 				return val
 			else:
+				if "int" == vtype.__name__:
+					try:
+						intval = int(val)
+						return intval
+					except ValueError as e:
+						pass
+					pass
 				self.key_warn(key,f"Expecting a {vtype.__name__}. Returning \"{default}\".")
 				pass
 			pass
@@ -392,6 +174,18 @@ class PSComment:
 	def get_int(self,key,default=None,none_ok=True):
 		return self.get_type(key,int,default,none_ok)
 
+	def get_utc(self,key,default=None,none_ok=True):
+		try:
+			intval = int(self.get_utc())
+			dt = datetime.datetime.utcfromtimestamp(inval)
+			utc = dt.trftime("%Y-%m-%d-%H:%M:%S")
+		except ValueError as e:
+			if key not in self.json:
+				return self.json[key]
+			return default
+			pass
+		return utc
+
 	def list_size(self,key):
 		if key in self.json:
 			if isinstance(self.json[key],list):
@@ -401,39 +195,163 @@ class PSComment:
 				pass
 			pass
 		return 0
-
-class PSCommentFile:
-	def __init__(self,filename,expected_record_count=None):
-		self.filename = filename
-		print(f"PSCommentFile('{filename}')")
-		self.expected_record_count=expected_record_count
-		self.record_count = 0
+class PSFile(ProcInfo):
+	def __init__(self,parent,filename):
+		self.parent = parent
+		self.args = self.parent.args
 		if not os.path.exists(filename):
 			raise ValueError(f"No such file or directory: '{filename}'")
 		if not os.path.isfile(filename):
 			raise ValueError(f"Not a regular file: '{filename}'")
-		self.full_path = os.path.realpath(filename)
-		self.filesize = os.path.getsize(filename)
+		self.filename = filename
+		self.size = os.path.getsize(filename)
 		self.bytes_read = 0
-		self.basename, self.extension = os.path.splitext(self.full_path)
-		self.meta_filename = f"{self.basename}-comment-meta.csv"
-		self.body_filename = f"{self.basename}-comment-bodies.csv"
-		print(f"Converting '{self.full_path}'")
-		print(f" -- to --> '{self.meta_filename}'")
-		print(f" -- to --> '{self.body_filename}'")
-		self.t0 = datetime.datetime.now()
-		self.tn = datetime.datetime.now()
+		self.t0 = self.now()
+		self.tn = self.now()
+		self.cols = self.parent.cols
+		pass
+
+	def process(self):
+		self.ids = {}
+		if self.args.verbosity > 0:
+			logging.info(f"Loading '{self.filename}'")
+			pass
+		if self.args.output_dir is not None:
+			output_base = os.path.join(self.args.output_dir,os.path.basename(self.filename))
+			pass
+		else:
+			output_base = self.filename
+			pass
+		self.full_path = os.path.realpath(self.filename)
+		self.basename, self.extension = os.path.splitext(output_base)
+		self.meta_filename = f"{self.basename}-meta.csv"
+		self.body_filename = f"{self.basename}-bodies.csv"
+		logging.info(f"Saving Meta Information to .. '{self.meta_filename}'")
+		logging.info(f"Saving Bodies to ............ '{self.body_filename}'")
+		self.meta_fh = open(self.meta_filename, 'w')
+		self.meta_writer = csv.writer(self.meta_fh)
+		self.meta_writer.writerow(self.cols)
+		self.body_fh = open(self.body_filename, 'w')
+		self.body_writer = csv.writer(self.body_fh)
+		self.body_writer.writerow(["comment_id","body"])
+		self.record_count = 0
+		self.dupes = 0
+		self.t0 = self.now()
+		self.bytes_read = 0
+		with open(self.filename, 'r') as fh:
+			for line in fh:
+				bytes_read = len(line)
+				self.record_count += 1
+				self.parent.record_count += 1
+				self.bytes_read += bytes_read
+				ps_obj = PSObject(line)
+				row = []
+				ps_obj_id = ps_obj.data["id"]
+				self.body_writer.writerow([ps_obj.data["id"],ps_obj.data["body"]])
+				if 0 == self.parent.record_count % self.args.record_tick_check:
+					lapsed = self.elapsed(t0=self.tn)
+					if lapsed >= self.args.progress_secs:
+						self.tn = self.now()
+						self.show_progress()
+					else:
+						if self.args.debug:
+							logging.debug(f"Nope: {self.pnum(self.record_count)} recs, {self.psecs(lapsed)} lapsed, min={self.psecs(self.args.progress_secs)}")
+							pass
+						pass
+					pass
+				if self.args.dedupe:
+					if ps_obj_id in self.ids:
+						self.ids[ps_obj_id] += 1
+						self.dupes += 1
+						self.current_dupes += 1
+					else:
+						self.ids[ps_obj_id] = 0
+						pass
+				for key in self.cols:
+					row.append(ps_obj.data[key])
+					pass
+				try:
+					self.meta_writer.writerow(row)
+				except:
+					logging.error(f"ERROR writing row {row}")
+					raise
+				pass
+			pass
+		self.body_fh.close()
+		self.meta_fh.close()
+		self.show_progress(last=True)
+		pass
+
+	def show_progress(self, last=False):
+		num = self.pnum(self.record_count)
+		rate = self.rate(self.bytes_read,total=self.size)
+		record_rate = self.rate(self.record_count)
+		read = self.pbytes(self.bytes_read)
+		togo = self.pbytes(self.size)
+		time = self.psecs()
+		meta_size = os.path.getsize(self.meta_filename)
+		body_size = os.path.getsize(self.body_filename)
+		percent = "%0.1f%%" %(self.bytes_read * 100.0/self.size)
+		logging.info(f"{self.filename}: {time} for {num} comments at {record_rate}. Completion: {percent}[{read}/{togo}] {rate}")
+		self.parent.show_progress()
+		return self
+	pass
+
+class PSProcessor(ProcInfo):
+	def __init__(self,args):
+		super().__init__()
+		self.args = args
+		self.t0 = self.now()
+		self.tn = self.now()
+		self.size = 0
+		self.record_count = 0
+		self.errs = []
+		filenames = []
+		glob_files = []
+		for filename in self.args.files:
+			if "*" in filename or "?" in filename or "[" in filename:
+				globs = 0
+				for fname in glob.glob(filename):
+					globs += 1
+					filenames.append(fname)
+					pass
+				if globs < 1:
+					self.errs.append(f"Found no files for '{filename}'")
+					pass
+				pass
+			else:
+				filenames.append(filename)
+				pass
+			pass
+		for fname in filenames:
+			if not os.path.exists(fname):
+				self.errs.append(f"'{fname}' does not exist.")
+			elif not os.path.isfile(fname):
+				self.errs.append(f"'{fname}' is not a regular file.")
+			else:
+				self.size += os.path.getsize(fname)
+				pass
+			pass
+		if(len(self.errs)):
+			for err in self.errs:
+				print(f"ERROR: {err}")
+				pass
+			print("ABORTING")
+			sys.exit(1)
+			pass
+		self.args.files = filenames
+		self.psfiles = []
 		self.cols = [
-			"subreddit",
-			"subreddit_type",
+			"id",
 			"top_id",
 			"parent_id",
+			"subreddit",
+			"subreddit_type",
 			"created_utc",
 			"score",
 			"stickied",
 			"retrieved_on",
 			"author",
-			"id",
 			"all_awardings",
 			"archived",
 			"author_cakeday",
@@ -451,196 +369,93 @@ class PSCommentFile:
 			"quarantined",
 			"removal_reason",
 			"total_awards_received",
-			"maches_abortion",
-			"maches_atheist",
-			"maches_barak",
-			"maches_bill",
-			"maches_christian",
-			"maches_climate",
-			"maches_clinton",
-			"maches_consipracy",
-			"maches_democrat",
-			"maches_donald",
-			"maches_fascism",
-			"maches_godwin",
-			"maches_hideki",
-			"maches_hillary",
-			"maches_hitler",
-			"maches_liberals",
-			"maches_libtard",
-			"maches_mussolini",
-			"maches_nazi",
-			"maches_obama",
-			"maches_prochoice",
-			"maches_prolife",
-			"maches_prolife",
-			"maches_republican",
-			"maches_sarcasm",
-			"maches_socialis",
-			"maches_trump",
-			"maches_warming",
-			"parent_maches_abortion",
-			"parent_maches_atheist",
-			"parent_maches_barak",
-			"parent_maches_bill",
-			"parent_maches_christian",
-			"parent_maches_climate",
-			"parent_maches_clinton",
-			"parent_maches_consipracy",
-			"parent_maches_democrat",
-			"parent_maches_donald",
-			"parent_maches_fascism",
-			"parent_maches_godwin",
-			"parent_maches_hideki",
-			"parent_maches_hillary",
-			"parent_maches_hitler",
-			"parent_maches_liberals",
-			"parent_maches_libtard",
-			"parent_maches_mussolini",
-			"parent_maches_nazi",
-			"parent_maches_obama",
-			"parent_maches_prochoice",
-			"parent_maches_prolife",
-			"parent_maches_prolife",
-			"parent_maches_republican",
-			"parent_maches_sarcasm",
-			"parent_maches_socialis",
-			"parent_maches_trump",
-			"parent_maches_warming",
-			"child_maches_abortion",
-			"child_maches_atheist",
-			"child_maches_barak",
-			"child_maches_bill",
-			"child_maches_christian",
-			"child_maches_climate",
-			"child_maches_clinton",
-			"child_maches_consipracy",
-			"child_maches_democrat",
-			"child_maches_donald",
-			"child_maches_fascism",
-			"child_maches_godwin",
-			"child_maches_hideki",
-			"child_maches_hillary",
-			"child_maches_hitler",
-			"child_maches_liberals",
-			"child_maches_libtard",
-			"child_maches_mussolini",
-			"child_maches_nazi",
-			"child_maches_obama",
-			"child_maches_prochoice",
-			"child_maches_prolife",
-			"child_maches_prolife",
-			"child_maches_republican",
-			"child_maches_sarcasm",
-			"child_maches_socialis",
-			"child_maches_trump",
-			"child_maches_warming",
-			"body",
 			]
-		with open(self.meta_filename, 'w') as mfh:
-			meta_writer = csv.writer(mfh)
-			meta_writer.writerow(self.cols)
-			with open(self.body_filename, 'w') as bfh:
-				body_writer = csv.writer(bfh)
-				body_writer.writerow(["comment_id","body"])
-				with open(self.full_path, 'r') as fh:
-					for line in fh:
-						self.record_count += 1
-						self.bytes_read += len(line)
-						comment = PSComment(line)
-						row = []
-						for key in self.cols:
-							row.append(comment.data[key])
-							pass
-						try:
-							meta_writer.writerow(row)
-						except:
-							print(f"ERROR writing row {row}")
-							raise
-						body_writer.writerow([comment.data["id"],comment.data["body"]])
-						if 0 == self.record_count % 250000:
-							self.show_progress()
-						pass
-					pass
-				pass
+		self.cols += PSObject.SEARCHES_COLS
+		#self.cols += ["body"]
+		self.log_filename = None
+		if self.args.output_dir is not None:
+			self.log_filename = os.path.join(self.args.output_dir,self.unique_log_filename)
+		else:
+			self.log_filename = self.unique_log_filename
 			pass
+		loglevel = logging.INFO
+		if self.args.debug:
+			loglevel = logging.DEBUG
+			pass
+		logging.basicConfig(
+			level=loglevel,
+			format='%(asctime)s %(levelname)-8s %(message)s',
+			datefmt='%Y-%m-%d %H:%M:%S',
+			filename=self.log_filename,
+			filemode='w'
+			)
+		# define a Handler which writes INFO messages or higher to the sys.stderr
+		console = logging.StreamHandler()
+		console.setLevel(logging.INFO)
+		# set a format which is simpler for console use
+		#formatter = logging.Formatter('%(asctime)-12s: %(levelname)-8s %(message)s')
+		# tell the handler to use this format
+		#console.setFormatter(formatter)
+		# add the handler to the root logger
+		logging.getLogger('').addHandler(console)
+
+		logging.info(f"Writing to log file '{self.log_filename}'")
+		for filename in filenames:
+			self.psfiles.append(PSFile(self,filename))
 		pass
 
-	def pnum(self,num):
-		if num >= 1000000000:
-			return "%3sG" %(num / 1000000000)
-		if num >= 1000000:
-			return "%3sM" %(num / 1000000)
-		if  num >= 1000:
-			return "%3sK" %(num / 1000)
-		return "%3s " %(num)
-
-	def pbytes(self,num):
-		if num >= 1000000000000:
-			return "%0.2fTB" %(num / 1000000000000)
-		if num >= 1000000000:
-			return "%0.2fGB" %(num / 1000000000)
-		if num >= 1000000:
-			return "%0.2fMB" %(num / 1000000)
-		if  num >= 1000:
-			return "%0.2fKB" %(num / 1000)
-		return "%3s Bytes" %(num)
+	def process(self):
+		logging.info(f"Working on {len(self.psfiles)} files.")
+		for psfile in self.psfiles:
+			logging.info(f" - {self.pbytes(psfile.size)} '{psfile.filename}'")
+			pass
+		logging.info(f" - {self.pbytes(self.size)} TOTAL")
+		logging.info("SETTING:")
+		logging.info(f" - Will check if at least {self.psecs(self.args.progress_secs)} have passed every {self.pnum(self.args.record_tick_check)} records.")
+		if self.args.output_file is not None:
+			if self.args.output_dir is not None:
+				logging.error("ERROR: if --output-file is present, --output-dir cannot be.")
+				sys.exit(1)
+				return self
+			pass
+		for psfile in self.psfiles:
+			psfile.process()
+			pass
+		return self
 
 	def show_progress(self):
 		num = self.pnum(self.record_count)
-		rate = me.rate(self.bytes_read,total=self.filesize)
-		record_rate = me.rate(self.record_count)
+		self.bytes_read = 0
+		for psfile in self.psfiles:
+			self.bytes_read += psfile.bytes_read
+			pass
+		rate = self.rate(self.bytes_read,total=self.size)
+		record_rate = self.rate(self.record_count)
 		read = self.pbytes(self.bytes_read)
-		togo = self.pbytes(self.filesize)
-		time = me.psecs()
-		meta_size = os.path.getsize(self.meta_filename)
-		body_size = os.path.getsize(self.body_filename)
-		percent = "%0.1f%%" %(self.bytes_read * 100.0/self.filesize)
-		meta_ratio = "%0.1f" %(self.bytes_read / meta_size)
-		body_ratio = "%0.1f" %(self.bytes_read / body_size)
-		total_ratio = "%0.1f" %(self.bytes_read / (meta_size + body_size))
-		print(f"{time} for {num} comments at {record_rate}. Ratios Meta:{meta_ratio},Body:{body_ratio},All:{total_ratio} Completion: {percent}[{read}/{togo}] {rate}")
+		togo = self.pbytes(self.size)
+		time = self.psecs()
+		percent = "%0.1f%%" %(self.bytes_read * 100.0/self.size)
+		logging.info(f"TOTAL:   {time} for {num} comments at {record_rate}. Completion: {percent}[{read}/{togo}] {rate}")
 		return self
 	pass
-
 
 def main():
 	parser = argparse.ArgumentParser(description='Build info about data from PushShift.io files.')
 	parser.add_argument('files', nargs='+', help="Files to process.")
 	parser.add_argument('--debug', '-d', default=False, action='store_true', dest='debug', help="Turn debugging on.")
-	parser.add_argument('--dir', '-D', default=None, dest='directory', help="Process files in this directory.")
-	parser.add_argument('--record-tick-check', '-rt', default=5, dest='record_tick_check', type=int,help="Number of THOUSAND records before checking if --progress-secs has passed.")
-	parser.add_argument('--progress-secs', '-ps', default=60, dest='progress_secs', type=int,help="Seconds before showing progress.")
-	parser.add_argument('--attr-peek-num', '-ap', default=None, dest='attributes_peek_num', type=int,help="Number of --record-tick-check for printing what we have so far with attribute information.")
-	parser.add_argument('--num-records', '-nr', default=None, dest='num_records', type=int,help="Number of records expected. Used to estimate time remaining.")
+	parser.add_argument('--de-dupe', '-dd', default=False, action='store_true', dest='dedupe', help="Remove duplicates.")
+	parser.add_argument('--output-file', '-o', default=None, dest='output_file', help="Basename of the output CSV.")
+	parser.add_argument('--output-dir', '-D', default=None, dest='output_dir', help="Write multiple output files to this directory.")
+	parser.add_argument('--record-tick-check', '-rt', default=10, dest='record_tick_check', type=int,help="Number of THOUSAND records before checking if --progress-secs has passed.")
+	parser.add_argument('--progress-secs', '-ps', default=30, dest='progress_secs', type=int,help="Seconds before showing progress.")
 	parser.add_argument('--quiet', '-q', default=0, dest='quiet', action='count',help="Decrease verbosity. Can have multiple.")
 	parser.add_argument('--verbose', '-v', default=0, dest='verbosity', action='count',help="Increase verbosity. Can have multiple.")
 
 	args = parser.parse_args()
 	args.verbosity = 1 + args.verbosity - args.quiet
 	args.record_tick_check = args.record_tick_check * 1000
-	if args.attributes_peek_num is not None:
-		args.attributes_peek_num = args.attributes_peek_num * args.record_tick_check
-		pass
-	if args.verbosity > 0:
-		print(f"Will output progress after (at least) every {me.psecs(args.progress_secs)}.")
-		print(f"Will check progress every {me.pnum(args.record_tick_check)} records processed.")
-		if args.attributes_peek_num is None:
-			print(f"Will not output/update info during load.")
-		else:
-			print(f"Will output/update info every {me.pnum(args.attributes_peek_num)} records processed.")
-			pass
-	args.timestr = time.strftime("%Y%m%d-%H%M%S")
-	print(type(args.files),args.files)
-	if args.files is None:
-		print("ERROR: Must specify at least one file.")
-		exit(1)
-	for filename in args.files:
-		if filename is None:
-			print("ERROR: Must specify at least one file.")
-			exit(1)
-		psfile = PSCommentFile(filename)
-		pass
+	psfile = PSProcessor(args)
+	psfile.process()
 	pass
 
 if __name__ == "__main__":

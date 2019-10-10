@@ -18,7 +18,7 @@ else:
 	sys.path.insert(0, libdir)
 	pass
 
-from misc.MyInfo import MyInfo
+from misc.ProcInfo import ProcInfo
 
 class ValueTypeTracker:
 	def __init__(self,attribute_obj,type_str,name=None):
@@ -230,7 +230,7 @@ class AttributeTracker:
 			}
 	pass
 
-class RedditBase(MyInfo):
+class RedditBase(ProcInfo):
 	def __init__(self):
 		super().__init__()
 		self.object_count = 0

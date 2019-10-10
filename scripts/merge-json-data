@@ -15,7 +15,7 @@ else:
 	sys.path.insert(0, libdir)
 	pass
 
-from misc.MyInfo import MyInfo
+from misc.ProcInfo import ProcInfo
 
 class AttributeTypeMeta:
 	def __init__(self,attribute_meta,type_str):
@@ -135,7 +135,7 @@ class AttributeTypeMeta:
 		return new_meta
 	pass
 
-class AttributeMeta(MyInfo):
+class AttributeMeta(ProcInfo):
 	_by_key = {}
 	def __init__(self,parent,attribute_name):
 		self.parent = parent
@@ -204,7 +204,7 @@ class AttributeMeta(MyInfo):
 		return new_meta
 	pass
 
-class Merger(MyInfo):
+class Merger(ProcInfo):
 	def __init__(self,coms_file,subs_file,args):
 		super().__init__()
 		self.coms_file = coms_file
