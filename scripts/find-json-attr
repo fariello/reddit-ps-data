@@ -72,7 +72,9 @@ class FileJSONPath:
 		# Go down the rabbit hole
 		path_to_go = path_to_go[1:]
 		for key,new_obj in obj.items():
-			self._get(new_obj, path_before + [key],path_to_go)
+			if isinstance(new_obj,dict):
+				self._get(new_obj, path_before + [key],path_to_go)
+				pass
 			pass
 		return self
 
@@ -104,6 +106,7 @@ class FileJSONPathSearch:
 		self.error_count = 0
 		self.files = []
 		self.uniqs = {}
+		self.count = 0
 		for fname in args.files:
 			if "*" in fname:
 				for fname in glob.glob(fname):
@@ -234,12 +237,14 @@ class FileJSONPathSearch:
 				continue
 			values = sorted(unique_values.keys())
 			for value in values:
+				percent = f"{unique_values[value]*100.0/self.count:0.2f}"
 				if "is missing." == value:
-					self._print_line(f"{path_str} was missing {unique_values[value]} times.")
+					self._print_line(f"{path_str} was missing {unique_values[value]} times ({percent}% of objects).")
 				else:
-					self._print_line(f"{path_str}={value} {unique_values[value]} times.")
+					self._print_line(f"{path_str}={value} {unique_values[value]} times ({percent}% of objects).")
 					pass
 				pass
+			self._print_line("-"*20)
 			pass
 		return self
 
@@ -254,6 +259,7 @@ class FileJSONPathSearch:
 					try:
 						obj = json.loads(line)
 						self.obj_count += 1
+						self.count += 1
 						if self.args.max_objects is not None and self.obj_count > self.args.max_objects:
 							self._print_line("Maximum number of object reached.")
 							return
@@ -267,6 +273,7 @@ class FileJSONPathSearch:
 				try:
 					obj = json.load(fh)
 					self.obj_count += 1
+					self.count += 1
 					if self.args.max_objects is not None and self.obj_count > self.args.max_objects:
 						self._print_line("Maximum number of object reached.")
 						return

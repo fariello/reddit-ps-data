@@ -258,6 +258,8 @@ class AttributeInfo(Base):
 			pass
 		keys = sorted(self.all_uniques.keys())
 		for key in keys:
+			if "Too Many" == key:
+				continue
 			self.tt.add_row([
 				key,
 				self._puniqs_text(key,"All"),
